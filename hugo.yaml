@@ -1,0 +1,84 @@
+baseURL: "https://doo-24.github.io/blog/"
+languageCode: "ko"
+title: "개발 노트, 기술 기록, 코드 일지"
+theme: "PaperMod"
+
+# 한 페이지에 보여줄 글 수
+paginate: 10
+
+# 검색 기능 활성화
+outputs:
+  home:
+    - HTML
+    - RSS
+    - JSON
+
+params:
+  # 기본 설정
+  env: production
+  description: "개발 공부 기록"
+  author: "doo-24"
+  defaultTheme: auto
+  ShowReadingTime: true
+  ShowShareButtons: false
+  ShowPostNavLinks: true
+  ShowBreadCrumbs: true
+  ShowCodeCopyButtons: true
+  ShowToc: true
+  TocOpen: true
+
+  # 홈 화면 설정
+  homeInfoParams:
+    Title: "개발 노트, 기술 기록, 코드 일지"
+    Content: "개발 공부 기록"
+
+  # 소셜 링크
+  socialIcons:
+    - name: github
+      url: "https://github.com/doo-24"
+
+  # 검색 설정
+  fuseOpts:
+    isCaseSensitive: false
+    shouldSort: true
+    location: 0
+    distance: 1000
+    threshold: 0.4
+    minMatchCharLength: 0
+    keys: ["title", "permalink", "summary", "content"]
+
+# 마크다운 렌더링 설정
+markup:
+  highlight:
+    codeFences: true
+    guessSyntax: true
+    lineNos: false
+    style: monokai
+  goldmark:
+    renderer:
+      unsafe: true
+
+# 메뉴
+menu:
+  main:
+    - identifier: search
+      name: "검색"
+      url: /search/
+      weight: 1
+    - identifier: series
+      name: "시리즈"
+      url: /series/
+      weight: 2
+    - identifier: tags
+      name: "태그"
+      url: /tags/
+      weight: 3
+    - identifier: archives
+      name: "아카이브"
+      url: /archives/
+      weight: 4
+
+# 분류 체계
+taxonomies:
+  tag: tags
+  series: series
