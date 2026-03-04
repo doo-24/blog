@@ -1,6 +1,6 @@
 baseURL: "https://doo-24.github.io/blog/"
 languageCode: "ko"
-title: "개발 노트, 기술 기록, 코드 일지"
+title: "개발 노트"
 theme: "PaperMod"
 
 # 한 페이지에 보여줄 글 수
@@ -29,7 +29,7 @@ params:
 
   # 홈 화면 설정
   homeInfoParams:
-    Title: "개발 노트, 기술 기록, 코드 일지"
+    Title: "개발 노트"
     Content: "개발 공부 기록"
 
   # 소셜 링크
