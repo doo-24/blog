@@ -115,13 +115,13 @@ weight: 1
 
 | 편 | 제목 |
 |----|------|
-| 1편 | 인증 기초 — 세션, 토큰, 그 선택의 기준 *(작성 예정)* |
-| 2편 | OAuth 2.0과 OpenID Connect — 위임 인증의 원리 *(작성 예정)* |
-| 3편 | 권한 관리 — 인가(Authorization) 설계 *(작성 예정)* |
-| 4편 | 웹 보안 공격과 방어 — 실전 위협 모델 *(작성 예정)* |
-| 5편 | Rate Limiting과 DDoS 방어 — 과부하 공격 대응 *(작성 예정)* |
-| 6편 | 데이터 보안 — 저장과 전송의 암호화 *(작성 예정)* |
-| 7편 | 보안 감사와 취약점 관리 — 지속적인 보안 *(작성 예정)* |
+| 1편 | [인증 기초 — 세션, 토큰, 그 선택의 기준](/blog/posts/server-engineering/27-auth-basics/) |
+| 2편 | [OAuth 2.0과 OpenID Connect — 위임 인증의 원리](/blog/posts/server-engineering/28-oauth-oidc/) |
+| 3편 | [권한 관리 — 인가(Authorization) 설계](/blog/posts/server-engineering/29-authorization/) |
+| 4편 | [웹 보안 공격과 방어 — 실전 위협 모델](/blog/posts/server-engineering/30-web-security/) |
+| 5편 | [Rate Limiting과 DDoS 방어 — 과부하 공격 대응](/blog/posts/server-engineering/31-rate-limiting/) |
+| 6편 | [데이터 보안 — 저장과 전송의 암호화](/blog/posts/server-engineering/32-data-security/) |
+| 7편 | [보안 감사와 취약점 관리 — 지속적인 보안](/blog/posts/server-engineering/33-security-audit/) |
 
 📚 추천 도서: 「OAuth 2 in Action」, 「웹 애플리케이션 보안」, OWASP Cheat Sheet Series
 
