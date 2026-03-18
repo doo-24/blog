@@ -95,15 +95,15 @@ weight: 1
 
 | 편 | 제목 |
 |----|------|
-| 1편 | 인덱스 — B-Tree가 실제로 하는 일 *(작성 예정)* |
-| 2편 | 트랜잭션과 락 — 동시성 제어의 깊이 *(작성 예정)* |
-| 3편 | 쿼리 최적화 — 느린 쿼리를 빠르게 *(작성 예정)* |
-| 4편 | 데이터 모델링 — 테이블 설계의 원칙 *(작성 예정)* |
-| 5편 | 동시성과 데이터 정합성 — 실전 시나리오 *(작성 예정)* |
-| 6편 | NoSQL — 언제, 왜, 어떻게 *(작성 예정)* |
-| 7편 | 특수 목적 DB — 검색, 시계열, 벡터 *(작성 예정)* |
-| 8편 | DB 스케일링 — 데이터베이스 확장의 현실 *(작성 예정)* |
-| 9편 | DB 운영 — 프로덕션 DB 관리 *(작성 예정)* |
+| 1편 | [인덱스 — B-Tree가 실제로 하는 일](/blog/posts/server-engineering/18-index-btree/) |
+| 2편 | [트랜잭션과 락 — 동시성 제어의 깊이](/blog/posts/server-engineering/19-transaction-lock/) |
+| 3편 | [쿼리 최적화 — 느린 쿼리를 빠르게](/blog/posts/server-engineering/20-query-optimization/) |
+| 4편 | [데이터 모델링 — 테이블 설계의 원칙](/blog/posts/server-engineering/21-data-modeling/) |
+| 5편 | [동시성과 데이터 정합성 — 실전 시나리오](/blog/posts/server-engineering/22-concurrency-consistency/) |
+| 6편 | [NoSQL — 언제, 왜, 어떻게](/blog/posts/server-engineering/23-nosql/) |
+| 7편 | [특수 목적 DB — 검색, 시계열, 벡터](/blog/posts/server-engineering/24-special-purpose-db/) |
+| 8편 | [DB 스케일링 — 데이터베이스 확장의 현실](/blog/posts/server-engineering/25-db-scaling/) |
+| 9편 | [DB 운영 — 프로덕션 DB 관리](/blog/posts/server-engineering/26-db-operations/) |
 
 📚 추천 도서: 「데이터 중심 애플리케이션 설계(DDIA)」, 「High Performance MySQL」, 「Real MySQL 8.0」
 
