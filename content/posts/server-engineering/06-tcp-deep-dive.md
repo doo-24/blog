@@ -1,5 +1,5 @@
 ---
-title: "TCP 심화 — 신뢰성의 원리"
+title: "[OS와 네트워크] 6편 — TCP 심화: 신뢰성의 원리"
 date: 2026-03-18T05:00:00+09:00
 draft: false
 tags: ["TCP", "네트워크", "HTTP/2", "QUIC", "서버"]
