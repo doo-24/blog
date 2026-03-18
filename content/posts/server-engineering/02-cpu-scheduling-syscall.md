@@ -593,3 +593,14 @@ resources:
 | NUMA | CPU마다 가까운/먼 메모리, remote 접근 2배+ 느림, `numastat` 확인 |
 | CPU Affinity | `taskset`으로 코어 고정, 캐시 미스 감소 |
 | cgroup | Docker/K8s의 리소스 제한 핵심, CPU 쓰로틀링이 보이지 않는 성능 킬러 |
+
+---
+
+## 참고 자료
+
+- *Understanding the Linux Kernel, 3rd Edition* — Daniel P. Bovet, Marco Cesati (O'Reilly)
+- Linux Kernel Documentation: CFS Scheduler — [https://docs.kernel.org/scheduler/sched-design-CFS.html](https://docs.kernel.org/scheduler/sched-design-CFS.html)
+- EEVDF Scheduler — Peter Zijlstra, LWN.net [https://lwn.net/Articles/925371/](https://lwn.net/Articles/925371/)
+- `man 7 sched`, `man 2 sched_setaffinity`, `man 7 cgroups`
+- Brendan Gregg, *Systems Performance, 2nd Edition* (Addison-Wesley)
+- Linux vDSO documentation — [https://man7.org/linux/man-pages/man7/vdso.7.html](https://man7.org/linux/man-pages/man7/vdso.7.html)

@@ -730,3 +730,14 @@ tmpfs           3.9G     0  3.9G    0%   /dev/shm
 - **iostat + iotop**은 디스크 병목 진단의 출발점이다
 
 다음 편에서는 네트워크의 세계로 들어간다. TCP/IP 스택을 커널 레벨에서 분석하고, 소켓 프로그래밍의 본질을 탐구한다.
+
+---
+
+## 참고 자료
+
+- *The Linux Programming Interface* — Michael Kerrisk, Part III: File I/O (No Starch Press)
+- Linux Kernel Documentation: ext4 — [https://docs.kernel.org/filesystems/ext4/](https://docs.kernel.org/filesystems/ext4/)
+- `man 2 open`, `man 2 fsync`, `man 2 sendfile`, `man 8 iostat`
+- Brendan Gregg, *Systems Performance, 2nd Edition* — Chapter 8: File Systems, Chapter 9: Disks (Addison-Wesley)
+- LWN.net: Ensuring data reaches disk — [https://lwn.net/Articles/457667/](https://lwn.net/Articles/457667/)
+- Red Hat Storage Administration Guide — I/O Schedulers

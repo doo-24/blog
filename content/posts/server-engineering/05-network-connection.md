@@ -730,3 +730,14 @@ net.ipv4.tcp_fin_timeout = 30
 - 커널 파라미터 튜닝은 `somaxconn`, `tcp_tw_reuse`, 소켓 버퍼 크기가 가장 영향이 크다
 
 다음 편에서는 TCP를 더 깊이 파고든다 — 혼잡 제어(CUBIC, BBR), 흐름 제어, 슬라이딩 윈도우의 원리, 그리고 HTTP/2와 HTTP/3(QUIC)가 왜 등장했는지를 다룬다.
+
+---
+
+## 참고 자료
+
+- *TCP/IP Illustrated, Volume 1, 2nd Edition* — Kevin R. Fall, W. Richard Stevens (Addison-Wesley)
+- *The Linux Programming Interface* — Michael Kerrisk, Chapter 56-61: Sockets (No Starch Press)
+- Linux Kernel Documentation: Networking — [https://docs.kernel.org/networking/](https://docs.kernel.org/networking/)
+- `man 7 tcp`, `man 7 socket`, `man 8 ss`, `man 8 tcpdump`
+- Brendan Gregg, *Systems Performance, 2nd Edition* — Chapter 10: Network (Addison-Wesley)
+- RFC 793 (TCP), RFC 7230-7235 (HTTP/1.1)

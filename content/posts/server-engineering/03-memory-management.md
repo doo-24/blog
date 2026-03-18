@@ -682,3 +682,14 @@ $ ./myapp
 | /proc/meminfo | MemAvailable이 핵심, MemFree만 보면 오판 |
 | 버퍼 vs 캐시 | Buffers=메타데이터, Cached=파일 내용, 둘 다 회수 가능 |
 | 메모리 릭 | Java: jstat→jmap→MAT, 네이티브: pmap, valgrind, ASan |
+
+---
+
+## 참고 자료
+
+- *Understanding the Linux Virtual Memory Manager* — Mel Gorman ([https://www.kernel.org/doc/gorman/](https://www.kernel.org/doc/gorman/))
+- Linux Kernel Documentation: Memory Management — [https://docs.kernel.org/mm/](https://docs.kernel.org/mm/)
+- `man 5 proc` (`/proc/meminfo`, `/proc/[pid]/maps`, `/proc/[pid]/status`)
+- Brendan Gregg, *Systems Performance, 2nd Edition* (Addison-Wesley)
+- *The Linux Programming Interface* — Michael Kerrisk, Chapter 49: Memory Mappings
+- Valgrind Documentation — [https://valgrind.org/docs/manual/mc-manual.html](https://valgrind.org/docs/manual/mc-manual.html)

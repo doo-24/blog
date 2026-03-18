@@ -726,3 +726,14 @@ $ nice -n 19 ionice -c 3 mysqldump mydb > backup.sql
 | strace | 시스템 콜 추적, 성능 병목과 파일 접근 문제 진단 |
 | lsof | 열린 파일/소켓 확인, fd 누수와 포트 충돌 진단 |
 | nice/renice | CPU 우선순위 조정, 배치 작업에 활용 |
+
+---
+
+## 참고 자료
+
+- *Understanding the Linux Kernel, 3rd Edition* — Daniel P. Bovet, Marco Cesati (O'Reilly)
+- *The Linux Programming Interface* — Michael Kerrisk (No Starch Press)
+- Linux Kernel Documentation — [https://docs.kernel.org/](https://docs.kernel.org/)
+- `man 2 fork`, `man 2 execve`, `man 7 signal`, `man 5 proc`
+- Brendan Gregg, *Systems Performance, 2nd Edition* (Addison-Wesley)
+- Linux `proc(5)` filesystem documentation — [https://man7.org/linux/man-pages/man5/proc.5.html](https://man7.org/linux/man-pages/man5/proc.5.html)
