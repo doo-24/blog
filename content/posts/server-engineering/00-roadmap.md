@@ -81,9 +81,9 @@ weight: 1
 | 4편 | [API 설계 — 좋은 서버 인터페이스의 조건](/blog/posts/server-engineering/12-api-design/) |
 | 5편 | [API 설계 심화 — 현실의 복잡한 요구사항 다루기](/blog/posts/server-engineering/13-api-design-advanced/) |
 | 6편 | [계층 구조와 의존성 — 코드를 어떻게 나누는가](/blog/posts/server-engineering/14-layered-architecture/) |
-| 7편 | 모듈 시스템 설계 — 큰 코드베이스를 다루는 법 *(작성 예정)* |
-| 8편 | 에러 처리와 예외 전략 — 실패를 우아하게 *(작성 예정)* |
-| 9편 | 도메인 모델링 — 비즈니스를 코드로 표현하는 법 *(작성 예정)* |
+| 7편 | [모듈 시스템 설계 — 큰 코드베이스를 다루는 법](/blog/posts/server-engineering/15-module-system/) |
+| 8편 | [에러 처리와 예외 전략 — 실패를 우아하게](/blog/posts/server-engineering/16-error-handling/) |
+| 9편 | [도메인 모델링 — 비즈니스를 코드로 표현하는 법](/blog/posts/server-engineering/17-domain-modeling/) |
 
 📚 추천 도서: 「Clean Architecture」, 「도메인 주도 설계」, 「Head First Design Patterns」, 「Effective Java」
 
