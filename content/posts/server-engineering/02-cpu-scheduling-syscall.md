@@ -1,6 +1,6 @@
 ---
 title: "[OS와 네트워크] 2편 — CPU 스케줄링과 시스템 콜: OS가 프로세스를 다루는 법"
-date: 2026-03-18T01:00:00
+date: 2026-03-18T07:00:00+09:00
 draft: false
 tags: ["리눅스", "CPU", "스케줄링", "cgroup", "NUMA"]
 series: ["OS와 네트워크"]
