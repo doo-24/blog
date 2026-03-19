@@ -133,13 +133,13 @@ weight: 1
 
 | 편 | 제목 |
 |----|------|
-| 1편 | 메시지 큐 기초 — 요청을 기다리지 않는 서버 *(작성 예정)* |
-| 2편 | Kafka 심화 — 대용량 이벤트 스트리밍 *(작성 예정)* |
-| 3편 | 비동기 패턴과 신뢰성 — 실패해도 괜찮은 시스템 *(작성 예정)* |
-| 4편 | 스케줄러와 배치 처리 — 시간이 트리거인 작업들 *(작성 예정)* |
-| 5편 | 분산 락 실전 — 여러 서버가 하나의 자원을 다투는 법 *(작성 예정)* |
-| 6편 | 이벤트 소싱과 CQRS — 상태 대신 이벤트를 저장하는 설계 *(작성 예정)* |
-| 7편 | 실시간 통신 — 서버에서 클라이언트로 데이터 밀기 *(작성 예정)* |
+| 1편 | [메시지 큐 기초 — 요청을 기다리지 않는 서버](/blog/posts/server-engineering/34-message-queue/) |
+| 2편 | [Kafka 심화 — 대용량 이벤트 스트리밍](/blog/posts/server-engineering/35-kafka-deep-dive/) |
+| 3편 | [비동기 패턴과 신뢰성 — 실패해도 괜찮은 시스템](/blog/posts/server-engineering/36-async-reliability/) |
+| 4편 | [스케줄러와 배치 처리 — 시간이 트리거인 작업들](/blog/posts/server-engineering/37-scheduler-batch/) |
+| 5편 | [분산 락 실전 — 여러 서버가 하나의 자원을 다투는 법](/blog/posts/server-engineering/38-distributed-lock/) |
+| 6편 | [이벤트 소싱과 CQRS — 상태 대신 이벤트를 저장하는 설계](/blog/posts/server-engineering/39-event-sourcing-cqrs/) |
+| 7편 | [실시간 통신 — 서버에서 클라이언트로 데이터 밀기](/blog/posts/server-engineering/40-realtime-communication/) |
 
 📚 추천 도서: 「Kafka: The Definitive Guide」, 「Enterprise Integration Patterns」
 
