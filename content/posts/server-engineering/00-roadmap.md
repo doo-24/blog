@@ -203,13 +203,13 @@ JVM 튜닝, 캐싱 전략, CDN, 부하 테스트, 병목 분석, Graceful Shutdo
 
 | 편 | 제목 |
 |----|------|
-| 1편 | 분산 시스템의 기초 — 네트워크는 믿을 수 없다 *(작성 예정)* |
-| 2편 | 분산 코디네이션과 리더 선출 — 조율의 기술 *(작성 예정)* |
-| 3편 | 스케일링 전략 — 서버 한 대로는 부족할 때 *(작성 예정)* |
-| 4편 | 마이크로서비스 — 분리의 이점과 대가 *(작성 예정)* |
-| 5편 | 서비스 메시와 인프라 — MSA 운영의 현실 *(작성 예정)* |
-| 6편 | API Gateway와 서비스 디스커버리 *(작성 예정)* |
-| 7편 | 분산 트랜잭션과 멱등성 — 여러 서비스에 걸친 일관성 *(작성 예정)* |
+| 1편 | [분산 시스템의 기초 — 네트워크는 믿을 수 없다](/blog/posts/server-engineering/59-distributed-fundamentals/) |
+| 2편 | [분산 코디네이션과 리더 선출 — 조율의 기술](/blog/posts/server-engineering/60-distributed-coordination/) |
+| 3편 | [스케일링 전략 — 서버 한 대로는 부족할 때](/blog/posts/server-engineering/61-scaling-strategy/) |
+| 4편 | [마이크로서비스 — 분리의 이점과 대가](/blog/posts/server-engineering/62-microservices/) |
+| 5편 | [서비스 메시와 인프라 — MSA 운영의 현실](/blog/posts/server-engineering/63-service-mesh/) |
+| 6편 | [API Gateway와 서비스 디스커버리](/blog/posts/server-engineering/64-api-gateway-discovery/) |
+| 7편 | [분산 트랜잭션과 멱등성 — 여러 서비스에 걸친 일관성](/blog/posts/server-engineering/65-distributed-transaction/) |
 
 📚 추천 도서: 「데이터 중심 애플리케이션 설계(DDIA)」, 「마이크로서비스 패턴」, 「Building Microservices」
 
