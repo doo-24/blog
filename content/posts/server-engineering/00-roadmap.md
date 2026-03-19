@@ -31,10 +31,10 @@ weight: 1
 | 8 | [부하, 성능, 캐싱](#8-부하-성능-캐싱) | JVM 튜닝, Redis, CDN, 부하 테스트 | 6편 |
 | 9 | [분산 시스템과 마이크로서비스](#9-분산-시스템과-마이크로서비스) | 합의 알고리즘, MSA, 서비스 메시 | 7편 |
 | 10 | [테스트 전략](#10-테스트-전략) | 단위/통합/E2E, TDD, 커버리지 | 4편 |
-| 11 | Docker & 컨테이너 | 컨테이너, K8s, 오케스트레이션 | *준비 중* |
-| 12 | AWS / 클라우드 | EC2, Lambda, VPC, IAM | *준비 중* |
-| 13 | AI / ML | 모델 서빙, 벡터 DB, MLOps | *준비 중* |
-| 14 | Frontend (React 등) | 컴포넌트, 상태 관리, SSR | *준비 중* |
+| 11 | [Docker & 컨테이너](#11-docker--컨테이너) | Docker, K8s, Helm, 컨테이너 보안 | 8편 |
+| 12 | [AWS / 클라우드](#12-aws--클라우드) | VPC, ECS/EKS, Lambda, 비용 최적화 | 8편 |
+| 13 | [AI / ML 서빙](#13-ai--ml-서빙) | 모델 서빙, MLOps, LLM, AI Gateway | 7편 |
+| 14 | [Frontend 통합](#14-frontend-통합) | BFF, GraphQL, CORS, 인증 플로우 | 7편 |
 
 ---
 
@@ -230,14 +230,77 @@ JVM 튜닝, 캐싱 전략, CDN, 부하 테스트, 병목 분석, Graceful Shutdo
 
 ---
 
-## 11~14. 준비 중
+## 11. Docker & 컨테이너
 
-| # | 카테고리 | 상태 |
-|---|---------|------|
-| 11 | Docker & 컨테이너 | 준비 중 |
-| 12 | AWS / 클라우드 | 준비 중 |
-| 13 | AI / ML | 준비 중 |
-| 14 | Frontend (React 등) | 준비 중 |
+컨테이너 원리, Dockerfile, Compose, Kubernetes, Helm, 컨테이너 보안.
+
+| 편 | 제목 |
+|----|------|
+| 1편 | 컨테이너 원리 — Docker가 격리를 만드는 방법 *(작성 예정)* |
+| 2편 | Dockerfile 실전 — 잘 만든 이미지의 조건 *(작성 예정)* |
+| 3편 | Docker Compose와 로컬 개발 환경 *(작성 예정)* |
+| 4편 | Kubernetes 핵심 개념 — 컨테이너 오케스트레이션의 원리 *(작성 예정)* |
+| 5편 | K8s 네트워킹과 서비스 노출 *(작성 예정)* |
+| 6편 | K8s 배포 전략과 운영 *(작성 예정)* |
+| 7편 | Helm과 K8s 패키지 관리 *(작성 예정)* |
+| 8편 | 컨테이너 보안과 운영 패턴 *(작성 예정)* |
+
+📚 추천 도서: 「Docker Deep Dive」, 「Kubernetes in Action」, 「Production Kubernetes」
+
+---
+
+## 12. AWS / 클라우드
+
+클라우드 아키텍처, VPC, ECS/EKS, Lambda, 데이터 서비스, 비용 최적화.
+
+| 편 | 제목 |
+|----|------|
+| 1편 | 클라우드 아키텍처 기초 — 온프레미스와 무엇이 다른가 *(작성 예정)* |
+| 2편 | 네트워크와 컴퓨팅 — VPC 위에 서버 올리기 *(작성 예정)* |
+| 3편 | 컨테이너 서비스 — ECS와 EKS 실전 *(작성 예정)* |
+| 4편 | 서버리스 — Lambda와 이벤트 드리븐 아키텍처 *(작성 예정)* |
+| 5편 | 데이터 서비스 — RDS, DynamoDB, S3 *(작성 예정)* |
+| 6편 | 메시징과 통합 서비스 — SQS, SNS, EventBridge *(작성 예정)* |
+| 7편 | 관측과 비용 — CloudWatch, X-Ray, 비용 최적화 *(작성 예정)* |
+| 8편 | 멀티 계정과 거버넌스 *(작성 예정)* |
+
+📚 추천 도서: 「AWS Well-Architected Framework」, 「Amazon Web Services in Action」, 「Cloud Native Patterns」
+
+---
+
+## 13. AI / ML 서빙
+
+ML 서빙, 모델 배포, MLOps, GPU 인프라, LLM 서빙, AI Gateway.
+
+| 편 | 제목 |
+|----|------|
+| 1편 | ML 서빙 기초 — 모델이 API가 되기까지 *(작성 예정)* |
+| 2편 | 모델 배포 패턴 — 안전하게 모델을 교체하는 법 *(작성 예정)* |
+| 3편 | MLOps 파이프라인 — 모델의 CI/CD *(작성 예정)* |
+| 4편 | GPU 인프라와 최적화 — 추론 성능 끌어올리기 *(작성 예정)* |
+| 5편 | LLM 서빙 인프라 — 대규모 언어 모델 운영 *(작성 예정)* |
+| 6편 | AI Gateway와 통합 패턴 — AI를 서비스에 녹이는 법 *(작성 예정)* |
+| 7편 | AI 서비스 관측과 품질 — 모델 운영의 현실 *(작성 예정)* |
+
+📚 추천 도서: 「Designing Machine Learning Systems」, 「Reliable Machine Learning」, 「Building LLM Apps」
+
+---
+
+## 14. Frontend 통합
+
+렌더링 전략, BFF, GraphQL, 실시간 통신, 인증 플로우, CORS, 모노레포.
+
+| 편 | 제목 |
+|----|------|
+| 1편 | 렌더링 전략 — SSR, CSR, SSG를 서버 관점에서 *(작성 예정)* |
+| 2편 | BFF 패턴 실전 — 프론트엔드를 위한 백엔드 계층 *(작성 예정)* |
+| 3편 | API 설계 — 프론트엔드가 쓰기 좋은 API의 조건 *(작성 예정)* |
+| 4편 | 실시간 통신 통합 — WebSocket과 SSE를 프론트와 연결 *(작성 예정)* |
+| 5편 | 인증 플로우 통합 — OAuth 리다이렉트부터 토큰 관리 *(작성 예정)* |
+| 6편 | CORS 실전과 보안 헤더 — 브라우저와 서버의 협상 *(작성 예정)* |
+| 7편 | 모노레포와 배포 파이프라인 — 프론트와 백엔드를 함께 *(작성 예정)* |
+
+📚 추천 도서: 「Frontend Architecture for Design Systems」, 「Learning Patterns(patterns.dev)」, 「GraphQL in Action」
 
 ---
 

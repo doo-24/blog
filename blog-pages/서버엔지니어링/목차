@@ -1,0 +1,725 @@
+=====================================
+  블로그 전체 카테고리 구조
+=====================================
+
+목표: 읽으면 해당 분야의 전문가가 된다
+구성: 카테고리별 독립 — 순서 없이 관심 분야부터 학습 가능
+
+
+[ 1 ] OS와 네트워크
+[ 2 ] 서버 애플리케이션 설계
+[ 3 ] 데이터베이스
+[ 4 ] 인증과 보안
+[ 5 ] 비동기 처리와 이벤트 드리븐
+[ 6 ] 배포와 CI/CD
+[ 7 ] 로그, 모니터링, 관측 가능성
+[ 8 ] 부하, 성능, 캐싱
+[ 9 ] 분산 시스템과 마이크로서비스
+[10 ] 테스트 전략
+[11 ] Docker & 컨테이너
+[12 ] AWS / 클라우드
+[13 ] AI / ML
+[14 ] Frontend (React 등)
+
+
+=====================================================================
+  각 카테고리별 세부 목차
+=====================================================================
+
+
+[ 1 ] OS와 네트워크
+---------------------------------------
+ 1편  리눅스와 프로세스 — 서버 안에서 무슨 일이 일어나는가
+      ▸ 커널/유저 공간, 프로세스 vs 스레드, fork/exec, 시그널, 좀비 프로세스
+      ▸ /proc 파일시스템, strace, lsof, 프로세스 우선순위(nice/renice)
+
+ 2편  CPU 스케줄링과 시스템 콜 — OS가 프로세스를 다루는 법
+      ▸ CFS (Completely Fair Scheduler), 우선순위 역전 문제와 해결
+      ▸ 시스템 콜 오버헤드, 컨텍스트 스위칭 비용 측정
+      ▸ NUMA 아키텍처, CPU 친화성(affinity), cgroup 리소스 제한
+
+ 3편  메모리 구조와 관리 — 서버가 메모리를 다루는 방법
+      ▸ 가상 메모리, 페이징, 스왑, 메모리 맵(mmap)
+      ▸ 스택 vs 힙, 메모리 단편화, OOM Killer, /proc/meminfo 읽기
+      ▸ 버퍼/캐시 차이, 메모리 릭 탐지 (valgrind, pmap)
+
+ 4편  파일 시스템과 I/O — 디스크와 서버의 대화
+      ▸ 파일 디스크립터, inode, 심볼릭/하드 링크
+      ▸ Buffered vs Direct I/O, fsync, 저널링 파일 시스템
+      ▸ I/O 스케줄러, iostat, 디스크 병목 진단
+
+ 5편  네트워크와 커넥션 — 서버가 요청을 받고 응답을 돌려주기까지
+      ▸ TCP 3-way handshake, 4-way teardown, 소켓 생명주기
+      ▸ HTTP/1.1 요청 흐름, DNS 조회, Keep-Alive, TIME_WAIT
+      ▸ 네트워크 도구 실전 (netstat, ss, tcpdump, Wireshark)
+
+ 6편  TCP 심화 — 신뢰성의 원리
+      ▸ 혼잡 제어(CUBIC, BBR), 흐름 제어, 슬라이딩 윈도우
+      ▸ Nagle 알고리즘, TCP_NODELAY, 버퍼 튜닝 (rmem/wmem)
+      ▸ HTTP/2 멀티플렉싱, HTTP/3(QUIC) 개요
+
+ 7편  웹 서버와 리버스 프록시 — WAS 앞에 왜 한 계층이 더 필요한가
+      ▸ Nginx/Apache 역할 비교, worker 모델, 이벤트 기반 처리
+      ▸ 정적 파일 서빙, gzip/brotli 압축, 캐시 헤더 설정
+      ▸ 로드밸런싱 알고리즘, SSL 종단, upstream 헬스체크, 설정 실전
+
+ 8편  TLS/HTTPS 심화 — 암호화 통신의 원리
+      ▸ 대칭/비대칭 암호화, TLS Handshake 단계별 분해
+      ▸ 인증서 체인, CA, mTLS, HSTS, Certificate Pinning
+      ▸ TLS 1.2 vs 1.3 차이, 인증서 갱신 자동화 (Let's Encrypt)
+
+ 📚 더 읽을거리: 「리눅스 커널 이해」, 「TCP/IP Illustrated Vol.1」, 「HTTP 완벽 가이드」
+
+
+[ 2 ] 서버 애플리케이션 설계
+---------------------------------------
+ 1편  객체지향 설계 원칙 — SOLID가 실제로 의미하는 것
+      ▸ SRP, OCP, LSP, ISP, DIP 각 원칙의 실전 위반/준수 사례
+      ▸ 원칙 간 충돌 상황에서의 판단 기준
+      ▸ SOLID를 과하게 적용하는 함정, 실용적 균형점
+
+ 2편  디자인 패턴 실전 — 서버 코드에서 자주 만나는 패턴들
+      ▸ 생성 패턴: Factory Method, Builder, Singleton (주의점)
+      ▸ 구조 패턴: Adapter, Decorator, Proxy, Facade
+      ▸ 행위 패턴: Strategy, Template Method, Observer, Chain of Responsibility
+      ▸ 패턴 남용의 위험, "패턴을 위한 패턴" 피하기
+
+ 3편  동시성과 I/O 모델 — 서버가 수만 요청을 처리하는 방법
+      ▸ Blocking/Non-blocking, 동기/비동기 개념 정확히 구분
+      ▸ epoll, kqueue, I/O 멀티플렉싱, 이벤트 루프, 리액터 패턴
+      ▸ 스레드풀 설계, 가상 스레드(Project Loom), 코루틴 개요
+
+ 4편  API 설계 — 좋은 서버 인터페이스의 조건
+      ▸ REST 원칙(Richardson Maturity Model), HTTP 메서드 의미론
+      ▸ 상태 코드 올바른 사용, 버저닝 전략, HATEOAS
+      ▸ 페이지네이션 (offset vs cursor), 필터/정렬 설계
+      ▸ API 문서화 (OpenAPI/Swagger), gRPC vs REST 비교
+
+ 5편  API 설계 심화 — 현실의 복잡한 요구사항 다루기
+      ▸ 멱등성 설계, 부분 업데이트 (PATCH vs PUT)
+      ▸ Batch API, Long Polling, 파일 업로드 설계
+      ▸ API 하위 호환성 유지 전략, Deprecation 정책
+      ▸ GraphQL 개요와 REST와의 트레이드오프
+
+ 6편  계층 구조와 의존성 — 코드를 어떻게 나누는가
+      ▸ Controller-Service-Repository 각 책임 정의
+      ▸ DI/IoC 원리, 스프링 빈 생명주기
+      ▸ 의존 방향 규칙, 순환 의존 탐지, 클린 아키텍처 핵심
+      ▸ 헥사고날 아키텍처 (Port & Adapter)
+
+ 7편  모듈 시스템 설계 — 큰 코드베이스를 다루는 법
+      ▸ 패키지 구조 전략 (계층별 vs 도메인별 vs 기능별)
+      ▸ 모듈 경계 정의, 공개 API vs 내부 구현 분리
+      ▸ 멀티 모듈 프로젝트 설계 (Gradle 멀티모듈)
+      ▸ 모놀리스 내 모듈 분리 → MSA 전환 준비
+
+ 8편  에러 처리와 예외 전략 — 실패를 우아하게
+      ▸ Checked/Unchecked 예외 선택 기준
+      ▸ 글로벌 예외 핸들러, 에러 응답 표준화 (RFC 7807)
+      ▸ 재시도 정책, Exponential Backoff, Jitter
+      ▸ 예외 vs 결과 타입, 방어적 프로그래밍
+
+ 9편  도메인 모델링 — 비즈니스를 코드로 표현하는 법
+      ▸ 도메인 모델 vs 데이터 모델, 풍부한 도메인 모델
+      ▸ Value Object, Entity, Aggregate 개념
+      ▸ DDD 전술 패턴 핵심, 유비쿼터스 언어
+      ▸ 도메인 이벤트, Application Service vs Domain Service
+
+ 📚 더 읽을거리: 「Clean Architecture」, 「도메인 주도 설계」, 「Head First Design Patterns」, 「Effective Java」
+
+
+[ 3 ] 데이터베이스
+---------------------------------------
+ 1편  인덱스 — B-Tree가 실제로 하는 일
+      ▸ B-Tree 구조와 탐색/삽입/삭제 원리
+      ▸ 클러스터드/논클러스터드 인덱스, InnoDB 페이지 구조
+      ▸ 복합 인덱스 설계, 선행 컬럼 규칙, 인덱스 선택도
+      ▸ 커버링 인덱스, 인덱스 사용 불가 패턴, EXPLAIN 읽기
+
+ 2편  트랜잭션과 락 — 동시성 제어의 깊이
+      ▸ ACID 각 속성의 실제 의미와 보장 방법
+      ▸ MVCC 동작 원리 (InnoDB undo log)
+      ▸ 격리 수준별 현상 (Dirty Read, Non-Repeatable, Phantom)
+      ▸ 레코드 락, 갭 락, 넥스트 키 락, 데드락 탐지와 해소
+      ▸ 낙관적 락 (버전 컬럼), 비관적 락 (SELECT FOR UPDATE)
+
+ 3편  쿼리 최적화 — 느린 쿼리를 빠르게
+      ▸ 실행 계획 완전 분석 (type, key, rows, Extra 컬럼)
+      ▸ 풀스캔 방지 전략, 인덱스 힌트, 옵티마이저 통계
+      ▸ JOIN 전략 (Nested Loop, Hash Join, Sort Merge)
+      ▸ 서브쿼리 vs JOIN vs EXISTS 성능 비교
+      ▸ 슬로우 쿼리 로그 설정, pt-query-digest 활용
+
+ 4편  데이터 모델링 — 테이블 설계의 원칙
+      ▸ 정규화 (1NF~BCNF) 각 단계 실전 예시
+      ▸ 반정규화 판단 기준과 위험성, ERD 표기법
+      ▸ 1:N / M:N 관계 구현 패턴, 자기 참조 테이블
+      ▸ 소프트 딜리트 트레이드오프, 감사 컬럼 설계
+      ▸ JSON 컬럼 활용과 한계, EAV 패턴의 함정
+
+ 5편  동시성과 데이터 정합성 — 실전 시나리오
+      ▸ 재고 차감 동시성 문제와 해결 패턴
+      ▸ 중복 결제/요청 방지, 멱등성 키 설계
+      ▸ 분산 환경 정합성, 2PC vs Saga
+      ▸ 이벤트 기반 정합성, 결과적 일관성 허용 범위
+      ▸ 유니크 제약 vs 애플리케이션 레벨 중복 체크
+
+ 6편  NoSQL — 언제, 왜, 어떻게
+      ▸ NoSQL 유형별 특성 (Document, Key-Value, Column, Graph)
+      ▸ MongoDB 데이터 모델링 (임베딩 vs 참조)
+      ▸ Redis 자료구조별 활용 패턴
+      ▸ CAP 정리 실전 해석, 일관성 vs 가용성 선택
+      ▸ RDBMS + NoSQL 혼합 설계 사례
+
+ 7편  특수 목적 DB — 검색, 시계열, 벡터
+      ▸ Elasticsearch 아키텍처 (인덱스, 샤드, 역인덱스 원리)
+      ▸ 검색 쿼리 설계 (형태소 분석, 스코어링, 자동완성)
+      ▸ 시계열 DB (InfluxDB, TimescaleDB) — 메트릭/로그 저장 최적화
+      ▸ 벡터 DB 개요 (Pinecone, Milvus, pgvector) — AI 시대의 유사도 검색
+      ▸ 용도별 DB 선택 기준, 폴리글랏 퍼시스턴스 설계
+
+ 8편  DB 스케일링 — 데이터베이스 확장의 현실
+      ▸ Read Replica 설계, 복제 지연 허용 범위
+      ▸ 수평 샤딩 전략 (범위, 해시, 디렉토리), 리샤딩 문제
+      ▸ Vitess, CockroachDB 개요 (분산 DB 솔루션)
+      ▸ 글로벌 데이터베이스 설계, 지역성 고려
+
+ 9편  DB 운영 — 프로덕션 DB 관리
+      ▸ 백업 전략 (논리/물리, 풀/증분), 복구 시나리오 연습
+      ▸ 리플리케이션 원리 (binlog), 복제 지연 대응
+      ▸ 커넥션 풀 설정 (HikariCP), 풀 고갈 진단
+      ▸ 무중단 스키마 마이그레이션 (gh-ost, pt-online-schema-change)
+      ▸ 모니터링 지표 (QPS, 슬로우쿼리 비율, 버퍼풀 히트율)
+
+ 📚 더 읽을거리: 「데이터 중심 애플리케이션 설계(DDIA)」, 「High Performance MySQL」, 「Real MySQL 8.0」, 「Elasticsearch in Action」
+
+
+[ 4 ] 인증과 보안
+---------------------------------------
+ 1편  인증 기초 — 세션, 토큰, 그 선택의 기준
+      ▸ 세션 기반 인증 동작 원리, 분산 환경 한계
+      ▸ JWT 구조(Header.Payload.Signature), 서명 검증 원리
+      ▸ Access Token / Refresh Token 전략, 토큰 탈취 대응
+      ▸ 세션 vs JWT 실전 선택 기준
+
+ 2편  OAuth 2.0과 OpenID Connect — 위임 인증의 원리
+      ▸ OAuth 2.0 역할 (Resource Owner, Client, Authorization Server)
+      ▸ 인가 코드 플로우 단계별 분해, PKCE
+      ▸ Client Credentials, Device Flow 등 그란트 타입별 용도
+      ▸ OpenID Connect와 ID Token, 소셜 로그인 구현 실전
+
+ 3편  권한 관리 — 인가(Authorization) 설계
+      ▸ 인증(Authentication) vs 인가(Authorization) 명확히 구분
+      ▸ RBAC 설계와 역할 계층, ABAC 개념
+      ▸ 리소스 소유권 검증, 수평적 권한 상승 방지
+      ▸ Spring Security 필터 체인, 커스텀 인가 로직
+
+ 4편  웹 보안 공격과 방어 — 실전 위협 모델
+      ▸ SQL Injection 원리와 방어 (PreparedStatement, ORM)
+      ▸ XSS (Reflected/Stored/DOM) 원리와 CSP
+      ▸ CSRF 원리와 SameSite 쿠키, CSRF 토큰
+      ▸ CORS 정확한 동작 원리, 잘못된 설정의 위험성
+      ▸ SSRF, Path Traversal, Open Redirect
+
+ 5편  Rate Limiting과 DDoS 방어 — 과부하 공격 대응
+      ▸ Rate Limiting 알고리즘 (토큰 버킷, 리키 버킷, 슬라이딩 윈도우)
+      ▸ 분산 Rate Limiting (Redis 활용), 사용자별/IP별/엔드포인트별
+      ▸ API Gateway 레벨 스로틀링, WAF 개념
+      ▸ DDoS 유형 (volumetric, application layer), CloudFlare/AWS Shield
+
+ 6편  데이터 보안 — 저장과 전송의 암호화
+      ▸ 비밀번호 해싱 (bcrypt/Argon2), 레인보우 테이블 방어
+      ▸ 데이터 암호화 at rest (AES-256), at transit (TLS)
+      ▸ 필드 레벨 암호화, 암호화 키 관리 (KMS, 키 로테이션)
+      ▸ PII 데이터 처리 원칙, 마스킹/토크나이제이션
+
+ 7편  보안 감사와 취약점 관리 — 지속적인 보안
+      ▸ OWASP Top 10 항목별 실전 점검
+      ▸ 의존성 취약점 스캔 (Snyk, Dependabot)
+      ▸ 침투 테스트 개념, Threat Modeling 방법론 (STRIDE)
+      ▸ 보안 로그 설계, 이상 탐지, 사고 대응 플로우
+
+ 📚 더 읽을거리: 「OAuth 2 in Action」, 「웹 애플리케이션 보안」, OWASP Cheat Sheet Series
+
+
+[ 5 ] 비동기 처리와 이벤트 드리븐
+---------------------------------------
+ 1편  메시지 큐 기초 — 요청을 기다리지 않는 서버
+      ▸ 동기 호출의 한계, 메시지 큐가 해결하는 문제
+      ▸ Point-to-Point vs Pub/Sub 모델
+      ▸ RabbitMQ 구조 (Exchange, Queue, Binding, Routing Key)
+      ▸ 메시지 지속성, 소비자 확인(ACK), 메시지 순서 보장
+
+ 2편  Kafka 심화 — 대용량 이벤트 스트리밍
+      ▸ Kafka 아키텍처 (Broker, Topic, Partition, Consumer Group)
+      ▸ 오프셋 관리, At-Least-Once / Exactly-Once 처리
+      ▸ 파티션 설계 전략, 컨슈머 리밸런싱
+      ▸ Kafka vs RabbitMQ 선택 기준, 스키마 레지스트리
+
+ 3편  비동기 패턴과 신뢰성 — 실패해도 괜찮은 시스템
+      ▸ Dead Letter Queue 설계, 재처리 전략
+      ▸ 백프레셔 (Backpressure) 개념과 구현
+      ▸ Transactional Outbox 패턴 (DB + 메시지 원자성)
+      ▸ 멱등 소비자 구현, 중복 메시지 처리
+
+ 4편  스케줄러와 배치 처리 — 시간이 트리거인 작업들
+      ▸ Cron vs 분산 스케줄러, 단일 실행 보장 문제
+      ▸ Spring Batch 아키텍처 (Job, Step, Chunk, Tasklet)
+      ▸ Quartz Scheduler 클러스터 모드, 미스파이어 전략
+      ▸ 대용량 배치 성능 최적화 (파티셔닝, 병렬 Step, 커밋 인터벌)
+      ▸ 배치 모니터링, 실패 재시작, 멱등 배치 설계
+
+ 5편  분산 락 실전 — 여러 서버가 하나의 자원을 다투는 법
+      ▸ 분산 락이 필요한 상황 (스케줄러, 선착순, 재고)
+      ▸ Redis 기반 분산 락 (SETNX, Redlock 알고리즘, 한계)
+      ▸ 분산 락 vs DB 낙관적 락 선택 기준, 락 타임아웃 설계
+      ▸ Spring Integration, Redisson 실전 적용 패턴
+      ※ 이론/인프라 심화(Fencing Token, ZooKeeper, 리더 선출)는 [9] 2편 참고
+
+ 6편  이벤트 소싱과 CQRS — 상태 대신 이벤트를 저장하는 설계
+      ▸ 이벤트 소싱 원리, 이벤트 스토어 설계
+      ▸ 이벤트 재생(Replay), 스냅샷 전략
+      ▸ CQRS 개념, 읽기/쓰기 모델 분리
+      ▸ CQRS + 이벤트 소싱 조합, 도입 트레이드오프
+
+ 7편  실시간 통신 — 서버에서 클라이언트로 데이터 밀기
+      ▸ Polling vs Long Polling vs SSE vs WebSocket 비교
+      ▸ WebSocket 프로토콜, 연결 관리, Heartbeat
+      ▸ SSE 구현과 적합한 유스케이스
+      ▸ 실시간 기능 수평 확장 (Redis Pub/Sub, Sticky Session)
+
+ 📚 더 읽을거리: 「Kafka: The Definitive Guide」, 「Enterprise Integration Patterns」, 「Spring Batch in Action」
+
+
+[ 6 ] 배포와 CI/CD
+---------------------------------------
+ 1편  Git 브랜치 전략 — 팀이 코드를 합치는 규칙
+      ▸ Git Flow, GitHub Flow, Trunk-Based Development 비교
+      ▸ 브랜치 전략 선택 기준 (팀 규모, 릴리즈 주기)
+      ▸ PR/MR 리뷰 프로세스, 머지 전략 (merge, squash, rebase)
+      ▸ 모노레포 vs 멀티레포 트레이드오프
+
+ 2편  빌드와 패키징 — 코드가 실행 가능한 산출물이 되기까지
+      ▸ 빌드 도구 (Gradle/Maven), 의존성 관리
+      ▸ 패키징 전략 (Fat JAR, 레이어드 JAR, 네이티브 이미지)
+      ▸ 빌드 재현성, 빌드 캐시 최적화
+      ▸ 컨테이너 이미지 태깅 전략 (latest의 함정, SHA 태그)
+
+ 3편  아티팩트 관리 — 빌드 산출물의 생명주기
+      ▸ 아티팩트 저장소 역할 (Nexus, JFrog Artifactory)
+      ▸ Maven/Gradle 아티팩트 배포, 버저닝 전략 (SemVer)
+      ▸ 컨테이너 레지스트리 (ECR, Docker Hub, Harbor)
+      ▸ 아티팩트 보존 정책, 취약점 스캔 자동화
+
+ 4편  설정 관리와 환경 분리 — 코드와 설정을 분리하는 법
+      ▸ 12-Factor App 설정 원칙, 환경변수 vs 설정 파일
+      ▸ 환경 분리 (dev/staging/prod), 설정 검증
+      ▸ 시크릿 관리 (Vault, AWS Secrets Manager)
+      ▸ Feature Flag, 동적 설정 변경
+
+ 5편  CI/CD 파이프라인 — 자동화된 품질 게이트
+      ▸ CI 파이프라인 설계 (빌드 → 테스트 → 정적 분석 → 보안 스캔)
+      ▸ GitHub Actions / GitLab CI 실전 구성
+      ▸ CD 전략, 환경별 승인 게이트
+      ▸ GitOps 개념 (ArgoCD, Flux), 선언적 배포
+
+ 6편  배포 전략 — 무중단 배포의 기술
+      ▸ 블루-그린 배포 원리와 비용, 롤백 방법
+      ▸ 카나리 배포, 가중치 라우팅, 모니터링 자동 롤백
+      ▸ 롤링 배포, maxUnavailable/maxSurge 설정
+      ▸ Feature Flag 기반 배포, 점진적 릴리즈
+      ※ K8s 배포 상세는 [11] Docker & 컨테이너 참고
+
+ 7편  환경 관리와 IaC — 인프라를 코드로
+      ▸ 불변 인프라 원칙, 환경 간 드리프트 방지
+      ▸ Terraform 기초, 상태 관리, 모듈화
+      ▸ 환경변수 vs Secret 관리, 프로비저닝 자동화
+      ※ Helm Chart, K8s 패키지 관리는 [11] Docker & 컨테이너 참고
+
+ 📚 더 읽을거리: 「Continuous Delivery」, 「Infrastructure as Code」, 「The Phoenix Project」
+
+
+[ 7 ] 로그, 모니터링, 관측 가능성
+---------------------------------------
+ 1편  로그 설계 — 추적 가능한 로그 만들기
+      ▸ 로그 레벨 선택 기준 (DEBUG~FATAL), 남용 패턴
+      ▸ 구조화된 로그 (JSON), 컨텍스트 필드 설계
+      ▸ MDC (Mapped Diagnostic Context), 요청 ID 전파
+      ▸ 민감 정보 마스킹, 로그 볼륨 관리
+
+ 2편  로그 수집과 저장 — 분산 환경의 로그 파이프라인
+      ▸ ELK 스택 (Elasticsearch, Logstash, Kibana) 구조
+      ▸ Loki + Grafana 경량 대안
+      ▸ Fluentd/Fluent Bit 로그 수집기 설정
+      ▸ 로그 보존 정책, 인덱싱 전략, 비용 최적화
+
+ 3편  메트릭과 모니터링 — 숫자로 서버 상태 읽기
+      ▸ 메트릭 유형 (Counter, Gauge, Histogram, Summary)
+      ▸ RED 방법론 (Rate, Error, Duration), USE 방법론
+      ▸ Prometheus 스크레이핑, PromQL 쿼리 작성
+      ▸ Grafana 대시보드 설계, 알림(Alert) 규칙 작성
+
+ 4편  분산 트레이싱 — 마이크로서비스 요청 추적
+      ▸ 분산 트레이싱 개념, Trace/Span/Context Propagation
+      ▸ OpenTelemetry 표준, 자동/수동 계측
+      ▸ Jaeger/Zipkin 설정, 트레이스 분석 실전
+      ▸ 트레이싱 샘플링 전략, 성능 오버헤드 관리
+
+ 5편  관측 가능성 실전 — 장애를 빠르게 찾는 법
+      ▸ 로그 + 메트릭 + 트레이스 연계 분석
+      ▸ 장애 진단 플로우 (알림 → 대시보드 → 트레이스 → 로그)
+      ▸ SLI/SLO/SLA 정의와 Error Budget
+      ▸ 포스트모템 작성법, 장애 원인 분류 (5 Whys)
+
+ 📚 더 읽을거리: 「Observability Engineering」, 「Site Reliability Engineering(SRE)」
+
+
+[ 8 ] 부하, 성능, 캐싱
+---------------------------------------
+ 1편  JVM과 성능 분석 — 서버가 느릴 때
+      ▸ GC 종류 (Serial, G1, ZGC, Shenandoah) 와 선택 기준
+      ▸ GC 튜닝 파라미터, GC 로그 분석
+      ▸ 힙 덤프 분석 (MAT, VisualVM), 메모리 릭 찾기
+      ▸ 스레드 덤프 분석, CPU 프로파일링 (async-profiler, JFR)
+
+ 2편  캐싱 전략 — 빠른 서비스의 비밀
+      ▸ 로컬 캐시 (Caffeine) vs 분산 캐시 (Redis) 선택 기준
+      ▸ Cache-Aside, Write-Through, Write-Behind, Refresh-Ahead
+      ▸ TTL 설계, 캐시 워밍, 핫스팟 문제
+      ▸ 캐시 무효화 전략 (이벤트 기반, 버전 키, 태그 기반)
+      ▸ Cache Stampede 방어 (Mutex, Probabilistic Early Expiration)
+
+ 3편  HTTP 캐싱과 CDN — 네트워크 레벨의 성능
+      ▸ Cache-Control, ETag, Last-Modified, Vary 헤더
+      ▸ CDN 동작 원리, 엣지 캐시 무효화
+      ▸ 브라우저 캐시 전략, 정적 자산 버저닝
+      ▸ CDN 선택 기준 (CloudFront, Fastly, Cloudflare)
+
+ 4편  부하 테스트 — 서버의 한계를 미리 아는 법
+      ▸ 부하 테스트 종류 (Load, Stress, Spike, Soak)
+      ▸ k6 / nGrinder / Gatling 실전 시나리오 작성
+      ▸ TPS, Latency (p50/p95/p99), 처리량 해석
+      ▸ 병목 지점 찾기, 부하 테스트 결과 보고서 작성
+
+ 5편  병목 분석과 장애 대응 — 서버는 어떻게 죽고, 어떻게 버티는가
+      ▸ CPU 병목, I/O 병목, 메모리 압박, 네트워크 포화 진단
+      ▸ 커넥션 풀 고갈, 스레드 스타베이션, 큐 누적
+      ▸ 타임아웃 계층 설계 (연결/읽기/쓰기/전체)
+      ▸ 서킷 브레이커 (Closed/Open/Half-Open), Resilience4j
+      ▸ Fallback 전략, Bulkhead 패턴, Graceful Degradation
+
+ 6편  Graceful Shutdown과 무중단 운영
+      ▸ Graceful Shutdown 구현 (요청 완료 대기, 리소스 반납)
+      ▸ 커넥션 Drain, 인플라이트 요청 처리
+      ▸ 프로세스 시그널 처리, 상태 저장 서버 종료 절차
+      ※ K8s 환경 Graceful Shutdown은 [11] Docker & 컨테이너 참고
+
+ 📚 더 읽을거리: 「자바 최적화」, 「Systems Performance」, 「Release It!」
+
+
+[ 9 ] 분산 시스템과 마이크로서비스
+---------------------------------------
+ 1편  분산 시스템의 기초 — 네트워크는 믿을 수 없다
+      ▸ 분산 시스템 8가지 오류 가정
+      ▸ 시간 동기화 문제, 클럭 스큐, 논리 시계 (Lamport Clock)
+      ▸ 합의 알고리즘 개요 (Raft, Paxos)
+      ▸ 분산 시스템 테스트의 어려움, Chaos Engineering 개념
+
+ 2편  분산 코디네이션과 리더 선출 — 조율의 기술
+      ▸ 리더 선출 알고리즘 (Bully, Ring, ZooKeeper 기반)
+      ▸ 분산 락 이론: Fencing Token, 락 해제 안전성, 정확성 증명
+      ▸ ZooKeeper vs etcd 비교, 분산 코디네이션 서비스 아키텍처
+      ▸ 분산 세마포어, 분산 카운터, 분산 배리어
+      ※ Redis 분산 락 실전 적용은 [5] 5편 참고
+
+ 3편  스케일링 전략 — 서버 한 대로는 부족할 때
+      ▸ 수직 확장 한계, 수평 확장 전제 조건
+      ▸ Stateless 설계 원칙, 세션 클러스터링 vs JWT
+      ▸ 로드밸런서 알고리즘 심화 (일관된 해싱, 최소 연결)
+      ▸ 글로벌 로드밸런싱, Anycast
+
+ 4편  마이크로서비스 — 분리의 이점과 대가
+      ▸ 모놀리스 vs MSA 실질적 트레이드오프
+      ▸ 서비스 경계 정의 (도메인 기반 분리), 너무 잘게 나누는 위험
+      ▸ 서비스 간 통신 (동기 REST/gRPC vs 비동기 메시지)
+      ▸ 데이터 소유권, 서비스별 DB 분리 원칙
+
+ 5편  서비스 메시와 인프라 — MSA 운영의 현실
+      ▸ 서비스 메시 개념, Sidecar 프록시 패턴
+      ▸ Istio 아키텍처 (Envoy, Pilot, Citadel), 트래픽 관리 실전
+      ▸ mTLS 자동화, 관측 가능성 통합, 장애 주입
+      ▸ 서비스 메시 도입 판단 기준, 오버헤드와 복잡도 비용
+
+ 6편  API Gateway와 서비스 디스커버리
+      ▸ API Gateway 역할 (라우팅, 인증, Rate Limiting, 집계)
+      ▸ BFF (Backend for Frontend) 패턴
+      ▸ 서비스 디스커버리 (Client-side vs Server-side), Consul, Eureka
+      ▸ 쿠버네티스 내장 서비스 디스커버리 vs 외부 레지스트리
+
+ 7편  분산 트랜잭션과 멱등성 — 여러 서비스에 걸친 일관성
+      ▸ 2PC (2-Phase Commit) 원리와 한계
+      ▸ Saga 패턴 (Choreography vs Orchestration) 실전 설계
+      ▸ 결과적 일관성 설계, 보상 트랜잭션 구현
+      ▸ 멱등성 설계 심화: 멱등키 저장소, TTL, 클라이언트 재시도 계약
+      ▸ 이벤트 중복 처리, Deduplication 전략
+
+ 📚 더 읽을거리: 「데이터 중심 애플리케이션 설계(DDIA)」, 「마이크로서비스 패턴」, 「Building Microservices」
+
+
+[10 ] 테스트 전략
+---------------------------------------
+ 1편  단위 테스트 — 신뢰할 수 있는 코드
+      ▸ 좋은 단위 테스트의 조건 (FIRST 원칙)
+      ▸ JUnit 5 기능 완전 활용, Parameterized Test
+      ▸ Mock vs Stub vs Spy vs Fake 정확한 구분
+      ▸ Mockito 실전, 과도한 Mocking의 위험
+      ▸ 경계값 분석, 동치 분할, 상태 기반 vs 행동 기반 검증
+
+ 2편  통합 테스트 — 조각을 합치면
+      ▸ @SpringBootTest 슬라이스 테스트 (WebMvcTest, DataJpaTest)
+      ▸ Testcontainers로 실제 DB/Redis/Kafka 테스트
+      ▸ WireMock으로 외부 API 모킹
+      ▸ 트랜잭션 롤백 vs 테스트 데이터 정리 전략
+      ▸ REST Assured, MockMvc API 통합 테스트
+
+ 3편  E2E 테스트와 계약 테스트
+      ▸ E2E 테스트 시나리오 설계, 환경 구성
+      ▸ Consumer-Driven Contract Testing (Pact)
+      ▸ E2E 테스트의 유지 비용, 선택 전략
+      ▸ 성능 테스트 자동화 CI 연동
+
+ 4편  테스트 문화와 전략 — 팀으로 테스트하기
+      ▸ 테스트 피라미드 vs 테스트 트로피, 현실적 비율
+      ▸ 커버리지 측정 (JaCoCo), 커버리지 맹신의 위험
+      ▸ TDD 사이클 실전, 레거시 코드에 테스트 추가하기
+      ▸ Flaky 테스트 원인과 관리, CI 파이프라인 연동
+      ▸ 테스트 코드 리뷰 기준, 팀 테스트 컨벤션 수립
+
+ 📚 더 읽을거리: 「단위 테스트(Vladimir Khorikov)」, 「테스트 주도 개발(Kent Beck)」, 「xUnit Test Patterns」
+
+
+[11 ] Docker & 컨테이너
+---------------------------------------
+ 1편  컨테이너 원리 — Docker가 격리를 만드는 방법
+      ▸ namespace (PID, NET, MNT, UTS, IPC, USER), cgroup 리소스 제한
+      ▸ Union Filesystem (OverlayFS), 이미지 레이어 구조
+      ▸ 컨테이너 vs VM, 컨테이너 런타임 (containerd, runc)
+      ▸ /proc, /sys에서 컨테이너 상태 확인, nsenter 디버깅
+
+ 2편  Dockerfile 실전 — 잘 만든 이미지의 조건
+      ▸ 빌드 컨텍스트, 레이어 캐시 최적화, 명령어 순서의 중요성
+      ▸ 멀티 스테이지 빌드, 이미지 사이즈 최소화 (distroless, Alpine)
+      ▸ .dockerignore, 보안 (non-root 실행, 시크릿 빌드 인자)
+      ▸ ENTRYPOINT vs CMD, 시그널 전달과 PID 1 문제 (tini, dumb-init)
+
+ 3편  Docker Compose와 로컬 개발 환경 — 여러 컨테이너를 하나처럼
+      ▸ Compose 파일 구조, 서비스/네트워크/볼륨 정의
+      ▸ 개발 환경 구성 (DB, Redis, Kafka 로컬 클러스터)
+      ▸ 볼륨 마운트 vs 바인드 마운트, 핫 리로드 설정
+      ▸ depends_on과 헬스체크, 환경별 오버라이드 (compose.override.yml)
+
+ 4편  Kubernetes 핵심 개념 — 컨테이너 오케스트레이션의 원리
+      ▸ K8s 아키텍처 (Control Plane: API Server, etcd, Scheduler, Controller Manager)
+      ▸ 워커 노드 구성 (kubelet, kube-proxy, CRI)
+      ▸ Pod 생명주기, ReplicaSet, Deployment 관계
+      ▸ 선언적 관리 원칙, kubectl 실전 명령어
+
+ 5편  K8s 네트워킹과 서비스 노출 — 트래픽이 Pod에 도달하기까지
+      ▸ Pod 네트워킹 모델 (CNI), Service 유형 (ClusterIP, NodePort, LoadBalancer)
+      ▸ Ingress 컨트롤러 (Nginx Ingress, ALB Ingress), TLS 종단
+      ▸ DNS 기반 서비스 디스커버리, Headless Service
+      ▸ NetworkPolicy로 트래픽 제어
+      ※ 서비스 메시(Istio) 상세는 [9] 5편 참고
+
+ 6편  K8s 배포 전략과 운영 — 프로덕션 워크로드 관리
+      ▸ Rolling Update, Recreate, 카나리/블루-그린 배포 (K8s 구현)
+      ▸ Readiness/Liveness/Startup Probe 설계, Graceful Shutdown 연동
+      ▸ Resource Request/Limit 설정, QoS 클래스 (Guaranteed, Burstable, BestEffort)
+      ▸ HPA (Horizontal Pod Autoscaler), VPA, KEDA 이벤트 기반 스케일링
+      ※ 배포 전략 개념은 [6] 6편, Graceful Shutdown 원리는 [8] 6편 참고
+
+ 7편  Helm과 K8s 패키지 관리 — 복잡한 매니페스트를 다루는 법
+      ▸ Helm 차트 구조, values.yaml, 템플릿 문법
+      ▸ Chart 버저닝, 릴리즈 관리, 롤백
+      ▸ Kustomize vs Helm 비교, 환경별 설정 오버레이
+      ▸ GitOps와 Helm (ArgoCD + Helm Chart 배포 플로우)
+      ※ GitOps 개념은 [6] 5편, IaC/Terraform은 [6] 7편 참고
+
+ 8편  컨테이너 보안과 운영 패턴 — 프로덕션에서 살아남기
+      ▸ 이미지 취약점 스캔 (Trivy, Snyk), 이미지 서명 (cosign, Notary)
+      ▸ Pod Security Standards, SecurityContext, OPA/Gatekeeper 정책
+      ▸ RBAC 설계 (ServiceAccount, Role, ClusterRole)
+      ▸ 노드 관리 (cordon/drain), PDB (Pod Disruption Budget)
+      ▸ 로그/메트릭 수집 (DaemonSet 패턴), K8s 환경 모니터링 통합
+
+ 📚 더 읽을거리: 「Docker Deep Dive」, 「Kubernetes in Action」, 「Production Kubernetes」
+
+
+[12 ] AWS / 클라우드
+---------------------------------------
+ 1편  클라우드 아키텍처 기초 — 온프레미스와 무엇이 다른가
+      ▸ IaaS / PaaS / SaaS 경계, 공유 책임 모델
+      ▸ 리전, 가용 영역(AZ), 엣지 로케이션 개념
+      ▸ AWS Well-Architected Framework 6대 핵심 원칙
+      ▸ 클라우드 네이티브 설계 원칙 (Design for Failure, Loosely Coupled)
+
+ 2편  네트워크와 컴퓨팅 — VPC 위에 서버 올리기
+      ▸ VPC 설계 (서브넷, 라우팅 테이블, IGW, NAT Gateway)
+      ▸ Security Group vs NACL, 보안 계층 설계
+      ▸ EC2 인스턴스 유형 선택, AMI, Spot/Reserved/On-Demand 전략
+      ▸ ALB/NLB 설정, Target Group, 헬스체크, 오토스케일링 그룹
+
+ 3편  컨테이너 서비스 — ECS와 EKS 실전
+      ▸ ECS 아키텍처 (Task Definition, Service, Cluster), Fargate vs EC2 모드
+      ▸ EKS 구성, 관리형 노드 그룹, Fargate on EKS
+      ▸ ECR 이미지 관리, 배포 파이프라인 (CodePipeline + ECS/EKS)
+      ▸ ECS vs EKS 선택 기준, 마이그레이션 시나리오
+      ※ K8s 핵심 개념은 [11] 4~8편 참고
+
+ 4편  서버리스 — Lambda와 이벤트 드리븐 아키텍처
+      ▸ Lambda 실행 모델 (콜드 스타트, 동시성, 메모리/타임아웃)
+      ▸ 이벤트 소스 연동 (API Gateway, SQS, S3, EventBridge)
+      ▸ Step Functions 워크플로 오케스트레이션
+      ▸ 서버리스 안티패턴 (Lambda 체이닝, 모놀리식 Lambda)
+      ▸ 서버리스 vs 컨테이너 비용/성능 교차점
+
+ 5편  데이터 서비스 — RDS, DynamoDB, S3
+      ▸ RDS Multi-AZ, Read Replica, Aurora 아키텍처 특성
+      ▸ DynamoDB 파티션 키 설계, GSI/LSI, 용량 모드 (On-Demand vs Provisioned)
+      ▸ DynamoDB 단일 테이블 설계 패턴, 핫 파티션 방지
+      ▸ S3 스토리지 클래스, 수명주기 정책, 이벤트 알림
+      ▸ ElastiCache(Redis) 클러스터 모드, 장애 조치
+      ※ DB 설계 원리는 [3], 캐싱 전략은 [8] 2편 참고
+
+ 6편  메시징과 통합 서비스 — SQS, SNS, EventBridge
+      ▸ SQS 표준 vs FIFO 큐, DLQ 설정, 가시성 타임아웃
+      ▸ SNS 토픽, 팬아웃 패턴 (SNS → SQS)
+      ▸ EventBridge 이벤트 버스, 규칙 기반 라우팅, 스키마 레지스트리
+      ▸ MSK (Managed Kafka) vs SQS/SNS 선택 기준
+      ※ 메시지 큐 패턴은 [5] 1~3편 참고
+
+ 7편  관측과 비용 — CloudWatch, X-Ray, 비용 최적화
+      ▸ CloudWatch Metrics, Logs, Alarms 설계
+      ▸ X-Ray 분산 트레이싱, CloudWatch Insights 쿼리
+      ▸ 비용 최적화 전략 (Reserved, Savings Plans, Spot, Right Sizing)
+      ▸ 태그 정책, Cost Explorer, 예산 알림
+      ▸ FinOps 실천: 비용 가시화, 팀별 할당, 이상 탐지
+      ※ 관측 가능성 원리는 [7] 참고
+
+ 8편  멀티 계정과 거버넌스 — 조직 단위의 클라우드 관리
+      ▸ AWS Organizations, 멀티 계정 전략 (워크로드/환경/팀 분리)
+      ▸ IAM 설계 원칙 (최소 권한, 역할 기반), 크로스 계정 접근
+      ▸ Landing Zone, Control Tower 개요
+      ▸ 재해 복구 전략 (Backup & Restore, Pilot Light, Warm Standby, Multi-Site)
+      ▸ 클라우드 락인 완화 전략, 멀티 클라우드 고려 사항
+
+ 📚 더 읽을거리: 「AWS Well-Architected Framework」, 「Amazon Web Services in Action」, 「Cloud Native Patterns」
+
+
+[13 ] AI / ML 서빙
+---------------------------------------
+ 1편  ML 서빙 기초 — 모델이 API가 되기까지
+      ▸ 학습(Training) vs 추론(Inference) 인프라 분리
+      ▸ 모델 직렬화 포맷 (ONNX, TorchScript, SavedModel)
+      ▸ 서빙 프레임워크 비교 (TorchServe, Triton, TF Serving, BentoML)
+      ▸ 모델 서버 API 설계 (REST vs gRPC), 배치 추론 vs 실시간 추론
+
+ 2편  모델 배포 패턴 — 안전하게 모델을 교체하는 법
+      ▸ 모델 버저닝과 레지스트리 (MLflow Model Registry, SageMaker)
+      ▸ Shadow 배포, A/B 테스트, 카나리 배포 (모델 전용)
+      ▸ 멀티 모델 서빙, 모델 앙상블 패턴
+      ▸ 롤백 전략, 모델 성능 회귀 자동 탐지
+
+ 3편  MLOps 파이프라인 — 모델의 CI/CD
+      ▸ ML 파이프라인 구성 (데이터 수집 → 전처리 → 학습 → 평가 → 배포)
+      ▸ Kubeflow, Airflow, SageMaker Pipelines 비교
+      ▸ 피처 스토어 (Feast, Tecton) — 학습/서빙 피처 일관성 보장
+      ▸ 데이터/모델 드리프트 탐지, 재학습 트리거 설계
+      ▸ 실험 추적 (MLflow, W&B), 메트릭 기반 자동 승인
+
+ 4편  GPU 인프라와 최적화 — 추론 성능 끌어올리기
+      ▸ GPU 인스턴스 선택 (NVIDIA T4, A10G, A100, H100), CPU vs GPU 추론 기준
+      ▸ 모델 최적화 (양자화, 프루닝, 디스틸레이션, TensorRT)
+      ▸ 동적 배칭, 추론 서버 큐 설계, 오토스케일링 (GPU 메트릭 기반)
+      ▸ 멀티 GPU 서빙, 모델 병렬 추론
+      ▸ K8s GPU 스케줄링 (NVIDIA Device Plugin, 타임슬라이싱)
+      ※ K8s 리소스 관리는 [11] 6편, AWS GPU 인스턴스는 [12] 2편 참고
+
+ 5편  LLM 서빙 인프라 — 대규모 언어 모델 운영
+      ▸ LLM 추론 특성 (autoregressive, KV 캐시, 메모리 요구량)
+      ▸ 서빙 프레임워크 (vLLM, TGI, Ollama), PagedAttention 원리
+      ▸ 프롬프트 캐싱, 스트리밍 응답 (SSE), 토큰 레벨 스트리밍 구현
+      ▸ LoRA/QLoRA 파인튜닝 인프라, 어댑터 핫스왑
+      ▸ 비용 관리: 토큰당 비용 산정, 배치 최적화, Spot GPU 활용
+
+ 6편  AI Gateway와 통합 패턴 — AI를 서비스에 녹이는 법
+      ▸ AI Gateway 역할 (라우팅, Rate Limiting, 폴백, 비용 추적)
+      ▸ LLM API 프록시 설계 (OpenAI, Anthropic, 자체 모델 통합)
+      ▸ Retrieval-Augmented Generation (RAG) 아키텍처
+      ▸ 벡터 DB 프로덕션 운영 (인덱스 전략, 임베딩 파이프라인, 업데이트 주기)
+      ▸ 가드레일 (입력 검증, 출력 필터링, 할루시네이션 탐지)
+      ※ 벡터 DB 개요는 [3] 7편 참고
+
+ 7편  AI 서비스 관측과 품질 — 모델 운영의 현실
+      ▸ 추론 메트릭 (레이턴시, 처리량, 토큰/초, GPU 사용률)
+      ▸ 모델 품질 모니터링 (정확도 추적, 피드백 루프)
+      ▸ A/B 테스트 통계적 유의성 판단, 온라인 평가
+      ▸ 비용 대시보드, 모델별/팀별 사용량 할당
+      ▸ AI 서비스 장애 패턴 (OOM, 큐 누적, GPU 고장 대응)
+      ※ 관측 가능성 원리는 [7], 부하 분석은 [8] 참고
+
+ 📚 더 읽을거리: 「Designing Machine Learning Systems」, 「Reliable Machine Learning」, 「Building LLM Apps」
+
+
+[14 ] Frontend 통합
+---------------------------------------
+ 1편  렌더링 전략 — SSR, CSR, SSG를 서버 관점에서 이해하기
+      ▸ CSR/SSR/SSG/ISR 각 방식의 서버 부담과 인프라 요구사항
+      ▸ Next.js/Nuxt.js 서버 사이드 동작 원리, Node.js 서버 운영
+      ▸ SSR 서버 부하 관리 (캐싱, 스트리밍 SSR, 스케일링)
+      ▸ 정적 사이트 배포 전략 (S3 + CloudFront, Vercel, Netlify)
+      ※ CDN 원리는 [8] 3편, AWS 서비스는 [12] 참고
+
+ 2편  BFF 패턴 실전 — 프론트엔드를 위한 백엔드 계층
+      ▸ BFF가 필요한 상황 (모바일/웹/서드파티 API 분화)
+      ▸ BFF 구현 방식 (독립 서비스, API Gateway 확장, GraphQL as BFF)
+      ▸ 데이터 집계와 변환, 오버페칭/언더페칭 해결
+      ▸ BFF 테스트 전략, BFF 장애가 프론트엔드에 미치는 영향
+      ※ API Gateway/BFF 개념은 [9] 6편 참고
+
+ 3편  API 설계 — 프론트엔드가 쓰기 좋은 API의 조건
+      ▸ 프론트엔드 친화 페이지네이션 (커서 기반, 무한 스크롤 대응)
+      ▸ 에러 응답 표준화 (프론트 렌더링을 고려한 에러 구조)
+      ▸ GraphQL 실전 — 스키마 설계, N+1 문제 (DataLoader), 구독(Subscription)
+      ▸ API 버저닝과 하위 호환성, 프론트엔드 배포와의 타이밍 문제
+      ※ REST API 설계 원리는 [2] 4~5편 참고
+
+ 4편  실시간 통신 통합 — WebSocket과 SSE를 프론트엔드와 연결하기
+      ▸ WebSocket 인증 흐름 (토큰 전달, 연결 시 검증)
+      ▸ 재연결 전략, 오프라인 큐, 메시지 순서 보장
+      ▸ SSE 실전 활용 (알림, 실시간 피드, LLM 스트리밍 응답)
+      ▸ Socket.IO vs 네이티브 WebSocket, 수평 확장 시 세션 공유
+      ※ 실시간 통신 원리는 [5] 7편 참고
+
+ 5편  인증 플로우 통합 — OAuth 리다이렉트부터 토큰 관리까지
+      ▸ OAuth Authorization Code + PKCE 프론트엔드 구현 흐름
+      ▸ 토큰 저장 위치 (httpOnly 쿠키 vs 메모리 vs localStorage 비교)
+      ▸ Silent Refresh, Refresh Token Rotation, BFF 토큰 프록시 패턴
+      ▸ CSRF/XSS 방어와 토큰 관리의 관계
+      ※ 인증 원리는 [4] 1~2편, 웹 보안은 [4] 4편 참고
+
+ 6편  CORS 실전과 보안 헤더 — 브라우저와 서버의 협상
+      ▸ CORS Preflight 동작 원리, Simple Request vs Preflighted Request
+      ▸ CORS 설정 실전 (허용 Origin 관리, 와일드카드의 위험, credentials)
+      ▸ 보안 헤더 종합 (CSP, X-Frame-Options, Referrer-Policy, Permissions-Policy)
+      ▸ 로컬 개발 CORS 우회 방법, 프록시 설정
+      ※ CORS 보안 이론은 [4] 4편 참고
+
+ 7편  모노레포와 배포 파이프라인 — 프론트와 백엔드를 함께 관리하기
+      ▸ 모노레포 도구 (Turborepo, Nx), 패키지 경계 설계
+      ▸ 공유 코드 (API 타입 정의, 유효성 검증 스키마) 관리
+      ▸ 프론트/백 독립 배포 파이프라인, 빌드 트리거 최적화
+      ▸ 환경별 API 엔드포인트 주입, 프론트엔드 환경 변수 관리
+      ※ CI/CD 파이프라인 설계는 [6] 5편 참고
+
+ 📚 더 읽을거리: 「Frontend Architecture for Design Systems」, 「Learning Patterns(patterns.dev)」, 「GraphQL in Action」
