@@ -1,0 +1,8 @@
+/* 본문 너비 확장 */
+.main {
+    max-width: 900px;
+}
+
+.post-content {
+    max-width: 100%;
+}

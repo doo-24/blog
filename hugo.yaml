@@ -2,6 +2,7 @@ baseURL: "https://doo-24.github.io/blog/"
 languageCode: "ko"
 title: "개발 노트"
 theme: "PaperMod"
+disablePathToLower: true
 
 # 한 페이지에 보여줄 글 수
 paginate: 10
