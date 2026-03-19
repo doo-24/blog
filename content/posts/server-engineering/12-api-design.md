@@ -34,7 +34,9 @@ REST의 6가지 제약:
 6. Code on Demand (선택): 서버가 클라이언트에 코드를 전송할 수 있음
 ```
 
-실무에서 "RESTful API"라 부르는 것은 대부분 REST의 일부만 따른다. 그래도 핵심 원칙을 이해하면 더 나은 설계를 할 수 있다.
+실무에서 "RESTful API"라 부르는 것은 대부분 REST의 일부만 따른다.
+
+그래도 핵심 원칙을 이해하면 더 나은 설계를 할 수 있다.
 
 ### Richardson Maturity Model
 

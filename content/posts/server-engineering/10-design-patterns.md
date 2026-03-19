@@ -12,7 +12,9 @@ summary: "Factory, Builder, Singleton, Strategy, Observer, Decorator 등 서버 
 
 ## 들어가며
 
-디자인 패턴은 GoF(Gang of Four)의 23개 패턴으로 유명하지만, 실무에서 자주 쓰이는 패턴은 그중 절반도 되지 않는다. 나머지는 특수한 상황에서만 의미 있거나, 언어/프레임워크가 이미 해결해준다.
+디자인 패턴은 GoF(Gang of Four)의 23개 패턴으로 유명하지만, 실무에서 자주 쓰이는 패턴은 그중 절반도 되지 않는다.
+
+나머지는 특수한 상황에서만 의미 있거나, 언어/프레임워크가 이미 해결해준다.
 
 이번 편에서는 서버 개발에서 **실제로 자주 만나는 패턴**에 집중한다. 각 패턴이 어떤 문제를 해결하는지, 프레임워크 안에서 어떻게 녹아 있는지, 그리고 언제 직접 적용해야 하는지를 다룬다.
 
@@ -149,7 +151,9 @@ public class QueryFilter {
 }
 ```
 
-실무에서는 **Lombok의 `@Builder`**를 쓰는 경우가 많다. 하지만 유효성 검증이 복잡한 경우에는 직접 구현하는 것이 낫다.
+실무에서는 **Lombok의 `@Builder`**를 쓰는 경우가 많다.
+
+하지만 유효성 검증이 복잡한 경우에는 직접 구현하는 것이 낫다.
 
 ### Singleton — 전역 인스턴스 (주의 필요)
 
@@ -413,7 +417,9 @@ public class PricingService {
 }
 ```
 
-사실 Strategy와 OCP에서 다룬 PaymentHandler는 같은 패턴이다. Strategy는 GoF 패턴 중 실무에서 가장 많이 쓰인다.
+사실 Strategy와 OCP에서 다룬 PaymentHandler는 같은 패턴이다.
+
+Strategy는 GoF 패턴 중 실무에서 가장 많이 쓰인다.
 
 **함수형 스타일로 간소화:**
 
@@ -476,7 +482,9 @@ public class ExcelExporter extends DataExporter {
 }
 ```
 
-**주의**: Template Method는 상속 기반이라 결합도가 높다. 가능하면 Strategy (조합) 방식을 먼저 고려하고, 흐름 제어가 복잡할 때만 Template Method를 사용한다.
+**주의**: Template Method는 상속 기반이라 결합도가 높다.
+
+가능하면 Strategy (조합) 방식을 먼저 고려하고, 흐름 제어가 복잡할 때만 Template Method를 사용한다.
 
 ### Observer — 이벤트 기반 통신
 
@@ -630,7 +638,9 @@ String content = Files.readString(Path.of("config.json"));
 
 ## 마치며
 
-디자인 패턴은 **어휘**다. 문제를 설명하고 해법을 소통하는 공통 언어다. 하지만 패턴 자체가 목적이 되면 안 된다.
+디자인 패턴은 **어휘**다. 문제를 설명하고 해법을 소통하는 공통 언어다.
+
+하지만 패턴 자체가 목적이 되면 안 된다.
 
 - **생성 패턴**: Factory는 조건별 생성 분리에, Builder는 복잡한 객체 구성에 사용한다. Singleton은 DI 컨테이너에 맡겨라
 - **구조 패턴**: Adapter는 외부 연동의 필수 도구이고, Decorator는 기능의 유연한 합성을 가능하게 한다

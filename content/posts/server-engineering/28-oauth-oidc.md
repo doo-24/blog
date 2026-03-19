@@ -10,7 +10,13 @@ series_index: 4
 summary: "OAuth 2.0 역할(Resource Owner, Client, Authorization Server), 인가 코드 플로우 단계별 분해, PKCE, Client Credentials·Device Flow 등 그란트 타입별 용도, OpenID Connect와 소셜 로그인 구현까지"
 ---
 
-"구글 계정으로 로그인"을 클릭할 때 내부에서 무슨 일이 벌어지는지 설명할 수 있는가? 단순히 "OAuth 쓰면 돼"라고 답한다면, 운영 중인 시스템이 언제 터질지 모르는 지뢰 위에 서 있는 것이나 다름없다. Authorization Code Flow와 Implicit Flow의 차이, PKCE가 왜 존재하는지, ID Token이 Access Token과 어떻게 다른지 — 이 질문들에 자신 있게 답하지 못한다면, 오늘 이 글을 끝까지 읽어야 한다. OAuth 2.0과 OpenID Connect는 현대 인증 아키텍처의 근간이며, 잘못 이해하면 사용자 계정 탈취부터 CSRF 취약점까지 심각한 보안 사고로 이어진다.
+"구글 계정으로 로그인"을 클릭할 때 내부에서 무슨 일이 벌어지는지 설명할 수 있는가?
+
+단순히 "OAuth 쓰면 돼"라고 답한다면, 운영 중인 시스템이 언제 터질지 모르는 지뢰 위에 서 있는 것이나 다름없다.
+
+Authorization Code Flow와 Implicit Flow의 차이, PKCE가 왜 존재하는지, ID Token이 Access Token과 어떻게 다른지 — 이 질문들에 자신 있게 답하지 못한다면, 오늘 이 글을 끝까지 읽어야 한다.
+
+OAuth 2.0과 OpenID Connect는 현대 인증 아키텍처의 근간이며, 잘못 이해하면 사용자 계정 탈취부터 CSRF 취약점까지 심각한 보안 사고로 이어진다.
 
 ---
 
@@ -945,7 +951,11 @@ spring:
 └── No → Access Token만 사용 (OAuth 2.0)
 ```
 
-OAuth 2.0과 OIDC는 겉보기엔 복잡해 보이지만, 각 컴포넌트의 역할과 책임이 명확하게 분리되어 있다. Resource Owner는 권한을 위임하고, Authorization Server는 그 위임을 증명하는 토큰을 발급하며, Resource Server는 토큰을 검증하고 자원을 제공한다. 이 흐름을 완전히 이해하면, 어떤 소셜 로그인 제공자든, 어떤 OAuth 기반 API든 일관된 방식으로 통합할 수 있다.
+OAuth 2.0과 OIDC는 겉보기엔 복잡해 보이지만, 각 컴포넌트의 역할과 책임이 명확하게 분리되어 있다.
+
+Resource Owner는 권한을 위임하고, Authorization Server는 그 위임을 증명하는 토큰을 발급하며, Resource Server는 토큰을 검증하고 자원을 제공한다.
+
+이 흐름을 완전히 이해하면, 어떤 소셜 로그인 제공자든, 어떤 OAuth 기반 API든 일관된 방식으로 통합할 수 있다.
 
 ---
 
