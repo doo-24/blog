@@ -4,6 +4,9 @@ date: 2026-03-18T03:00:00+09:00
 draft: false
 tags: ["TCP", "네트워크", "HTTP/2", "QUIC", "서버"]
 series: ["OS와 네트워크"]
+series_group: "서버 엔지니어링"
+series_group_order: 1
+series_index: 1
 summary: "혼잡 제어(CUBIC, BBR), 흐름 제어, 슬라이딩 윈도우의 원리부터 Nagle 알고리즘, TCP 버퍼 튜닝, HTTP/2 멀티플렉싱, HTTP/3(QUIC)까지 — TCP의 깊은 곳을 탐구한다."
 ---
 

@@ -4,6 +4,9 @@ date: 2026-03-17T23:03:00+09:00
 draft: false
 tags: ["Elasticsearch", "시계열 DB", "벡터 DB", "검색", "데이터베이스", "서버"]
 series: ["데이터베이스"]
+series_group: "서버 엔지니어링"
+series_group_order: 1
+series_index: 3
 summary: "Elasticsearch 아키텍처와 역인덱스 원리, 검색 쿼리 설계(형태소 분석, 스코어링, 자동완성), 시계열 DB(InfluxDB, TimescaleDB), 벡터 DB(Pinecone, pgvector), 용도별 DB 선택 기준까지"
 ---
 

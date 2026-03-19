@@ -4,6 +4,9 @@ date: 2026-03-17T23:05:00+09:00
 draft: false
 tags: ["동시성", "정합성", "멱등성", "Saga", "데이터베이스", "서버"]
 series: ["데이터베이스"]
+series_group: "서버 엔지니어링"
+series_group_order: 1
+series_index: 3
 summary: "재고 차감 동시성 문제와 해결 패턴, 중복 결제 방지와 멱등성 키 설계, 분산 환경 정합성(2PC vs Saga), 이벤트 기반 정합성, 유니크 제약 vs 애플리케이션 레벨 중복 체크까지"
 ---
 

@@ -4,6 +4,9 @@ date: 2026-03-17T22:05:00+09:00
 draft: false
 tags: ["인가", "RBAC", "ABAC", "Spring Security", "보안", "서버"]
 series: ["인증과 보안"]
+series_group: "서버 엔지니어링"
+series_group_order: 1
+series_index: 4
 summary: "인증 vs 인가 명확히 구분, RBAC 설계와 역할 계층, ABAC 개념, 리소스 소유권 검증과 수평적 권한 상승 방지, Spring Security 필터 체인과 커스텀 인가 로직까지"
 ---
 

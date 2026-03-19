@@ -4,6 +4,9 @@ date: 2026-03-18T01:00:00+09:00
 draft: false
 tags: ["TLS", "HTTPS", "암호화", "인증서", "보안", "서버"]
 series: ["OS와 네트워크"]
+series_group: "서버 엔지니어링"
+series_group_order: 1
+series_index: 1
 summary: "대칭/비대칭 암호화의 원리, TLS 1.2와 1.3 핸드셰이크 단계별 분해, 인증서 체인, CA, mTLS, HSTS, Certificate Pinning, 그리고 Let's Encrypt 자동화까지."
 ---
 

@@ -4,6 +4,9 @@ date: 2026-03-17T21:03:00+09:00
 draft: false
 tags: ["분산 락", "Redis", "Redlock", "Redisson", "동시성", "서버"]
 series: ["비동기 처리와 이벤트 드리븐"]
+series_group: "서버 엔지니어링"
+series_group_order: 1
+series_index: 5
 summary: "분산 락이 필요한 상황(스케줄러, 선착순, 재고), Redis 기반 분산 락(SETNX, Redlock 알고리즘과 한계), 분산 락 vs DB 낙관적 락 선택 기준, Redisson 실전 적용 패턴까지"
 ---
 

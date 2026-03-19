@@ -4,6 +4,9 @@ date: 2026-03-18T00:08:00+09:00
 draft: false
 tags: ["디자인패턴", "객체지향", "설계", "서버", "아키텍처"]
 series: ["서버 애플리케이션 설계"]
+series_group: "서버 엔지니어링"
+series_group_order: 1
+series_index: 2
 summary: "Factory, Builder, Singleton, Strategy, Observer, Decorator 등 서버 코드에서 실제로 마주치는 패턴들을 실전 사례 중심으로 다루고, 패턴 남용의 위험까지 짚는다."
 ---
 

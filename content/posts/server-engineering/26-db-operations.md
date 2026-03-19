@@ -4,6 +4,9 @@ date: 2026-03-17T23:01:00+09:00
 draft: false
 tags: ["DB 운영", "백업", "리플리케이션", "커넥션 풀", "마이그레이션", "데이터베이스", "서버"]
 series: ["데이터베이스"]
+series_group: "서버 엔지니어링"
+series_group_order: 1
+series_index: 3
 summary: "백업 전략(논리/물리, 풀/증분)과 복구 시나리오, 리플리케이션 원리(binlog)와 복제 지연 대응, HikariCP 커넥션 풀 설정, 무중단 스키마 마이그레이션(gh-ost), 모니터링 지표까지"
 ---
 

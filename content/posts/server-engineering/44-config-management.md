@@ -3,7 +3,10 @@ title: "[배포와 CI/CD] 4편 — 설정 관리와 환경 분리: 코드와 설
 date: 2026-03-17T20:04:00+09:00
 draft: false
 tags: ["설정 관리", "12-Factor", "Vault", "Feature Flag", "서버"]
-series: ["배포와 CI/CD"]
+series: ["배포와 CICD"]
+series_group: "서버 엔지니어링"
+series_group_order: 1
+series_index: 6
 summary: "12-Factor App 설정 원칙, 환경변수 vs 설정 파일, 환경 분리(dev/staging/prod)와 설정 검증, 시크릿 관리(Vault, AWS Secrets Manager), Feature Flag와 동적 설정 변경까지"
 ---
 

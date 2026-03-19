@@ -4,6 +4,9 @@ date: 2026-03-18T09:00:00+09:00
 draft: false
 tags: ["로드맵", "서버 엔지니어링", "학습 가이드"]
 series: ["서버 엔지니어링 로드맵"]
+series_group: "서버 엔지니어링"
+series_group_order: 1
+series_index: 0
 summary: "14개 카테고리, 75편 이상의 글로 구성된 서버 엔지니어링 완전 학습 가이드. 카테고리별 독립 구성이라 관심 분야부터 시작할 수 있다."
 weight: 1
 ---

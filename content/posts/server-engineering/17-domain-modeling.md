@@ -4,6 +4,9 @@ date: 2026-03-18T00:01:00+09:00
 draft: false
 tags: ["DDD", "도메인 모델링", "Value Object", "Entity", "Aggregate", "서버"]
 series: ["서버 애플리케이션 설계"]
+series_group: "서버 엔지니어링"
+series_group_order: 1
+series_index: 2
 summary: "도메인 모델 vs 데이터 모델, 풍부한 도메인 모델, Value Object·Entity·Aggregate 개념, DDD 전술 패턴 핵심, 유비쿼터스 언어, 도메인 이벤트, Application Service vs Domain Service까지"
 ---
 

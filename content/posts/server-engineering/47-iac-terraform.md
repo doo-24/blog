@@ -3,7 +3,10 @@ title: "[배포와 CI/CD] 7편 — 환경 관리와 IaC: 인프라를 코드로"
 date: 2026-03-17T20:01:00+09:00
 draft: false
 tags: ["IaC", "Terraform", "불변 인프라", "프로비저닝", "서버"]
-series: ["배포와 CI/CD"]
+series: ["배포와 CICD"]
+series_group: "서버 엔지니어링"
+series_group_order: 1
+series_index: 6
 summary: "불변 인프라 원칙과 환경 간 드리프트 방지, Terraform 기초·상태 관리·모듈화, 환경변수 vs Secret 관리와 프로비저닝 자동화까지"
 ---
 

@@ -3,7 +3,10 @@ title: "[배포와 CI/CD] 1편 — Git 브랜치 전략: 팀이 코드를 합치
 date: 2026-03-17T20:07:00+09:00
 draft: false
 tags: ["Git", "브랜치 전략", "Git Flow", "Trunk-Based", "서버"]
-series: ["배포와 CI/CD"]
+series: ["배포와 CICD"]
+series_group: "서버 엔지니어링"
+series_group_order: 1
+series_index: 6
 summary: "Git Flow, GitHub Flow, Trunk-Based Development 비교, 브랜치 전략 선택 기준(팀 규모, 릴리즈 주기), PR/MR 리뷰 프로세스와 머지 전략(merge, squash, rebase), 모노레포 vs 멀티레포 트레이드오프까지"
 ---
 

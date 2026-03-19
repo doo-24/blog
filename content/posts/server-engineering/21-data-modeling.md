@@ -4,6 +4,9 @@ date: 2026-03-17T23:06:00+09:00
 draft: false
 tags: ["데이터 모델링", "정규화", "ERD", "테이블 설계", "데이터베이스", "서버"]
 series: ["데이터베이스"]
+series_group: "서버 엔지니어링"
+series_group_order: 1
+series_index: 3
 summary: "정규화(1NF~BCNF) 각 단계 실전 예시, 반정규화 판단 기준, 1:N/M:N 관계 구현, 소프트 딜리트 트레이드오프, JSON 컬럼 활용과 한계, EAV 패턴의 함정까지"
 ---
 

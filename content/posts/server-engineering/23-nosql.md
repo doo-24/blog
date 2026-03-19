@@ -4,6 +4,9 @@ date: 2026-03-17T23:04:00+09:00
 draft: false
 tags: ["NoSQL", "MongoDB", "Redis", "CAP", "데이터베이스", "서버"]
 series: ["데이터베이스"]
+series_group: "서버 엔지니어링"
+series_group_order: 1
+series_index: 3
 summary: "NoSQL 유형별 특성(Document, Key-Value, Column, Graph), MongoDB 데이터 모델링(임베딩 vs 참조), Redis 자료구조별 활용 패턴, CAP 정리 실전 해석, RDBMS+NoSQL 혼합 설계까지"
 ---
 

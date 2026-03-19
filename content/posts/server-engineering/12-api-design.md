@@ -4,6 +4,9 @@ date: 2026-03-18T00:06:00+09:00
 draft: false
 tags: ["API", "REST", "gRPC", "설계", "서버"]
 series: ["서버 애플리케이션 설계"]
+series_group: "서버 엔지니어링"
+series_group_order: 1
+series_index: 2
 summary: "REST 원칙과 Richardson Maturity Model, HTTP 메서드 의미론, 상태 코드, 버저닝, 페이지네이션, OpenAPI, gRPC 비교까지 — 실전 API 설계의 모든 것."
 ---
 

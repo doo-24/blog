@@ -4,6 +4,9 @@ date: 2026-03-17T23:08:00+09:00
 draft: false
 tags: ["트랜잭션", "ACID", "MVCC", "락", "데이터베이스", "서버"]
 series: ["데이터베이스"]
+series_group: "서버 엔지니어링"
+series_group_order: 1
+series_index: 3
 summary: "ACID 각 속성의 실제 의미, MVCC 동작 원리(InnoDB undo log), 격리 수준별 현상, 레코드 락·갭 락·넥스트 키 락, 데드락 탐지와 해소, 낙관적 락과 비관적 락까지"
 ---
 

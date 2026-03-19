@@ -4,6 +4,9 @@ date: 2026-03-17T23:02:00+09:00
 draft: false
 tags: ["DB 스케일링", "샤딩", "레플리카", "분산 DB", "데이터베이스", "서버"]
 series: ["데이터베이스"]
+series_group: "서버 엔지니어링"
+series_group_order: 1
+series_index: 3
 summary: "Read Replica 설계와 복제 지연, 수평 샤딩 전략(범위, 해시, 디렉토리)과 리샤딩 문제, Vitess·CockroachDB 개요, 글로벌 데이터베이스 설계와 지역성 고려까지"
 ---
 

@@ -4,6 +4,9 @@ date: 2026-03-18T04:00:00+09:00
 draft: false
 tags: ["네트워크", "TCP", "HTTP", "소켓", "서버"]
 series: ["OS와 네트워크"]
+series_group: "서버 엔지니어링"
+series_group_order: 1
+series_index: 1
 summary: "TCP 3-way handshake부터 소켓 생명주기, HTTP/1.1 요청 흐름, TIME_WAIT, 그리고 tcpdump까지 — 서버가 네트워크 요청을 처리하는 전체 과정을 깊이 파헤친다."
 ---
 

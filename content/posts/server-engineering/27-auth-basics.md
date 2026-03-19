@@ -4,6 +4,9 @@ date: 2026-03-17T22:07:00+09:00
 draft: false
 tags: ["인증", "세션", "JWT", "토큰", "보안", "서버"]
 series: ["인증과 보안"]
+series_group: "서버 엔지니어링"
+series_group_order: 1
+series_index: 4
 summary: "세션 기반 인증 동작 원리와 분산 환경 한계, JWT 구조(Header.Payload.Signature)와 서명 검증, Access Token/Refresh Token 전략, 토큰 탈취 대응, 세션 vs JWT 실전 선택 기준까지"
 ---
 

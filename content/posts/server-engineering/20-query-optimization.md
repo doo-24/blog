@@ -4,6 +4,9 @@ date: 2026-03-17T23:07:00+09:00
 draft: false
 tags: ["쿼리 최적화", "EXPLAIN", "실행 계획", "JOIN", "데이터베이스", "서버"]
 series: ["데이터베이스"]
+series_group: "서버 엔지니어링"
+series_group_order: 1
+series_index: 3
 summary: "실행 계획 완전 분석(type, key, rows, Extra), 풀스캔 방지 전략, JOIN 전략(Nested Loop, Hash Join, Sort Merge), 서브쿼리 vs JOIN 성능 비교, 슬로우 쿼리 로그와 pt-query-digest 활용까지"
 ---
 

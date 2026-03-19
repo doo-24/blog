@@ -4,6 +4,9 @@ date: 2026-03-18T06:00:00+09:00
 draft: false
 tags: ["리눅스", "메모리", "가상메모리", "OOM", "서버"]
 series: ["OS와 네트워크"]
+series_group: "서버 엔지니어링"
+series_group_order: 1
+series_index: 1
 summary: "가상 메모리와 페이징, 스왑의 실체, mmap, 스택과 힙의 차이, 메모리 단편화, OOM Killer, /proc/meminfo 완전 분석, 버퍼와 캐시, 메모리 릭 탐지까지"
 ---
 

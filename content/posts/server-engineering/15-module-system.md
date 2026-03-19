@@ -4,6 +4,9 @@ date: 2026-03-18T00:03:00+09:00
 draft: false
 tags: ["패키지 구조", "모듈", "멀티모듈", "아키텍처", "서버"]
 series: ["서버 애플리케이션 설계"]
+series_group: "서버 엔지니어링"
+series_group_order: 1
+series_index: 2
 summary: "패키지 구조 전략(계층별 vs 도메인별 vs 기능별), 모듈 경계 정의, 공개 API와 내부 구현 분리, Gradle 멀티모듈 프로젝트 설계, 모놀리스에서 MSA 전환 준비까지"
 ---
 

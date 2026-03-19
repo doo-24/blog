@@ -4,6 +4,9 @@ date: 2026-03-18T08:00:00+09:00
 draft: false
 tags: ["리눅스", "프로세스", "OS", "서버"]
 series: ["OS와 네트워크"]
+series_group: "서버 엔지니어링"
+series_group_order: 1
+series_index: 1
 summary: "커널과 유저 공간의 경계, 프로세스와 스레드의 본질적 차이, fork/exec 메커니즘, 시그널, 좀비 프로세스, /proc 파일시스템, strace/lsof 실전 활용까지"
 ---
 

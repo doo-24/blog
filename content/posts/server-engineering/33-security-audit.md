@@ -4,6 +4,9 @@ date: 2026-03-17T22:01:00+09:00
 draft: false
 tags: ["OWASP", "취약점 스캔", "Threat Modeling", "보안 감사", "보안", "서버"]
 series: ["인증과 보안"]
+series_group: "서버 엔지니어링"
+series_group_order: 1
+series_index: 4
 summary: "OWASP Top 10 항목별 실전 점검, 의존성 취약점 스캔(Snyk, Dependabot), 침투 테스트와 Threat Modeling(STRIDE), 보안 로그 설계와 이상 탐지, 사고 대응 플로우까지"
 ---
 

@@ -4,6 +4,9 @@ date: 2026-03-18T02:00:00+09:00
 draft: false
 tags: ["Nginx", "Apache", "리버스프록시", "로드밸런싱", "서버"]
 series: ["OS와 네트워크"]
+series_group: "서버 엔지니어링"
+series_group_order: 1
+series_index: 1
 summary: "Nginx와 Apache의 아키텍처 차이, 이벤트 기반 처리의 원리, 정적 파일 서빙, 압축, 캐시 헤더, 로드밸런싱 알고리즘, SSL 종단, upstream 헬스체크까지 — 리버스 프록시의 모든 것."
 ---
 

@@ -4,6 +4,9 @@ date: 2026-03-17T22:06:00+09:00
 draft: false
 tags: ["OAuth", "OIDC", "소셜 로그인", "PKCE", "보안", "서버"]
 series: ["인증과 보안"]
+series_group: "서버 엔지니어링"
+series_group_order: 1
+series_index: 4
 summary: "OAuth 2.0 역할(Resource Owner, Client, Authorization Server), 인가 코드 플로우 단계별 분해, PKCE, Client Credentials·Device Flow 등 그란트 타입별 용도, OpenID Connect와 소셜 로그인 구현까지"
 ---
 

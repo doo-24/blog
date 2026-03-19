@@ -4,6 +4,9 @@ date: 2026-03-17T21:02:00+09:00
 draft: false
 tags: ["이벤트 소싱", "CQRS", "이벤트 스토어", "도메인 이벤트", "서버"]
 series: ["비동기 처리와 이벤트 드리븐"]
+series_group: "서버 엔지니어링"
+series_group_order: 1
+series_index: 5
 summary: "이벤트 소싱 원리와 이벤트 스토어 설계, 이벤트 재생(Replay)과 스냅샷 전략, CQRS 개념과 읽기/쓰기 모델 분리, CQRS + 이벤트 소싱 조합과 도입 트레이드오프까지"
 ---
 

@@ -4,6 +4,9 @@ date: 2026-03-17T22:03:00+09:00
 draft: false
 tags: ["Rate Limiting", "DDoS", "토큰 버킷", "WAF", "보안", "서버"]
 series: ["인증과 보안"]
+series_group: "서버 엔지니어링"
+series_group_order: 1
+series_index: 4
 summary: "Rate Limiting 알고리즘(토큰 버킷, 리키 버킷, 슬라이딩 윈도우), 분산 Rate Limiting(Redis), API Gateway 스로틀링, DDoS 유형과 CloudFlare/AWS Shield 방어까지"
 ---
 

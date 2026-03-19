@@ -4,6 +4,9 @@ date: 2026-03-18T07:00:00+09:00
 draft: false
 tags: ["리눅스", "CPU", "스케줄링", "cgroup", "NUMA"]
 series: ["OS와 네트워크"]
+series_group: "서버 엔지니어링"
+series_group_order: 1
+series_index: 1
 summary: "CFS 스케줄러의 동작 원리, 우선순위 역전 문제, 시스템 콜 오버헤드 측정, 컨텍스트 스위칭 비용, NUMA 아키텍처, CPU 친화성, cgroup 리소스 제한까지"
 ---
 

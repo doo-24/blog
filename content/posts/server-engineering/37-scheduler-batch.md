@@ -4,6 +4,9 @@ date: 2026-03-17T21:04:00+09:00
 draft: false
 tags: ["Spring Batch", "Quartz", "스케줄러", "배치", "비동기", "서버"]
 series: ["비동기 처리와 이벤트 드리븐"]
+series_group: "서버 엔지니어링"
+series_group_order: 1
+series_index: 5
 summary: "Cron vs 분산 스케줄러와 단일 실행 보장, Spring Batch 아키텍처(Job, Step, Chunk, Tasklet), Quartz Scheduler 클러스터 모드와 미스파이어 전략, 대용량 배치 성능 최적화까지"
 ---
 

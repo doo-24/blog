@@ -3,7 +3,10 @@ title: "[배포와 CI/CD] 6편 — 배포 전략: 무중단 배포의 기술"
 date: 2026-03-17T20:02:00+09:00
 draft: false
 tags: ["블루-그린", "카나리", "롤링 배포", "Feature Flag", "서버"]
-series: ["배포와 CI/CD"]
+series: ["배포와 CICD"]
+series_group: "서버 엔지니어링"
+series_group_order: 1
+series_index: 6
 summary: "블루-그린 배포 원리와 롤백, 카나리 배포와 가중치 라우팅·자동 롤백, 롤링 배포의 maxUnavailable/maxSurge 설정, Feature Flag 기반 점진적 릴리즈까지"
 ---
 

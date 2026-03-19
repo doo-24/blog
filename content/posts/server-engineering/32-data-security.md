@@ -4,6 +4,9 @@ date: 2026-03-17T22:02:00+09:00
 draft: false
 tags: ["암호화", "bcrypt", "AES", "KMS", "PII", "보안", "서버"]
 series: ["인증과 보안"]
+series_group: "서버 엔지니어링"
+series_group_order: 1
+series_index: 4
 summary: "비밀번호 해싱(bcrypt/Argon2)과 레인보우 테이블 방어, 데이터 암호화 at rest(AES-256)·at transit(TLS), 필드 레벨 암호화와 KMS 키 관리, PII 처리 원칙과 마스킹/토크나이제이션까지"
 ---
 

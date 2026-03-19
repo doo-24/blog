@@ -4,6 +4,9 @@ date: 2026-03-17T21:06:00+09:00
 draft: false
 tags: ["Kafka", "이벤트 스트리밍", "파티션", "Consumer Group", "서버"]
 series: ["비동기 처리와 이벤트 드리븐"]
+series_group: "서버 엔지니어링"
+series_group_order: 1
+series_index: 5
 summary: "Kafka 아키텍처(Broker, Topic, Partition, Consumer Group), 오프셋 관리와 At-Least-Once/Exactly-Once 처리, 파티션 설계 전략과 컨슈머 리밸런싱, Kafka vs RabbitMQ 선택 기준과 스키마 레지스트리까지"
 ---
 

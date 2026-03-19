@@ -4,6 +4,9 @@ date: 2026-03-18T00:07:00+09:00
 draft: false
 tags: ["동시성", "비동기", "epoll", "이벤트루프", "서버", "코루틴"]
 series: ["서버 애플리케이션 설계"]
+series_group: "서버 엔지니어링"
+series_group_order: 1
+series_index: 2
 summary: "Blocking/Non-blocking과 동기/비동기의 정확한 구분, epoll과 이벤트 루프, 리액터 패턴, 스레드풀 설계, 가상 스레드(Project Loom), 코루틴까지."
 ---
 

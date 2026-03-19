@@ -4,6 +4,9 @@ date: 2026-03-18T00:04:00+09:00
 draft: false
 tags: ["아키텍처", "DI", "클린아키텍처", "헥사고날", "서버"]
 series: ["서버 애플리케이션 설계"]
+series_group: "서버 엔지니어링"
+series_group_order: 1
+series_index: 2
 summary: "Controller-Service-Repository 각 책임, DI/IoC 원리, 의존 방향 규칙, 순환 의존 탐지, 클린 아키텍처, 헥사고날 아키텍처(Port & Adapter)까지."
 ---
 

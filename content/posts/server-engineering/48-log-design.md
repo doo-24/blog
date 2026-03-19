@@ -4,6 +4,9 @@ date: 2026-03-17T19:05:00+09:00
 draft: false
 tags: ["로그", "MDC", "구조화 로그", "JSON 로그", "서버"]
 series: ["로그, 모니터링, 관측 가능성"]
+series_group: "서버 엔지니어링"
+series_group_order: 1
+series_index: 7
 summary: "로그 레벨 선택 기준(DEBUG~FATAL)과 남용 패턴, 구조화된 로그(JSON)와 컨텍스트 필드 설계, MDC(Mapped Diagnostic Context)와 요청 ID 전파, 민감 정보 마스킹과 로그 볼륨 관리까지"
 ---
 

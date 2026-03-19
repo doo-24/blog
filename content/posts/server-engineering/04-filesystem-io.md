@@ -4,6 +4,9 @@ date: 2026-03-18T05:00:00+09:00
 draft: false
 tags: ["리눅스", "파일시스템", "I/O", "서버", "디스크"]
 series: ["OS와 네트워크"]
+series_group: "서버 엔지니어링"
+series_group_order: 1
+series_index: 1
 summary: "파일 디스크립터부터 inode, 저널링 파일 시스템, I/O 스케줄러까지 — 서버가 디스크와 대화하는 모든 방법을 깊이 있게 다룬다."
 ---
 

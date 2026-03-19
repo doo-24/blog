@@ -4,6 +4,9 @@ date: 2026-03-17T23:09:00+09:00
 draft: false
 tags: ["인덱스", "B-Tree", "데이터베이스", "MySQL", "서버"]
 series: ["데이터베이스"]
+series_group: "서버 엔지니어링"
+series_group_order: 1
+series_index: 3
 summary: "B-Tree 구조와 탐색/삽입/삭제 원리, 클러스터드/논클러스터드 인덱스, InnoDB 페이지 구조, 복합 인덱스 설계와 선행 컬럼 규칙, 커버링 인덱스, EXPLAIN 읽기까지"
 ---
 

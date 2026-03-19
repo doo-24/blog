@@ -1,0 +1,116 @@
+{{- define "main" }}
+
+{{- if .Title }}
+<header class="page-header">
+    <h1>{{ .Title }}</h1>
+    {{- if .Description }}
+    <div class="post-description">{{ .Description }}</div>
+    {{- end }}
+</header>
+{{- end }}
+
+{{- if eq .Type "series" }}
+
+<style>
+.series-group {
+    margin-bottom: 2.5rem;
+}
+.series-group-title {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--primary);
+    border-bottom: 2px solid var(--primary);
+    padding-bottom: 0.4rem;
+    margin-bottom: 0.8rem;
+}
+.series-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+.series-item a {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.6rem 1rem;
+    border-radius: 8px;
+    text-decoration: none;
+    color: var(--primary);
+    font-weight: 500;
+    transition: background 0.15s ease;
+}
+.series-item a:hover {
+    background: var(--code-bg);
+}
+.series-count {
+    font-size: 0.85rem;
+    color: var(--secondary);
+    white-space: nowrap;
+}
+</style>
+
+{{- $type := .Type }}
+
+{{/* Step 1: Build entries with group info from first page of each series */}}
+{{- $entries := slice }}
+{{- range $key, $value := .Data.Terms.Alphabetical }}
+    {{- $seriesName := .Name }}
+    {{- $count := .Count }}
+    {{- $group := "기타" }}
+    {{- $groupOrder := 99 }}
+    {{- $seriesIdx := 99 }}
+    {{- with site.GetPage (printf "/%s/%s" $type $seriesName) }}
+        {{- with index .Pages 0 }}
+            {{- with .Params.series_group }}{{ $group = . }}{{ end }}
+            {{- with .Params.series_group_order }}{{ $groupOrder = . }}{{ end }}
+            {{- with .Params.series_index }}{{ $seriesIdx = . }}{{ end }}
+        {{- end }}
+        {{- $entries = $entries | append (dict
+            "sortKey" (printf "%02d|%02d" (int $groupOrder) (int $seriesIdx))
+            "group" $group
+            "name" $seriesName
+            "count" $count
+            "permalink" .Permalink
+        ) }}
+    {{- end }}
+{{- end }}
+
+{{/* Step 2: Sort by sortKey (group order, then series index) */}}
+{{- $entries = sort $entries "sortKey" }}
+
+{{/* Step 3: Render with group headers */}}
+{{- $currentGroup := "" }}
+{{- range $entries }}
+    {{- if ne .group $currentGroup }}
+        {{- if ne $currentGroup "" }}</ul></div>{{ end }}
+        {{- $currentGroup = .group }}
+<div class="series-group">
+    <h2 class="series-group-title">{{ .group }}</h2>
+    <ul class="series-list">
+    {{- end }}
+        <li class="series-item">
+            <a href="{{ .permalink }}">
+                <span>{{ .name }}</span>
+                <span class="series-count">{{ .count }}편</span>
+            </a>
+        </li>
+{{- end }}
+{{- if ne $currentGroup "" }}</ul></div>{{ end }}
+
+{{- else }}
+{{/* Default terms layout for non-series taxonomies (tags, etc.) */}}
+<ul class="terms-tags">
+    {{- $type := .Type }}
+    {{- range $key, $value := .Data.Terms.Alphabetical }}
+    {{- $name := .Name }}
+    {{- $count := .Count }}
+    {{- with site.GetPage (printf "/%s/%s" $type $name) }}
+    <li>
+        <a href="{{ .Permalink }}">{{ .Name }} <sup><strong><sup>{{ $count }}</sup></strong></sup> </a>
+    </li>
+    {{- end }}
+    {{- end }}
+</ul>
+{{- end }}
+
+{{- end }}{{/* end main */}}

@@ -4,6 +4,9 @@ date: 2026-03-18T00:02:00+09:00
 draft: false
 tags: ["에러 처리", "예외", "RFC 7807", "재시도", "서버"]
 series: ["서버 애플리케이션 설계"]
+series_group: "서버 엔지니어링"
+series_group_order: 1
+series_index: 2
 summary: "Checked/Unchecked 예외 선택 기준, 글로벌 예외 핸들러와 에러 응답 표준화(RFC 7807), 재시도 정책과 Exponential Backoff, 예외 vs 결과 타입, 방어적 프로그래밍까지"
 ---
 

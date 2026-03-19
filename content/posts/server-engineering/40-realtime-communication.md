@@ -4,6 +4,9 @@ date: 2026-03-17T21:01:00+09:00
 draft: false
 tags: ["WebSocket", "SSE", "실시간", "Long Polling", "Redis Pub/Sub", "서버"]
 series: ["비동기 처리와 이벤트 드리븐"]
+series_group: "서버 엔지니어링"
+series_group_order: 1
+series_index: 5
 summary: "Polling vs Long Polling vs SSE vs WebSocket 비교, WebSocket 프로토콜과 연결 관리·Heartbeat, SSE 구현과 적합한 유스케이스, 실시간 기능 수평 확장(Redis Pub/Sub, Sticky Session)까지"
 ---
 

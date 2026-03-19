@@ -4,6 +4,9 @@ date: 2026-03-17T22:04:00+09:00
 draft: false
 tags: ["SQL Injection", "XSS", "CSRF", "CORS", "보안", "서버"]
 series: ["인증과 보안"]
+series_group: "서버 엔지니어링"
+series_group_order: 1
+series_index: 4
 summary: "SQL Injection 원리와 방어(PreparedStatement, ORM), XSS(Reflected/Stored/DOM)와 CSP, CSRF와 SameSite 쿠키, CORS 동작 원리, SSRF·Path Traversal·Open Redirect까지"
 ---
 

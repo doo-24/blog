@@ -4,6 +4,9 @@ date: 2026-03-17T21:07:00+09:00
 draft: false
 tags: ["메시지 큐", "RabbitMQ", "Pub/Sub", "비동기", "서버"]
 series: ["비동기 처리와 이벤트 드리븐"]
+series_group: "서버 엔지니어링"
+series_group_order: 1
+series_index: 5
 summary: "동기 호출의 한계와 메시지 큐의 해결, Point-to-Point vs Pub/Sub 모델, RabbitMQ 구조(Exchange, Queue, Binding, Routing Key), 메시지 지속성과 소비자 확인(ACK), 메시지 순서 보장까지"
 ---
 

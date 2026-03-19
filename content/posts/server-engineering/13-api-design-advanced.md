@@ -4,6 +4,9 @@ date: 2026-03-18T00:05:00+09:00
 draft: false
 tags: ["API", "멱등성", "GraphQL", "설계", "서버"]
 series: ["서버 애플리케이션 설계"]
+series_group: "서버 엔지니어링"
+series_group_order: 1
+series_index: 2
 summary: "멱등성 설계, PATCH vs PUT, Batch API, Long Polling, 파일 업로드, API 하위 호환성, Deprecation 정책, 그리고 GraphQL과 REST의 트레이드오프."
 ---
 

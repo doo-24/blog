@@ -4,6 +4,9 @@ date: 2026-03-18T00:09:00+09:00
 draft: false
 tags: ["SOLID", "객체지향", "설계", "서버", "아키텍처"]
 series: ["서버 애플리케이션 설계"]
+series_group: "서버 엔지니어링"
+series_group_order: 1
+series_index: 2
 summary: "SRP, OCP, LSP, ISP, DIP 각 원칙의 실전 위반/준수 사례, 원칙 간 충돌에서의 판단 기준, 그리고 SOLID를 과하게 적용하는 함정까지."
 ---
 

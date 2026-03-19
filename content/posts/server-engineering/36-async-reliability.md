@@ -4,6 +4,9 @@ date: 2026-03-17T21:05:00+09:00
 draft: false
 tags: ["DLQ", "Outbox 패턴", "백프레셔", "멱등성", "비동기", "서버"]
 series: ["비동기 처리와 이벤트 드리븐"]
+series_group: "서버 엔지니어링"
+series_group_order: 1
+series_index: 5
 summary: "Dead Letter Queue 설계와 재처리 전략, 백프레셔(Backpressure) 개념과 구현, Transactional Outbox 패턴으로 DB와 메시지 원자성 보장, 멱등 소비자 구현과 중복 메시지 처리까지"
 ---
 
