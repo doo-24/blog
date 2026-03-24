@@ -255,14 +255,14 @@ JVM 튜닝, 캐싱 전략, CDN, 부하 테스트, 병목 분석, Graceful Shutdo
 
 | 편 | 제목 |
 |----|------|
-| 1편 | 클라우드 아키텍처 기초 — 온프레미스와 무엇이 다른가 *(작성 예정)* |
-| 2편 | 네트워크와 컴퓨팅 — VPC 위에 서버 올리기 *(작성 예정)* |
-| 3편 | 컨테이너 서비스 — ECS와 EKS 실전 *(작성 예정)* |
-| 4편 | 서버리스 — Lambda와 이벤트 드리븐 아키텍처 *(작성 예정)* |
-| 5편 | 데이터 서비스 — RDS, DynamoDB, S3 *(작성 예정)* |
-| 6편 | 메시징과 통합 서비스 — SQS, SNS, EventBridge *(작성 예정)* |
-| 7편 | 관측과 비용 — CloudWatch, X-Ray, 비용 최적화 *(작성 예정)* |
-| 8편 | 멀티 계정과 거버넌스 *(작성 예정)* |
+| 1편 | [클라우드 아키텍처 기초 — 온프레미스와 무엇이 다른가](/blog/posts/server-engineering/78-cloud-architecture/) |
+| 2편 | [네트워크와 컴퓨팅 — VPC 위에 서버 올리기](/blog/posts/server-engineering/79-vpc-ec2/) |
+| 3편 | [컨테이너 서비스 — ECS와 EKS 실전](/blog/posts/server-engineering/80-ecs-eks/) |
+| 4편 | [서버리스 — Lambda와 이벤트 드리븐 아키텍처](/blog/posts/server-engineering/81-serverless-lambda/) |
+| 5편 | [데이터 서비스 — RDS, DynamoDB, S3](/blog/posts/server-engineering/82-aws-data-services/) |
+| 6편 | [메시징과 통합 서비스 — SQS, SNS, EventBridge](/blog/posts/server-engineering/83-aws-messaging/) |
+| 7편 | [관측과 비용 — CloudWatch, X-Ray, 비용 최적화](/blog/posts/server-engineering/84-aws-observability-cost/) |
+| 8편 | [멀티 계정과 거버넌스 — 조직 단위의 클라우드 관리](/blog/posts/server-engineering/85-aws-governance/) |
 
 📚 추천 도서: 「AWS Well-Architected Framework」, 「Amazon Web Services in Action」, 「Cloud Native Patterns」
 
