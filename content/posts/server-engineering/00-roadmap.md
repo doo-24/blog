@@ -292,13 +292,13 @@ ML 서빙, 모델 배포, MLOps, GPU 인프라, LLM 서빙, AI Gateway.
 
 | 편 | 제목 |
 |----|------|
-| 1편 | 렌더링 전략 — SSR, CSR, SSG를 서버 관점에서 *(작성 예정)* |
-| 2편 | BFF 패턴 실전 — 프론트엔드를 위한 백엔드 계층 *(작성 예정)* |
-| 3편 | API 설계 — 프론트엔드가 쓰기 좋은 API의 조건 *(작성 예정)* |
-| 4편 | 실시간 통신 통합 — WebSocket과 SSE를 프론트와 연결 *(작성 예정)* |
-| 5편 | 인증 플로우 통합 — OAuth 리다이렉트부터 토큰 관리 *(작성 예정)* |
-| 6편 | CORS 실전과 보안 헤더 — 브라우저와 서버의 협상 *(작성 예정)* |
-| 7편 | 모노레포와 배포 파이프라인 — 프론트와 백엔드를 함께 *(작성 예정)* |
+| 1편 | [렌더링 전략 — SSR, CSR, SSG를 서버 관점에서](/blog/posts/server-engineering/93-rendering-strategies/) |
+| 2편 | [BFF 패턴 실전 — 프론트엔드를 위한 백엔드 계층](/blog/posts/server-engineering/94-bff-pattern/) |
+| 3편 | [API 설계 — 프론트엔드가 쓰기 좋은 API의 조건](/blog/posts/server-engineering/95-api-for-frontend/) |
+| 4편 | [실시간 통신 통합 — WebSocket과 SSE를 프론트와 연결](/blog/posts/server-engineering/96-realtime-frontend/) |
+| 5편 | [인증 플로우 통합 — OAuth 리다이렉트부터 토큰 관리](/blog/posts/server-engineering/97-frontend-auth/) |
+| 6편 | [CORS 실전과 보안 헤더 — 브라우저와 서버의 협상](/blog/posts/server-engineering/98-cors-security-headers/) |
+| 7편 | [모노레포와 배포 파이프라인 — 프론트와 백엔드를 함께](/blog/posts/server-engineering/99-monorepo-deploy/) |
 
 📚 추천 도서: 「Frontend Architecture for Design Systems」, 「Learning Patterns(patterns.dev)」, 「GraphQL in Action」
 
