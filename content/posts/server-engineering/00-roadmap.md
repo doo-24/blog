@@ -274,13 +274,13 @@ ML 서빙, 모델 배포, MLOps, GPU 인프라, LLM 서빙, AI Gateway.
 
 | 편 | 제목 |
 |----|------|
-| 1편 | ML 서빙 기초 — 모델이 API가 되기까지 *(작성 예정)* |
-| 2편 | 모델 배포 패턴 — 안전하게 모델을 교체하는 법 *(작성 예정)* |
-| 3편 | MLOps 파이프라인 — 모델의 CI/CD *(작성 예정)* |
-| 4편 | GPU 인프라와 최적화 — 추론 성능 끌어올리기 *(작성 예정)* |
-| 5편 | LLM 서빙 인프라 — 대규모 언어 모델 운영 *(작성 예정)* |
-| 6편 | AI Gateway와 통합 패턴 — AI를 서비스에 녹이는 법 *(작성 예정)* |
-| 7편 | AI 서비스 관측과 품질 — 모델 운영의 현실 *(작성 예정)* |
+| 1편 | [ML 서빙 기초 — 모델이 API가 되기까지](/blog/posts/server-engineering/86-ml-serving-basics/) |
+| 2편 | [모델 배포 패턴 — 안전하게 모델을 교체하는 법](/blog/posts/server-engineering/87-ml-deployment-patterns/) |
+| 3편 | [MLOps 파이프라인 — 모델의 CI/CD](/blog/posts/server-engineering/88-mlops-pipeline/) |
+| 4편 | [GPU 인프라와 최적화 — 추론 성능 끌어올리기](/blog/posts/server-engineering/89-gpu-infrastructure/) |
+| 5편 | [LLM 서빙 인프라 — 대규모 언어 모델 운영](/blog/posts/server-engineering/90-llm-serving/) |
+| 6편 | [AI Gateway와 통합 패턴 — AI를 서비스에 녹이는 법](/blog/posts/server-engineering/91-ai-gateway/) |
+| 7편 | [AI 서비스 관측과 품질 — 모델 운영의 현실](/blog/posts/server-engineering/92-ai-observability/) |
 
 📚 추천 도서: 「Designing Machine Learning Systems」, 「Reliable Machine Learning」, 「Building LLM Apps」
 
