@@ -12,7 +12,7 @@ summary: "OAuth 2.0 역할(Resource Owner, Client, Authorization Server), 인가
 
 "구글 계정으로 로그인"을 클릭할 때 내부에서 무슨 일이 벌어지는지 설명할 수 있는가?
 
-단순히 "OAuth 쓰면 돼"라고 답한다면, 운영 중인 시스템이 언제 터질지 모르는 지뢰 위에 서 있는 것이나 다름없다.
+단순히 "OAuth 쓰면 돼"라고 답한다면, 보안 취약점이 어디에 숨어 있는지 파악하지 못한 상태로 운영하는 것이다.
 
 Authorization Code Flow와 Implicit Flow의 차이, PKCE가 왜 존재하는지, ID Token이 Access Token과 어떻게 다른지 — 이 질문들에 자신 있게 답하지 못한다면, 오늘 이 글을 끝까지 읽어야 한다.
 
@@ -312,7 +312,7 @@ String authUri = UriComponentsBuilder
     .build().toUriString();
 ```
 
-현재 업계 표준은 **Public Client는 항상 PKCE를 사용**하는 것이며, Confidential Client도 PKCE를 함께 사용하도록 권장하는 추세다(RFC 9700).
+현재 업계 표준은 **Public Client는 항상 PKCE를 사용**하는 것이며, Confidential Client도 PKCE를 함께 사용하도록 권장하는 추세다(OAuth 2.0 Security BCP).
 
 ---
 
@@ -967,7 +967,7 @@ Resource Owner는 권한을 위임하고, Authorization Server는 그 위임을 
 
 3. **OpenID Connect Core 1.0** — OIDC 스펙 원문. ID Token 구조와 검증 절차 포함. https://openid.net/specs/openid-connect-core-1_0.html
 
-4. **OAuth 2.0 Security Best Current Practice (RFC 9700)** — 현재 권장되는 OAuth 2.0 보안 모범 사례. PKCE 강제, Implicit Flow 폐기 등의 근거. https://www.rfc-editor.org/rfc/rfc9700
+4. **OAuth 2.0 Security Best Current Practice** — 현재 권장되는 OAuth 2.0 보안 모범 사례. PKCE 강제, Implicit Flow 폐기 등의 근거. https://datatracker.ietf.org/doc/html/draft-ietf-oauth-security-topics
 
 5. **"OAuth 2 in Action"** — Justin Richer, Antonio Sanso 저. OAuth 2.0 프로토콜을 구현 관점에서 가장 깊이 있게 다루는 책. Manning Publications.
 

@@ -159,7 +159,7 @@ const name = params.get('name');
 document.getElementById('greeting').innerHTML = '안녕하세요, ' + name + '!';
 ```
 
-`innerHTML`은 HTML 파싱을 수행하므로 스크립트 태그가 실행된다. 서버 응답에는 악성 코드가 없어 서버 측 필터를 우회한다.
+`innerHTML`로 삽입된 `<script>` 태그는 HTML5 스펙상 실행되지 않는다. 하지만 `<img onerror="alert(1)">` 같은 이벤트 핸들러 속성은 실행된다. 서버 응답에는 악성 코드가 없어 서버 측 필터를 우회한다.
 
 ### 방어: 출력 인코딩
 

@@ -10,6 +10,12 @@ series_index: 12
 summary: "AWS Organizations와 멀티 계정 전략, IAM 설계 원칙(최소 권한, 역할 기반)과 크로스 계정 접근, Landing Zone·Control Tower 개요, 재해 복구 전략(Backup & Restore~Multi-Site)과 클라우드 락인 완화까지"
 ---
 
+팀이 3개를 넘고 환경이 dev/staging/prod로 나뉘면, 단일 AWS 계정으로는 한계에 부딪힌다.
+
+이 글은 멀티 계정 전략부터 IAM 설계, 재해 복구까지 조직 단위의 클라우드 거버넌스를 다룬다.
+
+---
+
 ## 목차
 
 1. [왜 멀티 계정인가](#왜-멀티-계정인가)

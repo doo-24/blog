@@ -10,6 +10,12 @@ series_index: 12
 summary: "VPC 설계(서브넷, 라우팅 테이블, IGW, NAT Gateway), Security Group vs NACL 보안 계층, EC2 인스턴스 유형과 Spot/Reserved/On-Demand 전략, ALB/NLB 설정과 오토스케일링 그룹까지"
 ---
 
+클라우드에서 서버를 운영하려면 네트워크부터 설계해야 한다. VPC가 그 출발점이다.
+
+이 글은 VPC 설계부터 EC2 인스턴스 선택, 로드밸런서 구성, 오토스케일링까지 AWS 컴퓨팅 인프라의 핵심을 다룬다.
+
+---
+
 ## 목차
 
 1. [VPC란 무엇인가](#1-vpc란-무엇인가)

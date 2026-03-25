@@ -10,6 +10,12 @@ series_index: 12
 summary: "Lambda 실행 모델(콜드 스타트, 동시성, 메모리/타임아웃), 이벤트 소스 연동(API Gateway, SQS, S3, EventBridge), Step Functions 워크플로 오케스트레이션, 서버리스 안티패턴과 컨테이너 비용 교차점까지"
 ---
 
+서버를 직접 관리하지 않고 코드만 배포하는 것이 서버리스의 약속이다. Lambda는 그 약속의 구체적인 구현이다.
+
+이 글은 Lambda 실행 모델부터 Step Functions, 서버리스 안티패턴까지 다룬다.
+
+---
+
 ## 목차
 
 1. 서버리스란 무엇인가

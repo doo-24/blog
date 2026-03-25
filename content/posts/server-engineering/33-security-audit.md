@@ -22,7 +22,7 @@ summary: "OWASP Top 10 항목별 실전 점검, 의존성 취약점 스캔(Snyk,
 
 ## 1. OWASP Top 10: 항목별 실전 점검
 
-OWASP(Open Web Application Security Project)는 매년 웹 애플리케이션의 주요 보안 위협을 집계해 Top 10을 발표한다. 단순한 참고 문서가 아니라, 실제 침해 사고 데이터를 기반으로 한 실전 점검 체크리스트다.
+OWASP(Open Web Application Security Project)는 수년 주기로 웹 애플리케이션의 주요 보안 위협을 집계해 Top 10을 발표한다(2013, 2017, 2021). 단순한 참고 문서가 아니라, 실제 침해 사고 데이터를 기반으로 한 실전 점검 체크리스트다.
 
 ### A01: Broken Access Control (접근 제어 실패)
 

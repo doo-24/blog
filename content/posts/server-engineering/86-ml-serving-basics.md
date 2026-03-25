@@ -761,8 +761,6 @@ result.write.parquet("s3://bucket/predictions/")
 
 ---
 
----
-
 ## 참고 자료
 
 - [ONNX Runtime Documentation](https://onnxruntime.ai/docs/) — ONNX 런타임 최적화 및 실행 공급자 설정

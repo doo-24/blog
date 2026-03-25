@@ -10,6 +10,12 @@ series_index: 12
 summary: "CloudWatch Metrics·Logs·Alarms 설계, X-Ray 분산 트레이싱과 Insights 쿼리, 비용 최적화 전략(Reserved, Savings Plans, Spot, Right Sizing), FinOps 실천과 비용 가시화까지"
 ---
 
+클라우드 서비스가 정상인지 어떻게 아는가. 그리고 그 비용은 어떻게 통제하는가.
+
+이 글은 CloudWatch, X-Ray로 관측 체계를 구축하고, 비용 최적화 전략을 수립하는 방법을 다룬다.
+
+---
+
 ## 목차
 
 1. [관측 가능성(Observability)이란](#1-관측-가능성observability이란)

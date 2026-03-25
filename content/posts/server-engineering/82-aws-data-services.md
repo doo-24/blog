@@ -10,6 +10,12 @@ series_index: 12
 summary: "RDS Multi-AZ와 Read Replica·Aurora 아키텍처, DynamoDB 파티션 키 설계와 단일 테이블 패턴, S3 스토리지 클래스와 수명주기 정책, ElastiCache Redis 클러스터 모드와 장애 조치까지"
 ---
 
+데이터베이스를 직접 설치하고 운영하는 시대는 지났다. AWS 관리형 서비스를 쓰면 패치, 백업, 복제를 자동화할 수 있다.
+
+이 글은 RDS, DynamoDB, S3, ElastiCache의 아키텍처와 실전 설계 패턴을 다룬다.
+
+---
+
 ## 목차
 
 1. [RDS — 관계형 데이터베이스 완전 관리 서비스](#1-rds--관계형-데이터베이스-완전-관리-서비스)
