@@ -24,30 +24,55 @@
 }
 
 /* ==========================================
-   코드 블록 개선
+   코드 블록 — highlight 래퍼 프레임 제거
    ========================================== */
+.highlight {
+    background: none !important;
+    border: none !important;
+    padding: 0 !important;
+    margin: 1.5rem 0;
+}
+
 .post-content pre {
     border-radius: 8px;
-    padding: 1.2rem;
+    padding: 1.2rem 1.4rem;
     font-size: 0.95rem;
     line-height: 1.7;
     overflow-x: auto;
+    margin: 0;
 }
 
 .post-content pre code {
     font-size: 0.95rem;
     line-height: 1.7;
+    background: none;
+    padding: 0;
 }
 
+/* 인라인 코드 */
 .post-content code:not(pre code) {
     background: var(--code-bg);
-    padding: 0.15rem 0.4rem;
+    padding: 0.2rem 0.45rem;
     border-radius: 4px;
-    font-size: 0.92em;
+    font-size: 0.9em;
+}
+
+/* 코드 블록 스크롤바 */
+.post-content pre::-webkit-scrollbar {
+    height: 6px;
+}
+
+.post-content pre::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.post-content pre::-webkit-scrollbar-thumb {
+    background: var(--secondary);
+    border-radius: 3px;
 }
 
 /* ==========================================
-   인용 블록 스타일
+   인용 블록
    ========================================== */
 .post-content blockquote {
     border-left: 4px solid var(--primary);
@@ -62,7 +87,7 @@
 }
 
 /* ==========================================
-   표 스타일 개선
+   표
    ========================================== */
 .post-content table {
     width: 100%;
@@ -89,7 +114,7 @@
 }
 
 /* ==========================================
-   제목 스타일 개선
+   제목
    ========================================== */
 .post-content h2 {
     margin-top: 2.5rem;
@@ -102,7 +127,7 @@
 }
 
 /* ==========================================
-   리스트 간격 개선
+   리스트
    ========================================== */
 .post-content ul,
 .post-content ol {
@@ -115,7 +140,7 @@
 }
 
 /* ==========================================
-   본문 줄 간격 개선
+   본문 줄 간격
    ========================================== */
 .post-content p {
     line-height: 1.9;
@@ -123,7 +148,7 @@
 }
 
 /* ==========================================
-   TOC 스타일 개선
+   TOC
    ========================================== */
 .toc {
     border: 1px solid var(--border);
@@ -134,7 +159,7 @@
 }
 
 /* ==========================================
-   홈 화면 글 카드 개선
+   홈 화면 글 카드
    ========================================== */
 .post-entry {
     border-radius: 10px;
@@ -148,27 +173,11 @@
 }
 
 /* ==========================================
-   시리즈 배지 (태그 옆 시리즈명 강조)
+   메타 정보
    ========================================== */
 .post-meta {
     font-size: 0.88rem;
     line-height: 1.6;
-}
-
-/* ==========================================
-   스크롤바 스타일 (코드 블록)
-   ========================================== */
-.post-content pre::-webkit-scrollbar {
-    height: 6px;
-}
-
-.post-content pre::-webkit-scrollbar-track {
-    background: transparent;
-}
-
-.post-content pre::-webkit-scrollbar-thumb {
-    background: var(--secondary);
-    border-radius: 3px;
 }
 
 /* ==========================================
@@ -181,8 +190,8 @@
     }
 
     .post-content pre {
-        font-size: 0.82rem;
-        padding: 0.8rem;
+        font-size: 0.88rem;
+        padding: 1rem;
     }
 
     .post-content table {
