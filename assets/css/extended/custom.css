@@ -53,7 +53,8 @@
     line-height: 1.7;
     overflow-x: auto;
     margin: 0;
-    background: var(--code-bg) !important;
+    background: #1e1e1e !important;
+    color: #d4d4d4;
     border: none !important;
     outline: none !important;
 }
