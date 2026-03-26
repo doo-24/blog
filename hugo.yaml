@@ -35,9 +35,9 @@ params:
     subtitle: "서버 엔지니어링 학습 기록 — 107편의 개념 정리"
     buttons:
       - name: "로드맵"
-        url: /posts/server-engineering/00-roadmap/
+        url: /blog/posts/server-engineering/00-roadmap/
       - name: "시리즈"
-        url: /series/
+        url: /blog/series/
 
   # 소셜 링크
   socialIcons:
