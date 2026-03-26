@@ -1,8 +1,191 @@
-/* 본문 너비 확장 */
+/* ==========================================
+   본문 너비 확장
+   ========================================== */
 .main {
     max-width: 900px;
 }
 
 .post-content {
     max-width: 100%;
+}
+
+/* ==========================================
+   읽기 진행 바 (상단 고정)
+   ========================================== */
+#reading-progress {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 0%;
+    height: 3px;
+    background: var(--primary);
+    z-index: 9999;
+    transition: width 0.1s linear;
+}
+
+/* ==========================================
+   코드 블록 개선
+   ========================================== */
+.post-content pre {
+    border-radius: 8px;
+    padding: 1.2rem;
+    font-size: 0.88rem;
+    line-height: 1.6;
+    overflow-x: auto;
+}
+
+.post-content code:not(pre code) {
+    background: var(--code-bg);
+    padding: 0.15rem 0.4rem;
+    border-radius: 4px;
+    font-size: 0.9em;
+}
+
+/* ==========================================
+   인용 블록 스타일
+   ========================================== */
+.post-content blockquote {
+    border-left: 4px solid var(--primary);
+    padding: 0.8rem 1.2rem;
+    margin: 1.5rem 0;
+    background: var(--code-bg);
+    border-radius: 0 8px 8px 0;
+}
+
+.post-content blockquote p {
+    margin: 0.3rem 0;
+}
+
+/* ==========================================
+   표 스타일 개선
+   ========================================== */
+.post-content table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 1.5rem 0;
+    font-size: 0.92rem;
+}
+
+.post-content th {
+    background: var(--code-bg);
+    font-weight: 600;
+    text-align: left;
+    padding: 0.7rem 1rem;
+    border-bottom: 2px solid var(--border);
+}
+
+.post-content td {
+    padding: 0.6rem 1rem;
+    border-bottom: 1px solid var(--border);
+}
+
+.post-content tr:hover td {
+    background: var(--code-bg);
+}
+
+/* ==========================================
+   제목 스타일 개선
+   ========================================== */
+.post-content h2 {
+    margin-top: 2.5rem;
+    padding-bottom: 0.4rem;
+    border-bottom: 1px solid var(--border);
+}
+
+.post-content h3 {
+    margin-top: 2rem;
+}
+
+/* ==========================================
+   리스트 간격 개선
+   ========================================== */
+.post-content ul,
+.post-content ol {
+    padding-left: 1.5rem;
+}
+
+.post-content li {
+    margin-bottom: 0.3rem;
+    line-height: 1.8;
+}
+
+/* ==========================================
+   본문 줄 간격 개선
+   ========================================== */
+.post-content p {
+    line-height: 1.9;
+    margin-bottom: 1.2rem;
+}
+
+/* ==========================================
+   TOC 스타일 개선
+   ========================================== */
+.toc {
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 1rem 1.5rem;
+    margin-bottom: 2rem;
+    background: var(--code-bg);
+}
+
+/* ==========================================
+   홈 화면 글 카드 개선
+   ========================================== */
+.post-entry {
+    border-radius: 10px;
+    margin-bottom: 1rem;
+    transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.post-entry:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+/* ==========================================
+   시리즈 배지 (태그 옆 시리즈명 강조)
+   ========================================== */
+.post-meta {
+    font-size: 0.88rem;
+    line-height: 1.6;
+}
+
+/* ==========================================
+   스크롤바 스타일 (코드 블록)
+   ========================================== */
+.post-content pre::-webkit-scrollbar {
+    height: 6px;
+}
+
+.post-content pre::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.post-content pre::-webkit-scrollbar-thumb {
+    background: var(--secondary);
+    border-radius: 3px;
+}
+
+/* ==========================================
+   모바일 반응형
+   ========================================== */
+@media (max-width: 768px) {
+    .main {
+        max-width: 100%;
+        padding: 0 1rem;
+    }
+
+    .post-content pre {
+        font-size: 0.82rem;
+        padding: 0.8rem;
+    }
+
+    .post-content table {
+        font-size: 0.85rem;
+    }
+
+    .post-content th,
+    .post-content td {
+        padding: 0.4rem 0.6rem;
+    }
 }

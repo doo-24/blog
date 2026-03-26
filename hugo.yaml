@@ -28,10 +28,16 @@ params:
   ShowToc: true
   TocOpen: true
 
-  # 홈 화면 설정
-  homeInfoParams:
-    Title: "개발 노트"
-    Content: "개발 공부 기록"
+  # 홈 화면 설정 (profileMode로 변경)
+  profileMode:
+    enabled: true
+    title: "개발 노트"
+    subtitle: "서버 엔지니어링 학습 기록 — 107편의 개념 정리"
+    buttons:
+      - name: "로드맵"
+        url: /posts/server-engineering/00-roadmap/
+      - name: "시리즈"
+        url: /series/
 
   # 소셜 링크
   socialIcons:
