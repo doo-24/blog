@@ -28,8 +28,10 @@
    ========================================== */
 .highlight,
 .post-content .highlight,
-.post-content div.highlight {
+.post-content div.highlight,
+.chroma {
     background: #272822 !important;
+    background-color: #272822 !important;
     border: none !important;
     box-shadow: none !important;
     padding: 0 !important;
@@ -40,8 +42,10 @@
 
 .highlight pre,
 .highlight > pre,
-.highlight > div {
+.highlight > div,
+.chroma pre {
     background: #272822 !important;
+    background-color: #272822 !important;
     border: none !important;
     box-shadow: none !important;
 }
