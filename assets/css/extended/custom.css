@@ -29,7 +29,7 @@
 .highlight,
 .post-content .highlight,
 .post-content div.highlight {
-    background: #1e1e1e !important;
+    background: #272822 !important;
     border: none !important;
     box-shadow: none !important;
     padding: 0 !important;
@@ -41,7 +41,7 @@
 .highlight pre,
 .highlight > pre,
 .highlight > div {
-    background: #1e1e1e !important;
+    background: #272822 !important;
     border: none !important;
     box-shadow: none !important;
 }
@@ -53,7 +53,7 @@
     line-height: 1.7;
     overflow-x: auto;
     margin: 0;
-    background: #1e1e1e !important;
+    background: #272822 !important;
     color: #d4d4d4;
     border: none !important;
     outline: none !important;
