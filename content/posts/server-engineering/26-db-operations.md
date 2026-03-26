@@ -42,7 +42,9 @@ mysqldump --single-transaction -u root -p myapp_db \
   | gzip > /backup/myapp_db_$(date +%Y%m%d).sql.gz
 ```
 
-`--single-transaction` 옵션이 중요하다. InnoDB 테이블에서 이 옵션 없이 덤프하면 테이블 락이 걸려서 운영 서비스에 영향을 준다. 이 옵션은 REPEATABLE READ 트랜잭션을 열어서 일관된 스냅샷을 보장한다. MyISAM 테이블이 섞여 있다면 효과가 없으니 주의해야 한다.
+`--single-transaction` 옵션이 중요하다. InnoDB 테이블에서 이 옵션 없이 덤프하면 테이블 락이 걸려서 운영 서비스에 영향을 준다.
+
+이 옵션은 REPEATABLE READ 트랜잭션을 열어서 일관된 스냅샷을 보장한다. MyISAM 테이블이 섞여 있다면 효과가 없으니 주의해야 한다.
 
 논리 백업의 장점은 이식성이다. 메이저 버전이 다른 MySQL 인스턴스에도 복원할 수 있고, 특정 테이블만 선택적으로 복원하는 것도 쉽다. 단점은 속도다. 100GB 데이터베이스를 덤프하면 수십 분이 걸리고, 복원은 그보다 더 오래 걸린다.
 

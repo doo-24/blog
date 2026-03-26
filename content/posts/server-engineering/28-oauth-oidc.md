@@ -16,7 +16,9 @@ summary: "OAuth 2.0 역할(Resource Owner, Client, Authorization Server), 인가
 
 Authorization Code Flow와 Implicit Flow의 차이, PKCE가 왜 존재하는지, ID Token이 Access Token과 어떻게 다른지 — 이 질문들에 자신 있게 답하지 못한다면, 오늘 이 글을 끝까지 읽어야 한다.
 
-OAuth 2.0과 OpenID Connect는 현대 인증 아키텍처의 근간이며, 잘못 이해하면 사용자 계정 탈취부터 CSRF 취약점까지 심각한 보안 사고로 이어진다.
+OAuth 2.0과 OpenID Connect는 현대 인증 아키텍처의 근간이다.
+
+잘못 이해하면 사용자 계정 탈취부터 CSRF 취약점까지 심각한 보안 사고로 이어진다.
 
 ---
 
