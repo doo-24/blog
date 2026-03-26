@@ -463,7 +463,7 @@ props.put(ConsumerConfig.GROUP_INSTANCE_ID_CONFIG,
 
 ### 왜 스키마가 필요한가
 
-Kafka는 바이트 배열을 저장한다. 직렬화 형식에 대한 합의가 없으면 프로듀서가 스키마를 변경할 때 컨슈머가 깨진다. **스키마 레지스트리**는 이 계약을 중앙에서 관리한다.
+Kafka는 바이트 배열을 저장한다. 직렬화 형식에 대한 합의가 없으면 프로듀서가 스키마를 변경할 때 컨슈머가 깨진다. 예를 들어 `amount` 필드를 `int`에서 `double`로 바꾸면, 이전 컨슈머가 해당 메시지를 역직렬화하는 순간 예외가 발생한다. **스키마 레지스트리**는 이 계약을 중앙에서 관리한다.
 
 Confluent Schema Registry가 사실상 표준이며, **Apache Avro**, Protobuf, JSON Schema를 지원한다.
 

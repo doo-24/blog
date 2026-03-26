@@ -52,6 +52,8 @@ summary: "도메인 모델 vs 데이터 모델, 풍부한 도메인 모델, Valu
 
 Martin Fowler가 명명한 **Anemic Domain Model**은 안티패턴이다. 객체지향의 형태를 빌리지만 실질은 절차적 코드다.
 
+아래 코드는 빈약한 도메인 모델의 전형적인 예다. `Order` 객체는 데이터 그릇에 불과하고, 비즈니스 규칙은 `OrderService`에 흩어져 있다. `status == 1`이 어떤 상태인지, `setStatus(3)`이 유효한 전이인지 코드만 봐서는 알 수 없다.
+
 ```java
 // 빈약한 도메인 모델 — 데이터 홀더에 불과
 public class Order {

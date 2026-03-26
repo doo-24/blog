@@ -52,7 +52,7 @@ Cache-Control: public, max-age=3600, stale-while-revalidate=60
 
 `s-maxage`는 공유 캐시(CDN, 프록시)에만 적용되는 TTL이다. 브라우저 캐시와 CDN 캐시를 독립적으로 제어할 때 유용하다.
 
-`stale-while-revalidate`는 백그라운드 재검증 패턴을 구현한다. 캐시가 만료된 후에도 설정한 시간 동안은 오래된 응답을 즉시 반환하면서, 동시에 백그라운드에서 새로운 콘텐츠를 가져온다. 응답 지연 없이 캐시를 갱신할 수 있는 강력한 패턴이다.
+`stale-while-revalidate`는 백그라운드 재검증 패턴을 구현한다. 캐시가 만료된 후에도 설정한 시간 동안은 오래된 응답을 즉시 반환하면서, 동시에 백그라운드에서 새로운 콘텐츠를 가져온다. 응답 지연 없이 캐시를 갱신할 수 있는 강력한 패턴이다. 이 설정이 없으면 캐시 만료 직후 첫 번째 사용자가 오리진까지 왕복하는 동안 응답 지연이 발생하고, 트래픽이 많을 때는 그 순간에 다수의 요청이 동시에 오리진에 몰릴 수 있다.
 
 ### ETag
 
@@ -83,7 +83,7 @@ Content-Type: application/json
 
 ETag에는 강한 검증자(strong validator)와 약한 검증자(weak validator)가 있다.
 
-강한 ETag는 바이트 단위로 동일한 경우에만 일치한다. 약한 ETag는 의미상 동등하면 일치한다고 본다(`W/"abc123"` 형식).
+강한 ETag는 바이트 단위로 동일한 경우에만 일치한다. 약한 ETag는 의미상 동등하면 일치한다고 본다(`W/"abc123"` 형식). 예를 들어 JSON 응답의 필드 순서만 바뀌어도 강한 ETag는 불일치로 판단해 전체 응답을 재전송하지만, 약한 ETag는 동일 데이터로 간주해 304를 반환할 수 있다. 동적으로 생성되는 응답에는 약한 ETag가, 정확한 바이트 일치가 중요한 파일 다운로드에는 강한 ETag가 적합하다.
 
 Nginx에서 ETag를 활성화하는 설정은 간단하다.
 
@@ -675,7 +675,7 @@ location /api/user/ {
     proxy_pass http://backend;
     # 절대 공개 캐시하지 않음
     add_header Cache-Control "private, no-store, no-cache";
-    add_header Pragma "no-cache";
+    add_header Pragma "no-cache";  # HTTP/1.0 호환성을 위한 헤더; HTTP/1.1만 지원하는 환경에서는 Cache-Control로 충분하다
 }
 ```
 

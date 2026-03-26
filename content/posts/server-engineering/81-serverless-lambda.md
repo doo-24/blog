@@ -85,6 +85,8 @@ def lambda_handler(event, context):
     return response.get("Item")
 ```
 
+`dynamodb` 클라이언트를 핸들러 안에 두면 매 호출마다 새 연결을 맺어 지연이 발생한다. 핸들러 바깥에 두면 웜 스타트 시 기존 연결을 재사용하므로 레이턴시가 수십 ms 단축되고 DynamoDB 연결 수도 줄어든다.
+
 ---
 
 ## 3. 콜드 스타트와 웜 스타트

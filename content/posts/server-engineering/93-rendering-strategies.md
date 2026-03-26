@@ -188,7 +188,7 @@ export async function getStaticProps() {
 }
 ```
 
-첫 요청에 캐시된 HTML을 반환하면서, 백그라운드에서 새 HTML을 생성한다. 다음 요청부터 새 페이지를 서빙한다. 이를 "stale-while-revalidate" 패턴이라 한다.
+첫 요청에 캐시된 HTML을 반환하면서, 백그라운드에서 새 HTML을 생성한다. 다음 요청부터 새 페이지를 서빙한다. 이를 "stale-while-revalidate" 패턴이라 한다. 마치 편의점 도시락처럼 — 재고가 있으면 바로 주고, 뒤에서 새로 만들어두는 방식이다.
 
 ### On-Demand ISR
 

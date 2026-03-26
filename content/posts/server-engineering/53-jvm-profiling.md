@@ -84,7 +84,7 @@ java -XX:+UseZGC \
 
 Red Hat이 개발한 또 다른 저지연 GC로, OpenJDK 12부터 포함되었다. ZGC처럼 대부분의 작업을 concurrent하게 수행한다.
 
-ZGC와의 차이점은 Shenandoah가 compaction(객체 이동)도 concurrent하게 수행한다는 점이다.
+ZGC와의 차이점은 Shenandoah가 compaction(객체 이동)도 concurrent하게 수행한다는 점이다. ZGC는 compaction 단계에서 짧은 STW가 발생하는 반면, Shenandoah는 이 단계마저 애플리케이션과 동시에 실행하므로 힙 단편화를 더 적극적으로 줄일 수 있다.
 
 ```bash
 java -XX:+UseShenandoahGC \
@@ -461,7 +461,7 @@ CPU 프로파일링은 "어떤 메서드가 CPU 시간을 많이 사용하는가
 
 async-profiler는 Linux perf_events와 AsyncGetCallTrace API를 사용하는 저오버헤드 프로파일러다.
 
-safepoint bias 문제가 없어 JVM 내장 프로파일러보다 정확하다.
+safepoint bias 문제가 없어 JVM 내장 프로파일러보다 정확하다. JVM 내장 프로파일러는 safepoint에서만 스택을 샘플링하기 때문에, safepoint 사이 구간에서 실제로 많은 시간을 소비하는 메서드를 놓치는 경우가 있다.
 
 ```bash
 # async-profiler 다운로드 및 실행

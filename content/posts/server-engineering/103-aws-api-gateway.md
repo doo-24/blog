@@ -63,7 +63,7 @@ aws apigatewayv2 create-integration \
   --payload-format-version "2.0"
 ```
 
-`payload-format-version 2.0`은 HTTP API 전용 포맷이다. Lambda 함수 코드도 v2 포맷에 맞게 작성해야 한다.
+`payload-format-version 2.0`은 HTTP API 전용 포맷이다. Lambda 함수 코드도 v2 포맷에 맞게 작성해야 한다. v1에서는 `event.pathParameters`, `event.queryStringParameters`로 분리되어 있던 요청 정보가 v2에서는 `event.requestContext.http.method`, `event.rawQueryString` 등 구조가 달라지므로, 기존 REST API용 핸들러를 그대로 재사용하면 동작하지 않는다.
 
 ---
 

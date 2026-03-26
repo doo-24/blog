@@ -252,7 +252,7 @@ def verify_token(token: str) -> dict:
 
 ### JWT 안티패턴: 토큰에 민감 정보 저장
 
-JWT의 Payload는 Base64로 인코딩될 뿐, 암호화되지 않는다. 누구나 디코딩해서 내용을 볼 수 있다.
+JWT의 Payload는 Base64로 인코딩될 뿐, 암호화되지 않는다. 누구나 디코딩해서 내용을 볼 수 있다. 브라우저 개발자 도구에서 JWT 값을 복사해 jwt.io에 붙여넣으면 payload 내용이 즉시 평문으로 노출된다.
 
 ```python
 # 안티패턴: 민감 정보를 JWT에 담는 것

@@ -338,7 +338,7 @@ public class TopicExchangeConfig {
 
 #### 4. Headers Exchange
 
-Routing Key 대신 메시지 헤더의 속성으로 라우팅한다. 복잡한 라우팅 조건에 유용하지만 성능이 가장 낮아 자주 쓰이지는 않는다.
+Routing Key 대신 메시지 헤더의 속성으로 라우팅한다. 복잡한 라우팅 조건에 유용하지만 성능이 가장 낮아 자주 쓰이지는 않는다. 라우팅 결정 시 Routing Key를 파싱하는 대신 헤더 전체를 평가해야 하기 때문이다.
 
 ### Dead Letter Exchange (DLX)
 
@@ -617,6 +617,8 @@ public void processMessage(ImportantPayload payload) {
 ---
 
 ## 메시지 순서 보장
+
+ACK 메커니즘으로 메시지 안전 처리를 확보했다면, 이제 메시지가 도착하는 순서를 어떻게 다룰지 생각해야 한다.
 
 "메시지 큐는 FIFO 순서를 보장한다"는 흔한 오해다. 실제로는 훨씬 복잡하다.
 

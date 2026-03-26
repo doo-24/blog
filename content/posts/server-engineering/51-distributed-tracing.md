@@ -75,6 +75,8 @@ Span {
 
 **W3C Trace Context** 표준 헤더:
 
+W3C가 표준화한 이 헤더 형식 덕분에 서로 다른 벤더의 계측 라이브러리를 사용하는 서비스들도 Trace를 이어받을 수 있다.
+
 ```http
 traceparent: 00-4bf92f3577b34da6a3ce929d0e0e4736-00f067aa0ba902b7-01
 tracestate:  vendor1=opaqueValue1

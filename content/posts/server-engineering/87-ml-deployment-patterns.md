@@ -203,6 +203,7 @@ class ShadowRouter:
         primary_result = await self._call_model(self.primary, request)
 
         # Shadow 모델은 비동기 fire-and-forget
+        # create_task는 코루틴을 이벤트 루프에 등록하고 즉시 반환한다. await하지 않으므로 Shadow 처리가 완료될 때까지 기다리지 않아 Primary 응답 지연이 발생하지 않는다.
         asyncio.create_task(
             self._shadow_predict(request, primary_result)
         )
@@ -269,6 +270,7 @@ class ABRouter:
 
     def _assign_variant(self, user_id: str) -> ModelVariant:
         # 동일 user_id는 항상 같은 variant에 배정 (일관성 보장)
+        # 무작위 배정이 아닌 해시 기반으로 고정하는 이유: 같은 사용자가 요청마다 다른 모델을 받으면 경험이 일관되지 않고 실험 결과도 오염된다.
         hash_val = int(hashlib.md5(user_id.encode()).hexdigest(), 16)
         bucket = (hash_val % 1000) / 1000.0
 

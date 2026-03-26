@@ -180,6 +180,8 @@ public class ConnectionPool {
 - **숨은 의존성**: 코드 어디서든 `getInstance()`로 접근 → 의존 관계가 보이지 않음
 - **동시성 문제**: `synchronized`로 인한 성능 저하, 또는 DCL(Double-Checked Locking) 복잡성
 
+이 세 문제 모두 Singleton이 "전역 상태"라는 사실에서 비롯된다. 전역 상태는 코드 어디서든 접근 가능하므로 의존 관계를 추적하기 어렵고, 테스트 환경에서 상태를 초기화하거나 교체하기 어렵다.
+
 **현대적 해법: DI 컨테이너에 위임**
 
 ```java

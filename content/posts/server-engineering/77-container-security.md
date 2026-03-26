@@ -188,7 +188,7 @@ spec:
 
 ## 4. Pod Security Standards
 
-Kubernetes 1.25부터 PodSecurityPolicy(PSP)가 제거되고 **Pod Security Standards(PSS)**가 기본 메커니즘이 됐다.
+Kubernetes 1.25부터 PodSecurityPolicy(PSP)가 제거되고 **Pod Security Standards(PSS)**가 기본 메커니즘이 됐다. PSP는 적용 순서와 상호작용이 복잡해 의도치 않은 권한 허용이 발생하기 쉽고, 운영자도 어떤 정책이 실제로 적용되는지 파악하기 어려웠다. PSS는 네임스페이스 레이블 한 줄로 보안 프로필을 선언하는 방식으로 이 복잡도를 대폭 줄였다.
 
 PSS는 네임스페이스 레이블로 세 가지 프로필을 적용한다.
 
@@ -453,7 +453,7 @@ spec:
           image: myapp:v1.0.0
 ```
 
-API 서버와 통신이 필요한 경우에만 `automountServiceAccountToken: true`로 설정하고, 해당 ServiceAccount에 최소한의 권한만 부여한다.
+기본적으로 모든 Pod에 ServiceAccount 토큰이 자동 마운트되는 것은 모든 직원에게 서버실 마스터키를 나눠주는 것과 같다. 컨테이너가 탈취되면 공격자가 그 토큰으로 K8s API에 접근해 클러스터 전체를 장악할 수 있다. API 서버와 통신이 필요한 경우에만 `automountServiceAccountToken: true`로 설정하고, 해당 ServiceAccount에 최소한의 권한만 부여한다.
 
 현재 설정된 권한을 검증할 때는 `kubectl auth can-i`를 활용한다.
 

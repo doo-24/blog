@@ -198,6 +198,8 @@ public record OrderResponse(
 
 ### 왜 Entity를 직접 반환하면 안 되는가
 
+Entity는 데이터베이스와 연결된 내부 모델이고, API 응답은 클라이언트와의 계약이다. 이 둘을 분리하지 않으면 내부 구현의 변화가 즉시 외부 계약을 깨뜨린다. 예를 들어 컬럼 이름 하나를 바꾸면 API 응답 필드명이 바뀌어 클라이언트가 고장난다.
+
 ```java
 // ✗ Entity를 직접 JSON으로 반환
 @GetMapping("/users/{id}")

@@ -277,6 +277,8 @@ POST /api/items/batch
 → 불필요한 요청 대폭 감소
 ```
 
+아래는 Spring의 `DeferredResult`를 사용한 Long Polling 구현이다. 요청이 들어오면 스레드를 반환하고 비동기로 대기하다가, 새 메시지가 오거나 30초 타임아웃이 되면 응답을 보낸다.
+
 ```java
 @GetMapping("/api/messages/poll")
 public DeferredResult<ResponseEntity<?>> pollMessages(

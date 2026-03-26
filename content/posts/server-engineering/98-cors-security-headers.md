@@ -122,7 +122,7 @@ Access-Control-Max-Age: 86400
 ```
 
 서버 엔지니어가 놓치기 쉬운 포인트: **OPTIONS 요청도 인증 미들웨어를 통과해야** 한다.
-OPTIONS 요청에 Authorization 헤더가 없다는 이유로 401을 반환하면 Preflight가 실패한다.
+OPTIONS 요청에 Authorization 헤더가 없다는 이유로 401을 반환하면 Preflight가 실패한다. Preflight는 브라우저가 자동으로 보내는 사전 탐색 요청이지 실제 데이터 요청이 아니므로, 인증 검사 없이 CORS 정책만 응답하면 된다. 실제 인증은 뒤따르는 본 요청(GET/POST/DELETE 등)에서 검사한다.
 
 ---
 

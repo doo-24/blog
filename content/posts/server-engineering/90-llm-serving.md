@@ -55,6 +55,8 @@ KV 캐시 크기 공식:
 KV 캐시 크기 = 2 × num_layers × num_heads × head_dim × seq_len × batch_size × dtype_bytes
 ```
 
+앞의 `2`는 각 레이어마다 **Key**와 **Value** 텐서 두 가지를 캐싱하기 때문이다. Query는 현재 스텝에서만 쓰이고 버려지므로 캐시 대상이 아니다.
+
 Llama-2-70B 기준 계산:
 
 ```

@@ -22,7 +22,7 @@ Cognito는 크게 두 가지 개념으로 나뉜다.
 
 **Identity Pool**은 AWS 리소스 접근용 임시 자격 증명을 발급한다. 인증된 사용자가 S3 버킷이나 DynamoDB에 직접 접근할 때 사용한다.
 
-대부분의 웹/앱 서비스는 User Pool만으로 충분하다. Identity Pool은 AWS 리소스에 직접 접근이 필요할 때 추가한다.
+대부분의 웹/앱 서비스는 User Pool만으로 충분하다. 백엔드 API 서버가 AWS 리소스를 대신 처리하는 구조라면 User Pool 토큰으로 API를 인증하는 것으로 끝난다. Identity Pool은 프론트엔드나 모바일 앱이 백엔드를 거치지 않고 S3 업로드나 DynamoDB 조회를 직접 수행해야 할 때 추가한다.
 
 ---
 

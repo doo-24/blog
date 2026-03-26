@@ -129,7 +129,7 @@ prune.remove(model.fc1, 'weight')
 
 BERT-base(110M)를 DistilBERT(66M)로 줄이면 추론 속도가 60% 빨라지고 정확도는 97% 수준을 유지한다.
 
-디스틸레이션 손실 함수 구조는 다음과 같다.
+디스틸레이션 손실 함수 구조는 다음과 같다. 두 항으로 구성된다. **소프트 레이블 손실**(KL divergence)은 교사 모델의 출력 분포를 학생이 따라가도록 하여 클래스 간 유사도 같은 암묵적 지식을 전달하고, **하드 레이블 손실**(CrossEntropy)은 실제 정답 레이블을 기준으로 정확도를 유지한다. `temperature`를 높이면 교사 출력의 확률 분포가 고르게 펴져 정보량이 증가한다. `temperature ** 2` 스케일링은 temperature 변화에 따른 그래디언트 크기 변동을 보정하기 위해 Hinton 등이 제안한 방식이다.
 
 ```python
 import torch.nn.functional as F

@@ -133,7 +133,7 @@ services:
 
 #### depends_on과 헬스체크
 
-단순히 컨테이너 시작 순서만 보장하는 `depends_on`은 DB가 실제로 준비됐는지 보장하지 않는다. 헬스체크와 함께 써야 한다.
+단순히 컨테이너 시작 순서만 보장하는 `depends_on`은 DB가 실제로 준비됐는지 보장하지 않는다. 컨테이너가 시작됐다는 것과 DB가 연결을 받을 준비가 됐다는 것은 다르다. PostgreSQL은 컨테이너 시작 후 내부 초기화가 완료되기까지 수 초가 걸리는데, 그 사이에 앱이 연결을 시도하면 "Connection refused" 오류로 실패한다. 헬스체크와 함께 써야 한다.
 
 ```yaml
 services:
@@ -413,7 +413,9 @@ services:
         read_only: false    # 컨테이너에서 쓰기 허용 여부
 
       # node_modules는 호스트 것을 쓰지 않고 컨테이너 것을 유지
-      # (호스트 OS와 컨테이너 OS가 달라 바이너리 호환 안 될 수 있음)
+      # macOS 호스트에서 npm install한 node_modules에는 macOS용 네이티브 바이너리가
+      # 포함될 수 있는데, 이를 Linux 컨테이너에서 실행하면 오류가 난다.
+      # 익명 볼륨으로 마스킹하면 호스트 node_modules가 컨테이너 경로를 덮어쓰지 않는다.
       - /app/node_modules   # 익명 볼륨으로 마스킹
 ```
 

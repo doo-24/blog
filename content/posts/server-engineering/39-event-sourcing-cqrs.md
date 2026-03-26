@@ -106,7 +106,7 @@ public class OrderConfirmedEvent extends AbstractDomainEvent {
 
 ### 스키마 설계
 
-이벤트 스토어의 핵심은 단순하다. 이벤트를 순서대로, 중복 없이, 영속적으로 저장하면 된다.
+이벤트 스토어의 핵심은 단순하다. 이벤트를 순서대로, 중복 없이, 영속적으로 저장하면 된다. 일반 RDBMS 테이블로도 충분히 구현할 수 있으며, 핵심은 `(aggregate_id, event_version)` 유일 제약으로 낙관적 동시성을 보장하는 것이다.
 
 ```sql
 CREATE TABLE event_store (

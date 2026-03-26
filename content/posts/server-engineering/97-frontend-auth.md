@@ -29,7 +29,7 @@ Authorization Code 플로우의 취약점은 `code` 탈취다.
 
 PKCE(Proof Key for Code Exchange)는 이를 막는다.
 클라이언트가 랜덤 문자열(`code_verifier`)을 생성하고, 그 해시(`code_challenge`)를 Authorization 요청에 포함시킨다.
-서버는 Token 요청 시 `code_verifier`를 받아 검증한다 — `code`를 탈취해도 `code_verifier` 없이는 토큰을 받을 수 없다.
+서버는 Token 요청 시 `code_verifier`를 받아 검증한다 — `code`를 탈취해도 `code_verifier` 없이는 토큰을 받을 수 없다. 자물쇠(challenge)는 미리 걸어두고, 열쇠(verifier)는 나중에 제시하는 구조다. 공격자는 자물쇠만 보고 열쇠를 만들 수 없다.
 
 퍼블릭 클라이언트(SPA, 모바일 앱)에서는 PKCE가 사실상 필수다.
 
@@ -223,7 +223,7 @@ CSRF가 남아있는 위협이지만, `SameSite=Strict`와 CSRF 토큰 조합으
 Access Token 수명을 5분으로 설정했다.
 사용자가 계속 사용 중인데 5분마다 로그인 화면이 나타나면 안 된다.
 
-만료 전에 자동으로 새 Access Token을 발급받는 것이 Silent Refresh다.
+만료 전에 자동으로 새 Access Token을 발급받는 것이 Silent Refresh다. Access Token 수명을 짧게 유지하면 탈취 시 피해를 최소화할 수 있고, Silent Refresh가 그 짧은 수명을 사용자 경험 저하 없이 보완한다.
 
 ### 3-2. 타이머 기반 구현
 

@@ -179,7 +179,7 @@ public String handleCallback(
 
 ### Step 4: Authorization Code를 Token으로 교환
 
-인가 코드는 수명이 매우 짧다 (보통 10분 이내). Client는 이 코드를 즉시 Token Endpoint로 POST 요청을 보내 토큰으로 교환해야 한다. **이 요청은 백채널(Back Channel), 즉 서버 간 직접 통신으로 이루어진다.**
+인가 코드는 수명이 매우 짧다 (보통 10분 이내). Client는 이 코드를 즉시 Token Endpoint로 POST 요청을 보내 토큰으로 교환해야 한다. **이 요청은 백채널(Back Channel), 즉 서버 간 직접 통신으로 이루어진다.** 브라우저 URL을 통해 전달된 인가 코드가 중간에 노출되더라도, 토큰 교환은 Client Secret을 알고 있는 서버만 할 수 있으므로 공격자가 인가 코드를 탈취해도 토큰을 얻지 못한다. 이것이 Implicit Flow 대신 Authorization Code Flow를 사용하는 핵심 이유다.
 
 ```java
 @Service

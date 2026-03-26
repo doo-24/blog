@@ -79,6 +79,8 @@ async def proxy(request: Request):
 
 Gateway에서 이를 제어하지 않으면 하나의 기능이 전체 토큰 예산을 소진할 수 있다.
 
+토큰 버킷 알고리즘은 양동이에 정해진 속도로 토큰이 채워지고, 요청마다 토큰을 하나씩 소비하는 방식이다. 버킷이 비어 있으면 요청을 거부한다. 이 방식은 순간적인 버스트를 허용하면서도 장기적인 평균 속도를 제한한다는 점이 단순 카운터 방식과 다르다.
+
 ```python
 import asyncio
 from collections import defaultdict
@@ -128,7 +130,7 @@ class RedisRateLimiter:
 
 ### 폴백 (Fallback)
 
-공급자 API가 내려가거나 응답이 늦어지면 대체 경로로 전환한다.
+Rate Limiting이 정상 트래픽을 보호하는 역할이라면, 폴백은 공급자 장애로부터 서비스를 보호하는 역할이다. 공급자 API가 내려가거나 응답이 늦어지면 대체 경로로 전환한다.
 
 ```python
 import httpx

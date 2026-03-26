@@ -230,7 +230,7 @@ public DataSource dataSource(HikariConfig config) {
 
 Grafana에서 `hikaricp_connections_pending` 지표가 지속적으로 0 이상이면, 풀 크기가 부족하거나 커넥션이 오래 점유되는 것이다.
 
-**커넥션 풀 크기 공식**: 일반적으로 `(core count * 2) + effective_spindle_count`가 시작점이다. I/O 대기 시간이 길수록 적절한 풀 크기는 커진다.
+**커넥션 풀 크기 공식**: 일반적으로 `(core count * 2) + effective_spindle_count`가 시작점이다. I/O 대기 시간이 길수록 적절한 풀 크기는 커진다. CPU가 4코어이고 SSD 1개라면 `4 * 2 + 1 = 9`개가 시작점이다. 이 수치보다 무조건 크게 잡는 것은 오히려 DB 서버 측 컨텍스트 스위칭을 증가시켜 전체 처리량을 낮출 수 있다.
 
 **안티패턴**: 커넥션 풀을 무조건 크게 잡는 것. DB 서버의 `max_connections`는 고정 자원이다. 각 애플리케이션 인스턴스가 100개씩 연결을 잡으면, 10개 인스턴스만 되어도 DB가 1000개 연결을 감당해야 한다.
 
@@ -432,7 +432,7 @@ Optional<User> findByEmail(@Param("email") String email);
 
 **Open (차단)**: 모든 요청을 즉시 실패시킨다 (fallback 실행). 대기 시간 후 Half-Open으로 전환.
 
-**Half-Open (탐색)**: 제한된 수의 요청만 통과. 성공하면 Closed로, 실패하면 다시 Open으로 전환.
+**Half-Open (탐색)**: 제한된 수의 요청만 통과. 성공하면 Closed로, 실패하면 다시 Open으로 전환. Half-Open은 다운스트림이 실제로 회복됐는지 조심스럽게 확인하는 단계다. Open 상태에서 바로 Closed로 가면 아직 불안정한 서비스에 전체 트래픽이 몰려 재차 장애를 일으킬 수 있다.
 
 ```
 [Closed] --(실패율 초과)--> [Open] --(대기 시간 경과)--> [Half-Open]

@@ -112,6 +112,7 @@ def gpu_metrics_collector(interval_seconds: float = 5.0):
         time.sleep(interval_seconds)
 
 # 백그라운드 스레드로 실행
+# daemon=True로 설정하는 이유: 메인 프로세스가 종료될 때 이 스레드도 자동으로 함께 종료된다. daemon=False이면 컬렉터 스레드가 살아있어 프로세스가 종료되지 않는다.
 collector_thread = threading.Thread(target=gpu_metrics_collector, daemon=True)
 collector_thread.start()
 ```
@@ -147,7 +148,7 @@ sum(rate(llm_tokens_total[1m])) by (model, type)
 
 ## 모델 품질 모니터링
 
-레이턴시와 처리량만 보는 건 절반이다. 모델이 "작동"하는지는 알 수 있어도 "잘 작동"하는지는 알 수 없다.
+지금까지 살펴본 레이턴시, 처리량, GPU 메모리 지표는 시스템의 건강 상태를 나타낸다. 그러나 이것만으로는 모델이 실제로 좋은 답변을 내고 있는지 알 수 없다. 레이턴시와 처리량만 보는 건 절반이다. 모델이 "작동"하는지는 알 수 있어도 "잘 작동"하는지는 알 수 없다.
 
 품질 모니터링은 두 계층으로 나뉜다.
 

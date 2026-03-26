@@ -146,7 +146,7 @@ public Optional<User> findByUsername(String username) {
 
 ### A04: Insecure Design (불안전한 설계)
 
-구현 문제가 아닌 설계 자체의 결함이다. 비밀번호 재설정 시 보안 질문만으로 인증하는 패턴이 대표적이다. 이 항목은 Threat Modeling 절에서 더 깊이 다룬다.
+구현 문제가 아닌 설계 자체의 결함이다. 비밀번호 재설정 시 보안 질문만으로 인증하는 패턴이 대표적이다. 아무리 코드를 잘 짜도 설계 단계에서 보안 요구사항을 고려하지 않으면 구현으로 보완할 수 없는 취약점이 생긴다. 이 항목은 Threat Modeling 절에서 더 깊이 다룬다.
 
 ### A05: Security Misconfiguration (보안 설정 오류)
 
@@ -259,7 +259,7 @@ public class AuthController {
 
 ### A08: Software and Data Integrity Failures
 
-빌드 파이프라인이나 업데이트 메커니즘에 대한 무결성 검증 부재다. CI/CD에서 서명 검증을 추가하는 것이 기본이다.
+빌드 파이프라인이나 업데이트 메커니즘에 대한 무결성 검증 부재다. 공급망 공격(Supply Chain Attack)은 신뢰된 패키지나 빌드 도구를 감염시켜 배포 단계에서 악성 코드가 삽입되는 방식이다. CI/CD에서 서명 검증을 추가하는 것이 기본이다.
 
 ### A09: Security Logging and Monitoring Failures
 

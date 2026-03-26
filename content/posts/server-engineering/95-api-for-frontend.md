@@ -32,7 +32,7 @@ SELECT * FROM posts ORDER BY created_at DESC LIMIT 20 OFFSET 40;
 
 사용자가 2페이지를 보는 사이 새 글이 올라오면, `OFFSET 20`의 기준이 밀려서 이전 페이지 마지막 글이 다시 나온다.
 
-데이터가 많아질수록 성능도 나빠진다. `OFFSET 10000`이면 DB는 10020개를 읽은 뒤 앞 10000개를 버린다.
+데이터가 많아질수록 성능도 나빠진다. `OFFSET 10000`이면 DB는 10020개를 읽은 뒤 앞 10000개를 버린다. 인덱스를 아무리 잘 만들어도 OFFSET이 크면 스킵해야 할 행을 물리적으로 읽어야 하기 때문에 피할 수 없는 구조적 비용이다.
 
 ### 커서 기반 방식
 
@@ -127,7 +127,7 @@ async function getPosts(limit: number, cursor?: string) {
 }
 ```
 
-`limit + 1` 트릭은 단 한 번의 쿼리로 다음 페이지 존재 여부를 확인하는 일반적인 패턴이다.
+`limit + 1` 트릭은 단 한 번의 쿼리로 다음 페이지 존재 여부를 확인하는 일반적인 패턴이다. `limit`개만 요청하면 다음 페이지가 있는지 알 방법이 없어 추가 COUNT 쿼리가 필요한데, 하나 더 가져와 실제로 잘라냄으로써 COUNT 없이 `hasNextPage`를 결정할 수 있다.
 
 ### Relay-style Connection
 

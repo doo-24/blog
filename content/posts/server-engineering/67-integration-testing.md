@@ -161,9 +161,9 @@ class OrderRepositoryTest {
 
 ### @DataJpaTest의 함정: H2 방언 문제
 
-H2는 MySQL/PostgreSQL과 SQL 문법이 다르다.
+H2는 MySQL/PostgreSQL과 SQL 문법이 다르다. H2는 인메모리 범용 DB이므로 특정 벤더의 전용 기능을 지원하지 않는다.
 
-MySQL 전용 함수(`DATE_FORMAT`, `GROUP_CONCAT`, JSON 함수 등)를 JPQL이나 Native Query에서 사용하면 H2에서 실패한다.
+MySQL 전용 함수(`DATE_FORMAT`, `GROUP_CONCAT`, JSON 함수 등)를 JPQL이나 Native Query에서 사용하면 H2에서 실패한다. 더 위험한 문제는 테스트가 H2에서 통과했지만 프로덕션 MySQL에서는 실패하는 경우다. H2 호환 모드를 사용해도 완전히 동일하지 않으므로 DB 특화 쿼리가 있다면 실제 DB로 테스트하는 것이 안전하다.
 
 이 경우 Testcontainers로 실제 DB를 띄우거나, `@AutoConfigureTestDatabase(replace = NONE)`으로 H2 대신 실제 DB를 사용해야 한다.
 
