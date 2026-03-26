@@ -60,7 +60,6 @@ markup:
     codeFences: true
     guessSyntax: true
     lineNos: false
-    noBackground: true
     style: monokai
   goldmark:
     renderer:

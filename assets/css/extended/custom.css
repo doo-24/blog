@@ -29,19 +29,19 @@
 .highlight,
 .post-content .highlight,
 .post-content div.highlight {
-    background: transparent !important;
-    background-color: transparent !important;
+    background: #1e1e1e !important;
     border: none !important;
     box-shadow: none !important;
     padding: 0 !important;
     margin: 1.5rem 0;
-    border-radius: 0;
+    border-radius: 8px;
+    overflow: hidden;
 }
 
-/* highlight 내부 overflow 래퍼도 제거 */
 .highlight pre,
 .highlight > pre,
 .highlight > div {
+    background: #1e1e1e !important;
     border: none !important;
     box-shadow: none !important;
 }
