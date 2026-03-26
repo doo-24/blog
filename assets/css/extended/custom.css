@@ -53,13 +53,18 @@
     line-height: 1.7;
     overflow-x: auto;
     margin: 0;
+    background: var(--code-bg) !important;
+    border: none !important;
+    outline: none !important;
 }
 
 .post-content pre code {
     font-size: 0.95rem;
     line-height: 1.7;
-    background: none;
+    background: transparent !important;
+    background-color: transparent !important;
     padding: 0;
+    border: none;
 }
 
 /* 인라인 코드 */
