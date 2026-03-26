@@ -268,6 +268,25 @@ JVM 튜닝, 캐싱 전략, CDN, 부하 테스트, 병목 분석, Graceful Shutdo
 
 ---
 
+## 12-2. AWS 실전 구축
+
+[12]의 개념을 실전으로 — VPC 구성, 도메인/HTTPS, Cognito, API Gateway, 시크릿 관리, CI/CD, WAF까지.
+
+| 편 | 제목 |
+|----|------|
+| 1편 | [VPC 실전 설계 — 프로덕션 네트워크를 직접 구성하기](/blog/posts/server-engineering/100-aws-vpc-practice/) |
+| 2편 | [도메인과 HTTPS — Route 53, ACM, CloudFront 연결](/blog/posts/server-engineering/101-aws-domain-https/) |
+| 3편 | [인증 인프라 — Cognito로 사용자 관리와 인증 구축](/blog/posts/server-engineering/102-aws-cognito/) |
+| 4편 | [API 관리 — API Gateway 실전 구성](/blog/posts/server-engineering/103-aws-api-gateway/) |
+| 5편 | [시크릿과 설정 관리 — Secrets Manager, Parameter Store, KMS](/blog/posts/server-engineering/104-aws-secrets/) |
+| 6편 | [AWS CI/CD 파이프라인 — CodePipeline, CodeBuild, CodeDeploy](/blog/posts/server-engineering/105-aws-cicd/) |
+| 7편 | [웹 방화벽과 보안 계층 — WAF, Shield, 보안 자동화](/blog/posts/server-engineering/106-aws-waf-security/) |
+| 8편 | [실전 아키텍처 조합 — 서비스 전체를 AWS 위에 올리기](/blog/posts/server-engineering/107-aws-architecture/) |
+
+📚 추천 도서: 「AWS Cookbook」, 「Amazon Web Services in Action」, 「Serverless Patterns」
+
+---
+
 ## 13. AI / ML 서빙
 
 ML 서빙, 모델 배포, MLOps, GPU 인프라, LLM 서빙, AI Gateway.
