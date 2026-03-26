@@ -342,6 +342,16 @@ After:   OrderService → UserQueryService ← UserService
 ```
 
 **방법 2: 이벤트 기반 분리**
+
+```text
+순환 의존 (문제):
+OrderService ←→ UserService   (서로 직접 참조)
+
+이벤트로 분리 (해결):
+OrderService → [OrderCancelledEvent] → UserOrderListener → UserService
+              (이벤트 발행)            (이벤트 구독)
+```
+
 ```java
 // OrderService는 UserService를 직접 호출하지 않음
 @Service

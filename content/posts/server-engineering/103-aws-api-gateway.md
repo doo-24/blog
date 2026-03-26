@@ -40,6 +40,19 @@ WebSocket은 실시간 양방향 통신 전용이므로 일반 HTTP 서비스라
 - **단순 Lambda 프록시 + JWT 인증** → HTTP API
 - **Mapping Template, API 키, WAF, 캐싱 중 하나라도 필요** → REST API
 
+```text
+클라이언트 요청
+  |
+[API Gateway]
+  ├── Authorizer (Cognito / Lambda)  →  인증 실패 시 401 반환
+  ├── 요청 검증 (파라미터, 헤더)      →  검증 실패 시 400 반환
+  ├── 스로틀링 / 사용량 플랜 확인      →  초과 시 429 반환
+  └── 백엔드 라우팅
+        ├── Lambda (HTTP API / REST API)
+        ├── ALB (ECS / EC2)
+        └── AWS 서비스 직접 통합 (S3, DynamoDB 등)
+```
+
 ### HTTP API 생성 예시 (AWS CLI)
 
 ```bash

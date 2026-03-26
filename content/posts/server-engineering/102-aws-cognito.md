@@ -24,6 +24,22 @@ Cognito는 크게 두 가지 개념으로 나뉜다.
 
 대부분의 웹/앱 서비스는 User Pool만으로 충분하다. 백엔드 API 서버가 AWS 리소스를 대신 처리하는 구조라면 User Pool 토큰으로 API를 인증하는 것으로 끝난다. Identity Pool은 프론트엔드나 모바일 앱이 백엔드를 거치지 않고 S3 업로드나 DynamoDB 조회를 직접 수행해야 할 때 추가한다.
 
+```text
+[일반 웹/앱 서비스]
+  사용자 → 로그인 → Cognito User Pool
+                         ↓ JWT 토큰 발급
+              → API Gateway / ALB (토큰 검증)
+                         ↓
+                     백엔드 서버 → RDS / DynamoDB
+
+[S3 직접 업로드가 필요한 경우]
+  사용자 → 로그인 → Cognito User Pool
+                         ↓ JWT 토큰
+                   Identity Pool → 임시 AWS 자격 증명
+                         ↓
+                  S3 / DynamoDB 직접 접근
+```
+
 ---
 
 ## 1. User Pool 생성

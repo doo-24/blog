@@ -51,6 +51,21 @@ AWS는 이 역할을 담당하는 서비스를 세 가지 축으로 제공한다
 | EventBridge | 이벤트 버스 | 서비스 간 이벤트 라우팅 |
 | MSK | 스트리밍 | 고처리량 실시간 스트림 |
 
+```text
+[SQS] Point-to-Point
+  Producer → Queue → Consumer (1:1)
+
+[SNS] Pub/Sub 팬아웃
+  Publisher → Topic ┬→ SQS Queue A → Consumer A
+                    ├→ SQS Queue B → Consumer B
+                    └→ Lambda / HTTP Endpoint
+
+[EventBridge] 이벤트 라우팅
+  Event Source → Event Bus → Rule (필터) ┬→ Lambda
+                                         ├→ SQS
+                                         └→ SNS
+```
+
 ---
 
 ## 2. SQS — Simple Queue Service

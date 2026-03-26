@@ -83,6 +83,16 @@ Total: 3 (CRITICAL: 1, HIGH: 2)
 
 **Snyk**은 SaaS 형태의 보안 플랫폼으로, 컨테이너 이미지뿐 아니라 애플리케이션 의존성(npm, Maven, Go modules 등)까지 통합 스캔한다.
 
+```text
+코드 커밋 → 이미지 빌드 → Trivy/Snyk 스캔 → 레지스트리 Push → 클러스터 배포
+                               │
+                    CRITICAL/HIGH 발견
+                               │
+                          파이프라인 실패 (exit-code: 1)
+                          → 이미지 Push 차단
+                          → GitHub Security 탭 결과 업로드
+```
+
 GitHub Actions에 Trivy를 통합하는 예시다.
 
 ```yaml

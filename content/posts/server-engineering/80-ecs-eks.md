@@ -140,6 +140,21 @@ ECS는 세 가지 핵심 개념으로 구성된다.
 ECS는 AWS가 자체 개발한 오케스트레이터라 쿠버네티스보다 개념이 훨씬 단순하다.
 학습 곡선이 낮고, AWS 서비스와의 통합이 자연스럽다.
 
+```text
+ECS Cluster
+├── Service  (원하는 Task 수 유지, ALB 연결)
+│   ├── Task  (실행 중인 컨테이너 그룹)  ← Task Definition rev.3
+│   ├── Task  (실행 중인 컨테이너 그룹)  ← Task Definition rev.3
+│   └── Task  (실행 중인 컨테이너 그룹)  ← Task Definition rev.3
+└── (Auto Scaling이 Task 수를 조절)
+
+Task Definition (명세)
+  ├── 이미지 URI (ECR)
+  ├── CPU / Memory
+  ├── 환경변수 / Secrets
+  └── 로그 설정 (CloudWatch)
+```
+
 ---
 
 ## Task Definition 상세

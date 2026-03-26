@@ -47,6 +47,17 @@ summary: "CloudWatch Metrics·Logs·Alarms 설계, X-Ray 분산 트레이싱과 
 
 AWS는 이 세 가지를 CloudWatch와 X-Ray로 통합 제공한다.
 
+```text
+관측 가능성 3대 기둥
+
+Metrics (CloudWatch)          Logs (CloudWatch Logs)       Traces (X-Ray)
+  CPU: 72%                     ERROR 2026-03-20 ...          Client
+  Memory: 1.2 GB               INFO  Request received         → API Gateway (12ms)
+  Requests: 3,200/min          WARN  Slow query detected         → Lambda (45ms)
+                                                                    → DynamoDB (8ms)
+  → 알람 → SNS → 대응          → Insights 쿼리 분석          → 병목 지점 시각화
+```
+
 ---
 
 ## 2. CloudWatch Metrics

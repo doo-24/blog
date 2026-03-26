@@ -707,10 +707,22 @@ COMMIT;
 
 Debezium 같은 CDC 툴을 사용해 RDBMS의 WAL(Write-Ahead Log)을 읽어 변경사항을 Kafka로 스트리밍하고, 컨슈머가 MongoDB나 Elasticsearch에 동기화한다.
 
-```
-PostgreSQL WAL → Debezium → Kafka Topic → Consumer → MongoDB
-                                                    → Elasticsearch
-                                                    → Redis
+```text
+┌─────────────┐    WAL     ┌──────────┐   변경 이벤트  ┌─────────────┐
+│ PostgreSQL  │──────────→│ Debezium │─────────────→│ Kafka Topic │
+│  (소스 DB)  │  스트리밍   │ (CDC 툴)  │              └──────┬──────┘
+└─────────────┘            └──────────┘                     │
+                                                    ┌───────┴────────┐
+                                                    ▼                ▼
+                                              ┌──────────┐   ┌──────────────┐
+                                              │ MongoDB  │   │Elasticsearch │
+                                              │Consumer  │   │  Consumer    │
+                                              └──────────┘   └──────────────┘
+                                                    ▼
+                                              ┌──────────┐
+                                              │  Redis   │
+                                              │ Consumer │
+                                              └──────────┘
 ```
 
 CDC는 소스 DB에 부하를 주지 않고, 로직 변경 없이 여러 대상 DB를 동기화할 수 있다는 장점이 있다.
@@ -757,22 +769,32 @@ async def update_product(product_id: str, data: dict):
 
 ### 5-4. 실전 사례: e-커머스 상품 페이지
 
-```
-사용자가 상품 페이지를 요청할 때:
-
-1. Redis에서 상품 기본 정보 캐시 확인 (product:{id})
-   └─ Cache Hit: 즉시 반환 (< 1ms)
-   └─ Cache Miss: PostgreSQL에서 조회 후 캐시 저장
-
-2. MongoDB에서 상품 상세 속성 조회 (colors, sizes, spec_table 등)
-   └─ 상품마다 스키마가 다른 속성들 (전자제품 vs 의류)
-
-3. Redis Sorted Set에서 실시간 조회수 랭킹 업데이트
-   ZINCRBY product_views:daily:{date} 1 {product_id}
-
-4. Redis에서 사용자 세션 확인 (로그인 여부, 장바구니)
-
-5. PostgreSQL에서 재고 수량 조회 (실시간 정확성 필요)
+```text
+사용자 요청
+    │
+    ▼
+┌─────────────────────────────────────────────────────┐
+│                   애플리케이션 서버                    │
+│                                                     │
+│  ① Redis 캐시 조회 (product:{id})                   │
+│      Cache Hit  → 즉시 반환 (< 1ms)                 │
+│      Cache Miss → ②로 이동                          │
+│                                                     │
+│  ② PostgreSQL 조회 → Redis에 캐시 저장               │
+│      (상품 기본 정보, 재고 수량)                       │
+│                                                     │
+│  ③ MongoDB 조회                                     │
+│      (상품 상세 속성: 색상, 사이즈, 스펙표)            │
+│                                                     │
+│  ④ Redis Sorted Set 업데이트                        │
+│      ZINCRBY product_views:daily 1 {product_id}    │
+│                                                     │
+│  ⑤ Redis 세션 확인 (로그인 여부, 장바구니)            │
+└─────────────────────────────────────────────────────┘
+         │               │               │
+         ▼               ▼               ▼
+      Redis           MongoDB        PostgreSQL
+   (캐시/세션/랭킹)  (상품 속성)   (재고/주문/결제)
 ```
 
 이 패턴에서 각 DB는 자신이 가장 잘 할 수 있는 역할을 맡는다. PostgreSQL은 트랜잭션이 필요한 재고와 주문을, MongoDB는 유연한 상품 속성을, Redis는 세션과 캐시와 랭킹을.

@@ -426,6 +426,19 @@ DynamoDB 클라이언트는 Lambda 초기화 단계(핸들러 바깥)에서 한 
 
 소규모 팀이라면 단일 계정에 `dev`, `staging`, `prod` VPC를 분리하는 방식으로 시작하는 것이 현실적이다.
 
+```text
+[멀티 계정 구조]                    [단일 계정 멀티 VPC]
+AWS Organizations                   AWS Account
+  ├── Prod Account                    ├── prod-vpc  (10.0.0.0/16)
+  │     └── prod-vpc                  ├── staging-vpc (10.1.0.0/16)
+  ├── Staging Account                 └── dev-vpc  (10.2.0.0/16)
+  │     └── staging-vpc
+  └── Dev Account                  VPC Peering으로 필요 시 연결
+        └── dev-vpc                (단, 완전한 IAM 격리 불가)
+
+완전 격리, 비용 추적 명확          구성 단순, 소규모 팀에 적합
+```
+
 ### Terraform 디렉토리 구조
 
 ```

@@ -505,8 +505,20 @@ kubectl delete -k k8s/overlays/production
 
 GitOps는 Git 저장소를 단일 진실의 원천(Single Source of Truth)으로 사용하는 운영 방식이다. 클러스터 상태는 항상 Git에 선언된 상태와 일치해야 한다.
 
-```
-개발자 → Git Push → ArgoCD 감지 → 클러스터 동기화
+```text
+개발자          Git 저장소          ArgoCD          K8s 클러스터
+  │                 │                 │                 │
+  │── git push ────►│                 │                 │
+  │                 │                 │                 │
+  │                 │◄── 폴링/웹훅 ───│                 │
+  │                 │                 │                 │
+  │                 │── 변경 감지 ────►│                 │
+  │                 │                 │── sync ─────────►│
+  │                 │                 │  (Helm 렌더링)   │
+  │                 │                 │                 │── 리소스 생성/업데이트
+  │                 │                 │◄── 상태 보고 ────│
+  │                 │  Git = 클러스터  │                 │
+  │                 │  상태 일치 확인  │                 │
 ```
 
 수동 kubectl 명령을 지양하고, 모든 변경은 Git을 통해서만 이루어진다.

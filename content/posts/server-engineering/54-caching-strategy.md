@@ -161,6 +161,16 @@ public class CacheStatsLogger {
 
 캐시를 "어떻게" 채우고 갱신하느냐에 따라 데이터 일관성과 성능이 크게 달라진다.
 
+```text
+[Cache-Aside]          [Write-Through]       [Write-Behind]        [Refresh-Ahead]
+읽기: App→Cache        쓰기: App→Cache        쓰기: App→Cache        TTL 만료 전
+  HIT→반환              동시→DB               바로 반환              백그라운드에서
+  MISS→DB→Cache저장    일관성 보장            나중에 비동기→DB        미리 갱신
+
+쓰기: DB→Cache삭제     읽기: Cache-Aside      읽기: Cache-Aside      읽기: 항상 HIT
+가장 범용적            일관성 중요 서비스      쓰기 성능 최우선        핫 데이터 전용
+```
+
 ### Cache-Aside (Lazy Loading)
 
 가장 널리 사용되는 패턴이다. 애플리케이션이 직접 캐시를 관리한다.

@@ -469,6 +469,31 @@ Choreography 방식은 느슨한 결합이 장점이지만, 전체 흐름을 추
 
 중앙 Saga 오케스트레이터가 각 서비스에 명령을 내리고 응답을 처리한다.
 
+```text
+                  ┌─────────────────┐
+                  │  Saga Orchestrator │
+                  └────────┬────────┘
+                           │
+           ┌───────────────┼───────────────┐
+           ▼               ▼               ▼
+    ┌─────────────┐ ┌─────────────┐ ┌─────────────┐
+    │ 주문 서비스  │ │ 결제 서비스  │ │ 재고 서비스  │
+    └─────────────┘ └─────────────┘ └─────────────┘
+
+흐름 (성공 시):
+Orchestrator → 주문 서비스: createOrder()
+             ← 성공
+Orchestrator → 결제 서비스: charge()
+             ← 성공
+Orchestrator → 재고 서비스: reserve()
+             ← 성공
+
+흐름 (결제 실패 시):
+Orchestrator → 주문 서비스: createOrder()  ← 성공 (보상 등록)
+Orchestrator → 결제 서비스: charge()       ← 실패!
+Orchestrator → 주문 서비스: cancelOrder()  ← 보상 트랜잭션 역순 실행
+```
+
 ```java
 @Component
 public class OrderSaga {

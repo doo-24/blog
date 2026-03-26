@@ -99,6 +99,22 @@ aws secretsmanager rotate-secret \
 
 이 단계적 접근 덕분에 로테이션 도중 애플리케이션이 중단되지 않는다. 이전 비밀번호(AWSPREVIOUS)는 일정 기간 유지되어 캐시된 연결이 끊기지 않는다.
 
+```text
+Secrets Manager 자동 로테이션 흐름
+
+30일 경과
+  |
+  ▼
+Lambda (로테이션 함수)
+  |
+  ├── 1. createSecret  → 새 비밀번호 생성 → AWSPENDING 레이블로 저장
+  ├── 2. setSecret     → 데이터베이스에 새 비밀번호 적용
+  ├── 3. testSecret    → 새 비밀번호로 연결 검증
+  └── 4. finishSecret  → AWSCURRENT ← 새 버전 / AWSPREVIOUS ← 이전 버전
+
+애플리케이션은 항상 AWSCURRENT를 조회 → 비중단 로테이션
+```
+
 ### Lambda 커스텀 로테이션
 
 AWS가 지원하지 않는 서비스(예: 외부 API 키)의 경우 커스텀 Lambda를 작성해야 한다.

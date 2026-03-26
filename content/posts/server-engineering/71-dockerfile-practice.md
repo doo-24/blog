@@ -512,6 +512,23 @@ docs/
 
 멀티스테이지 빌드는 빌드 환경과 런타임 환경을 분리하여 최종 이미지에는 실행에 필요한 것만 포함시킨다.
 
+```text
+[단일 스테이지]                    [멀티스테이지]
+
+FROM jdk:21                        Stage 1 (builder)
+  + JDK (빌드 도구)                FROM jdk:21-jdk AS builder
+  + Gradle                           COPY 소스코드
+  + 소스코드                          RUN gradle build → app.jar
+  + app.jar                                │
+                                           │ COPY --from=builder app.jar
+이미지: ~600MB                     Stage 2 (runtime)
+                                   FROM jre:21-slim
+                                     COPY app.jar
+                                     CMD ["java", "-jar", "app.jar"]
+
+                                   이미지: ~150MB (75% 감소)
+```
+
 ### Java 멀티스테이지 빌드
 
 ```dockerfile

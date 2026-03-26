@@ -49,6 +49,31 @@ CodePipeline은 스테이지(Stage)와 액션(Action)으로 구성된다.
   └─ CodeDeploy / ECS / CloudFormation 배포
 ```
 
+```text
+전체 파이프라인 흐름
+
+개발자 git push
+  |
+  ▼
+[CodePipeline]
+  |
+  ├── Source Stage
+  │     GitHub → 소스 ZIP → S3 아티팩트 버킷
+  |
+  ├── Build Stage
+  │     CodeBuild → buildspec.yml 실행
+  │       - 테스트 실행
+  │       - Docker 이미지 빌드
+  │       - ECR 푸시
+  │       → imagedefinitions.json 생성
+  |
+  └── Deploy Stage
+        ECS Blue/Green 배포
+          - 새 Task Definition 등록
+          - CodeDeploy가 트래픽 전환
+          - 검증 후 구 버전 종료
+```
+
 ### GitHub 연동 설정 (AWS 콘솔 기준)
 
 CodePipeline 생성 시 Source Provider를 `GitHub (Version 2)`로 선택한다.

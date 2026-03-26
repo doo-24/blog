@@ -121,6 +121,24 @@ Reader Endpoint ──── Read Replica 1 (AZ-a)
 Shared Storage (6 copies across 3 AZs): 10GB ~ 128TB 자동 확장
 ```
 
+```text
+Aurora 클러스터 전체 흐름
+
+애플리케이션
+  ├── 쓰기 요청 → [Writer Endpoint] → Primary Instance (AZ-a)
+  │                                         |  로그 전송
+  │                                   [Shared Storage]
+  │                                   AZ-a: 복사본 1, 2
+  │                                   AZ-b: 복사본 3, 4
+  │                                   AZ-c: 복사본 5, 6
+  │
+  └── 읽기 요청 → [Reader Endpoint] → Read Replica 1 (AZ-b)
+                                    → Read Replica 2 (AZ-c)
+                                    (라운드로빈 부하 분산)
+
+페일오버: Primary 장애 → Reader 중 하나가 Writer로 자동 승격 (30초 이내)
+```
+
 스토리지는 10GB 단위로 자동 확장되므로 미리 용량을 프로비저닝하지 않아도 된다.
 
 ### 2-2. Aurora 클러스터 엔드포인트

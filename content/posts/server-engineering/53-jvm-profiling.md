@@ -104,6 +104,18 @@ java -XX:+UseShenandoahGC \
 
 **안티패턴**: `-Xmx`만 크게 올리고 GC를 바꾸지 않는 것. 힙이 클수록 Full GC의 STW가 길어진다.
 
+```text
+GC 알고리즘 STW 특성 비교
+
+Serial      [===========STW===========] 단일 스레드
+Parallel    [=======STW(병렬)=========] 멀티 스레드, 처리량 최대
+G1          [=STW=]...[=STW=]...[=STW=] Region 단위, 예측 가능한 중간 STW
+ZGC         [S][    concurrent     ][S] STW < 1ms, 대부분 앱 스레드와 병행
+Shenandoah  [S][ concurrent+compact][S] compaction도 concurrent 처리
+
+범례: [STW] = Stop-The-World 구간, ... = 앱 실행 구간, [S] = 짧은 STW
+```
+
 ---
 
 ## GC 튜닝 파라미터와 GC 로그 분석
@@ -532,6 +544,29 @@ jmc
 JMC는 CPU 사용률, 메모리 할당, GC 이벤트, 스레드 상태, I/O 이벤트를 통합해서 보여준다. 스레드별 CPU 시간, 가장 많이 할당하는 클래스, GC 원인까지 한 화면에서 분석할 수 있다.
 
 ### 실전: 성능 저하 원인 찾기 워크플로
+
+```text
+서버 응답 느림
+      │
+      ▼
+GC 로그 확인 → Full GC 빈번? ──Yes──► 힙 덤프 분석 (MAT)
+      │                                       │
+      No                               메모리 릭 패턴 확인
+      │                                (static 컬렉션, 리스너 미해제)
+      ▼
+CPU 높음? ──Yes──► async-profiler / JFR → Flame Graph 분석
+      │                                          │
+      No                              병목 메서드 최적화
+      │
+      ▼
+스레드 BLOCKED 다수? ──Yes──► jstack → 락 경합/데드락 분석
+      │
+      No
+      │
+      ▼
+객체 히스토그램 확인 (jcmd GC.class_histogram)
+→ 특정 클래스 인스턴스 수 이상 → 힙 덤프 분석
+```
 
 ```bash
 # 1단계: 현재 JVM 상태 빠르게 확인

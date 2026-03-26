@@ -145,6 +145,23 @@ NAT Gateway는 시간당 요금($0.059)과 처리 데이터 요금($0.059/GB)이
 
 > **핵심 포인트**: NAT Gateway는 Private 서브넷에서 패키지 업데이트, 외부 API 호출 등에 필수적이다. IGW와 달리 단방향 통신만 지원하므로 보안 측면에서 유리하다.
 
+```text
+인터넷
+  |
+[Internet Gateway]  ←→  양방향 (Public 서브넷 전용)
+  |
+[Public 서브넷]
+  ALB, Bastion, NAT Gateway
+  |
+[NAT Gateway]  →  단방향 아웃바운드만 허용
+  |
+[Private 서브넷]
+  EC2, ECS, Lambda
+  |
+[격리 서브넷]
+  RDS, ElastiCache (인터넷 연결 없음)
+```
+
 ---
 
 ## 4. 라우팅 테이블: 패킷의 길을 정하다

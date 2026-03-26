@@ -316,6 +316,27 @@ HttpClient client = new LoggingHttpClient(
 );
 ```
 
+```text
+호출 흐름:
+client.execute(request)
+    │
+    ▼
+LoggingHttpClient      → 요청 로그 기록
+    │ delegate.execute()
+    ▼
+RetryHttpClient        → 실패 시 최대 3회 재시도
+    │ delegate.execute()
+    ▼
+DefaultHttpClient      → 실제 HTTP 요청 수행
+    │
+    ▼ (응답)
+RetryHttpClient        → 성공이면 통과, 실패면 재시도
+    ▼
+LoggingHttpClient      → 응답 시간/상태 로그 기록
+    ▼
+결과 반환
+```
+
 **프레임워크에서의 Decorator**:
 - Java I/O: `new BufferedReader(new InputStreamReader(new FileInputStream("f.txt")))`
 - Spring: `@Transactional`이 프록시(Decorator의 변형)로 트랜잭션을 감싸줌

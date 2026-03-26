@@ -214,6 +214,18 @@ Fencing Token은 이 문제를 해결하는 우아한 방법이다.
 
 락을 획득할 때마다 단조 증가(monotonically increasing)하는 토큰 번호를 부여하고, 락으로 보호되는 자원은 이 토큰 번호를 검증하여 오래된 토큰을 가진 요청을 거부한다.
 
+```text
+시간 →
+Client A  [락 획득 token=33]──[GC 일시정지 30초+]──────[쓰기 요청 token=33 → 거부!]
+                                       │
+                               락 TTL 만료
+                                       │
+Client B                   [락 획득 token=34]────────────[쓰기 요청 token=34 → 허용]
+
+Storage                                          현재 최신 토큰: 34
+                                                 → token=33 거부 (33 ≤ 34)
+```
+
 ```python
 import threading
 from dataclasses import dataclass

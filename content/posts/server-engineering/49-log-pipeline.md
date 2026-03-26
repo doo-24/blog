@@ -26,6 +26,23 @@ Elasticsearch는 로그를 저장하고 검색하는 분산 검색 엔진이다.
 
 현재는 Beats(경량 수집기)가 추가되면서 **Elastic Stack**이라고도 불린다.
 
+```text
+[Elastic Stack 로그 파이프라인]
+
+애플리케이션 서버 A ──→ Filebeat/Fluent Bit ──┐
+애플리케이션 서버 B ──→ Filebeat/Fluent Bit ──┤
+애플리케이션 서버 C ──→ Filebeat/Fluent Bit ──┤
+                                               ↓
+                                         Logstash
+                                    (파싱·변환·필터링)
+                                               ↓
+                                      Elasticsearch
+                                    (인덱싱·저장·검색)
+                                               ↓
+                                          Kibana
+                                    (대시보드·시각화)
+```
+
 ### Elasticsearch 클러스터 구조
 
 Elasticsearch는 노드들의 클러스터로 동작한다. 노드 유형은 역할에 따라 분리한다.
