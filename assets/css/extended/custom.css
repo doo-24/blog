@@ -26,11 +26,24 @@
 /* ==========================================
    코드 블록 — highlight 래퍼 프레임 제거
    ========================================== */
-.highlight {
-    background: none !important;
+.highlight,
+.post-content .highlight,
+.post-content div.highlight {
+    background: transparent !important;
+    background-color: transparent !important;
     border: none !important;
+    box-shadow: none !important;
     padding: 0 !important;
     margin: 1.5rem 0;
+    border-radius: 0;
+}
+
+/* highlight 내부 overflow 래퍼도 제거 */
+.highlight pre,
+.highlight > pre,
+.highlight > div {
+    border: none !important;
+    box-shadow: none !important;
 }
 
 .post-content pre {
